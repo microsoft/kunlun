@@ -10,3 +10,13 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+/cmd/kl/artifacts
+/cmd/kl/deployments
+/cmd/kl/infra
+/cmd/kl/vars
+kl-state.json
+/cmd/kl/kl
+
+# Environment
+.env*

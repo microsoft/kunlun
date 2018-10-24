@@ -1,0 +1,17 @@
+server {
+  listen {{ dashboard_nginx_port }};
+  access_log {{ project_log_root }}/dashboard.nginx.access.log;
+  error_log {{ project_log_root }}/dashboard.nginx.error.log;
+
+  root {{ project_src_root }};
+  try_files $uri /index.php?$query_string;
+
+  location ~ [^/]\.php(/|$) {
+      fastcgi_split_path_info  ^(.+\.php)(/.+)$;
+      fastcgi_index            index.php;
+      fastcgi_pass             127.0.0.1:9000;
+      include                  fastcgi_params;
+      fastcgi_param   PATH_INFO       $fastcgi_path_info;
+      fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
+  }
+}

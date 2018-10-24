@@ -1,0 +1,4 @@
+project_source_code_path: ""
+project_root: /mnt/data/klproject
+project_src_root: "{{ project_root }}/sourcecode"
+project_git_revision: ""

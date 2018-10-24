@@ -1,0 +1,8 @@
+project_root: /mnt/data/klproject
+project_src_root: "{{ project_root }}/sourcecode"
+project_log_root: "{{ project_root }}/log"
+dashboard_nginx_port: 80
+kl_site_name: "kl.site"
+nginx_config_root: /etc/nginx
+php_enable_php_fpm: true # we choose the nginx/fpm for now.
+php_webserver_daemon: nginx

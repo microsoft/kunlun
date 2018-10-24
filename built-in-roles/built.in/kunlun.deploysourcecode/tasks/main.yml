@@ -1,0 +1,21 @@
+
+# clone the source code.
+- name: Setup directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ ansible_user }}"
+    # group: "{{ dashboard_group }}"
+    mode: 0755
+    state: directory
+  with_items:
+    - "{{ project_src_root }}"
+
+- name: Clone project
+  git:
+    repo: "{{ project_source_code_path }}"
+    dest: "{{ project_src_root }}"
+    clone: yes
+    update: no
+    accept_hostkey: yes
+    version: "{{ project_git_revision }}"
+  when: project_source_code_path != ""

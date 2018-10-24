@@ -1,0 +1,139 @@
+---
+sudo: required
+services:
+  - docker
+env:
+  - distribution: centos
+    version: 6
+    playbook: basic
+  - distribution: centos
+    version: 6
+    playbook: push
+  - distribution: centos
+    version: 6
+    playbook: stable
+  - distribution: centos
+    version: 6
+    playbook: template
+  - distribution: centos
+    version: 6
+    playbook: unit
+  - distribution: centos
+    version: 7
+    playbook: basic
+  - distribution: centos
+    version: 7
+    playbook: template
+  - distribution: centos
+    version: 7
+    playbook: stable
+  - distribution: centos
+    version: 7
+    playbook: push
+  - distribution: centos
+    version: 7
+    playbook: unit
+  - distribution: debian
+    version: jessie
+    playbook: basic
+  - distribution: debian
+    version: jessie
+    playbook: template
+  - distribution: debian
+    version: jessie
+    playbook: stable
+  - distribution: debian
+    version: jessie
+    playbook: push
+  - distribution: debian
+    version: jessie
+    playbook: unit
+  - distribution: debian
+    version: stretch
+    playbook: basic
+  - distribution: debian
+    version: stretch
+    playbook: template
+  - distribution: debian
+    version: stretch
+    playbook: stable
+  - distribution: debian
+    version: stretch
+    playbook: push
+  - distribution: debian
+    version: stretch
+    playbook: unit
+  - distribution: ubuntu
+    version: trusty
+    playbook: basic
+  - distribution: ubuntu
+    version: trusty
+    playbook: template
+  - distribution: ubuntu
+    version: trusty
+    playbook: stable
+  - distribution: ubuntu
+    version: trusty
+    playbook: push
+  - distribution: ubuntu
+    version: xenial
+    playbook: basic
+  - distribution: ubuntu
+    version: xenial
+    playbook: template
+  - distribution: ubuntu
+    version: xenial
+    playbook: stable
+  - distribution: ubuntu
+    version: xenial
+    playbook: push
+  - distribution: ubuntu
+    version: xenial
+    playbook: unit
+  - distribution: ubuntu
+    version: artful
+    playbook: basic
+  - distribution: ubuntu
+    version: artful
+    playbook: push
+  - distribution: ubuntu
+    version: artful
+    playbook: stable
+  - distribution: ubuntu
+    version: artful
+    playbook: template
+  - distribution: ubuntu
+    version: artful
+    playbook: unit
+  - distribution: ubuntu
+    version: bionic
+    playbook: basic
+  - distribution: ubuntu
+    version: bionic
+    playbook: push
+  - distribution: ubuntu
+    version: bionic
+    playbook: stable
+  - distribution: ubuntu
+    version: bionic
+    playbook: template
+  - distribution: ubuntu
+    version: bionic
+    playbook: unit
+before_install:
+  - 'sudo docker pull ${distribution}:${version}'
+  - 'sudo docker build --no-cache --rm --file=tests/dockerfiles/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
+script:
+  - container_id=$(mktemp)
+  - 'sudo docker run --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --volume="${PWD}":/etc/ansible/roles/ansible-role-nginx:ro ${distribution}-${version}:ansible > "${container_id}"'
+  - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-nginx/tests/playbooks/nginx-${playbook}.yml --syntax-check'
+  - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-nginx/tests/playbooks/nginx-${playbook}.yml'
+  - >
+    sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-nginx/tests/playbooks/nginx-${playbook}.yml
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+  - 'if [${playbook} != "unit"]; then sudo docker exec "$(cat ${container_id})" curl http://localhost/; fi'
+  - 'sudo docker rm -f "$(cat ${container_id})"'
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

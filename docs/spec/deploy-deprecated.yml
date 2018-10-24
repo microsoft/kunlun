@@ -1,0 +1,12 @@
+databases:
+  - type: mysql
+    version: 5.6
+    storage: 500
+    origin_host: asd
+    origin_database: asd
+    origin_username: asd
+    origin_password: asd
+    env_var_host: asd # should think about one way to embemd into the new spec.yml.
+    env_var_database: asd
+    env_var_username: asd
+    env_var_password: asd

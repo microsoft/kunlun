@@ -1,0 +1,26 @@
+- name: Make file system on the data disk
+  filesystem:
+    fstype: ext4
+    dev: "{{ data_disk_path }}"
+  become: true
+  become_user: root
+
+- name: Prepare mount point
+  file:
+    path: "{{ item }}"
+    owner: "{{ ansible_user }}"
+    mode: 0755
+    state: directory
+  with_items:
+    - "{{ data_disk_mount_path }}"
+  become: true
+  become_user: root
+
+- name: Mount up data disk
+  mount:
+    path: "{{ data_disk_mount_path }}"
+    src: "{{ data_disk_path }}" # TODO find it by the lun.
+    fstype: ext4
+    state: present
+  become: true
+  become_user: root
