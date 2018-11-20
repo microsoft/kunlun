@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('unit test') {
             steps {
-                sh "curl https://raw.githubusercontent.com/xplaceholder/test-infra/draft/scripts/unit_test.sh -o unit_test.sh"
-                sh "chmod +x ./unit_test.sh"
-                sh "./unit_test.sh"
+                sh "./scripts/jenkins_unit_test.sh"
             }
         }
     }
