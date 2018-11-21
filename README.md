@@ -32,17 +32,15 @@ export KL_AZURE_SUBSCRIPTION_ID=$(az account show --output tsv --query id)
 
 ## Building from Source
 
- ```
- cd $GOPATH/github.com/Microsoft/kunlun/cmd/kl
- go build
- 
+```
+go get github.com/Microsoft/kunlun/cmd/kl
 ```
 
-Now you will have a `kl` command.
+Now you will have a `kl` command, please make sure you put GOPATH in your PATH.
 
 ## Analyze the Application you wish to deploy
 
-```./kl analyze```
+```kl analyze```
 
 Please type in the git repository address for your application, e.g. https://github.com/moodle/moodle.git, as the project path.
 
@@ -63,7 +61,7 @@ If you think the file does not meet your requirements, you can create one patch 
 
 ## Plan the infrastructure
 
-Run `./kl plan_infra` to generate the terraform scripts that will deploy your infrastrcuture.
+Run `kl plan_infra` to generate the terraform scripts that will deploy your infrastrcuture.
 
 You will got an `infra` folder in your working dir.
 
@@ -71,7 +69,7 @@ If you want to setup some additional resources, you can also put the resources t
  
 ## Infrastrcuture Configuration
 
-Run `./kl apply_infra`.
+Run `kl apply_infra`.
 
 `outputs.yml` will be generated under the patches folder, with the content like this:
  
@@ -92,13 +90,13 @@ and then our deployment component would digest and produce the deployment script
  
 ## Plan Deployment
  
-Run `./kl plan_deployment`
+Run `kl plan_deployment`
 
 You will get a folder called `deployments` which contains the deployment scripts.
 
 And if you think our built-in artifacts does not meet your requirements, 
 you can create one patch file to add more roles into the artifact and run 
-`./kl plan_deployment` again. For example, you might want to add a firewall component:
+`kl plan_deployment` again. For example, you might want to add a firewall component:
 
 ```
 - type: replace
@@ -109,5 +107,5 @@ you can create one patch file to add more roles into the artifact and run
 
 ## Deploy
 
-Run `./kl apply_deployment` to do the real deployment.
+Run `kl apply_deployment` to do the real deployment.
 
