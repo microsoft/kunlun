@@ -1,10 +1,10 @@
-package apis_test
+package builtinroles_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/Microsoft/kunlun/built-in-roles"
+	. "github.com/Microsoft/kunlun/builtinroles"
 )
 
 var _ = Describe("Resources", func() {

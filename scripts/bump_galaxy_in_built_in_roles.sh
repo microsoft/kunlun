@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 go get github.com/mjibson/esc
-pushd $DIR/../built-in-roles
+pushd $DIR/../builtinroles
   ansible-galaxy install geerlingguy.composer
   ansible-galaxy install geerlingguy.php
   ansible-galaxy install geerlingguy.glusterfs
@@ -14,7 +14,7 @@ pushd $DIR/../built-in-roles
   ansible-galaxy install nginxinc.nginx
 popd
 
-pushd $DIR/../built-in-roles
+pushd $DIR/../builtinroles
   go generate
 popd
 

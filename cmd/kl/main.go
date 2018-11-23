@@ -35,7 +35,6 @@ func main() {
 	afs := &afero.Afero{Fs: fs}
 
 	// Configuration
-
 	stateStore := storage.NewStore(globals.StateDir, afs)
 	stateMerger := config.NewMerger(afs)
 	newConfig := config.NewConfig(stateBootstrap, stateMerger, stderrUI, afs)

@@ -1,0 +1,6 @@
+- name: kubernetes
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "kubernetes.yml"

@@ -1,4 +1,4 @@
-package apis_test
+package builtinroles_test
 
 import (
 	"testing"
