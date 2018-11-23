@@ -8,27 +8,36 @@
 
 ## Prepare the Environment
 
-  * Install [Go](https://golang.org/doc/install)
-  * Install [Terraform](https://www.terraform.io/intro/getting-started/install.html)
-    * Note that you need to ensure that the terraform binary is on your path
-  * Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-  * Login to Azure
-```
-az login
-```
-  * Create a Service Principle for your application
-```
-export KL_AZURE_CLIENT_SECRET=password
-KL_AZURE_CLIENT_ID="$(az ad sp create-for-rbac --name kunlun --password $KL_AZURE_CLIENT_SECRET --output tsv --query appId)"
-export KL_AZURE_TENANT_ID=$(az ad sp show --id $KL_AZURE_CLIENT_ID --output tsv --query additionalProperties.appOwnerTenantId)
-```
-  * Set some environment variables
-```
-export KL_IAAS=azure
-export KL_AZURE_ENVIRONMENT=public
-export KL_AZURE_REGION=southcentralus
-export KL_AZURE_SUBSCRIPTION_ID=$(az account show --output tsv --query id)
-```
+* Install [Go](https://golang.org/doc/install)
+
+* Install [Terraform](https://www.terraform.io/intro/getting-started/install.html)
+
+  * Note that you need to ensure that the terraform binary is on your path
+
+* Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+* Login to Azure
+
+    ```
+    az login
+    ```
+
+* Create a Service Principle for your application
+
+    ```
+    export KL_AZURE_CLIENT_SECRET=password
+    export KL_AZURE_CLIENT_ID="$(az ad sp create-for-rbac --name kunlun --password $KL_AZURE_CLIENT_SECRET --output tsv --query appId)"
+    export KL_AZURE_TENANT_ID=$(az ad sp show --id $KL_AZURE_CLIENT_ID --output tsv --query additionalProperties.appOwnerTenantId)
+    ```
+
+* Set some environment variables
+
+    ```
+    export KL_IAAS=azure
+    export KL_AZURE_ENVIRONMENT=public
+    export KL_AZURE_REGION=southcentralus
+    export KL_AZURE_SUBSCRIPTION_ID=$(az account show --output tsv --query id)
+    ```
 
 ## Building from Source
 
@@ -40,7 +49,7 @@ Now you will have a `kl` command, please make sure you put GOPATH in your PATH.
 
 ## Analyze the Application you wish to deploy
 
-```kl analyze```
+Run `kl analyze`.
 
 Please type in the git repository address for your application, e.g. https://github.com/moodle/moodle.git, as the project path.
 
@@ -57,7 +66,7 @@ If you think the file does not meet your requirements, you can create one patch 
 - type: replace
   path: /vm_groups/name=web-servers/sku
   value: Standard_DS2_v2
- ```
+```
 
 ## Plan the infrastructure
 
@@ -71,7 +80,7 @@ If you want to setup some additional resources, you can also put the resources t
 
 Run `kl apply_infra`.
 
-`outputs.yml` will be generated under the patches folder, with the content like this:
+`outputs.yml` will be generated under the `patches` folder, with the content like this:
  
 ```
 - type: replace
@@ -82,7 +91,7 @@ Run `kl apply_infra`.
   path: /vm_groups/name=web-servers/networks/0/outputs?
   value:
     - ip: 10.0.0.4
- ```
+```
 
 [FIXME: what does this next sentence mean?]
 This file will be applied to the original artifact, 
@@ -108,4 +117,3 @@ you can create one patch file to add more roles into the artifact and run
 ## Deploy
 
 Run `kl apply_deployment` to do the real deployment.
-
