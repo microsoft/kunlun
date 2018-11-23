@@ -241,7 +241,7 @@ func Run(state storage.State, filePath string) common.Blueprint {
 		}
 	}
 
-	bp.Infra = vmgroupcalc.Calc(vmgroupcalc.Requirment{
+	bp.Infra = vmgroupcalc.Calc(vmgroupcalc.Requirement{
 		ConcurrentUserNumber: bp.Misc.ConcurrentUserNumber,
 	})
 

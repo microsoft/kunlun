@@ -57,7 +57,7 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 	}
 	ansibleInventoriesDir, _ := a.stateStore.GetAnsibleInventoriesDir()
 	hostsFile := path.Join(ansibleInventoriesDir, "hosts.yml")
-	a.logger.Printf("writting hosts file to %s\n", hostsFile)
+	a.logger.Printf("writing hosts file to %s\n", hostsFile)
 	err = a.fs.WriteFile(hostsFile, hostsFileContent, 0644)
 	if err != nil {
 		a.logger.Printf("write file failed: %s\n", err.Error())
@@ -73,7 +73,7 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 	playbookContent := a.generatePlaybookFile(deployments)
 	ansibleMainFile, err := a.stateStore.GetAnsibleMainFile()
 
-	a.logger.Printf("writting playbook file to %s\n", ansibleMainFile)
+	a.logger.Printf("writing playbook file to %s\n", ansibleMainFile)
 	err = ioutil.WriteFile(ansibleMainFile, playbookContent, 0644)
 	if err != nil {
 		a.logger.Printf("write file failed: %s\n", err.Error())
@@ -239,7 +239,7 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 		varsFile := path.Join(varsDir, dep.HostGroupName+".yml")
 		varsContent, _ := yaml.Marshal(dep.Vars)
 
-		a.logger.Printf("writting vars file to %s\n", varsFile)
+		a.logger.Printf("writing vars file to %s\n", varsFile)
 		err := ioutil.WriteFile(varsFile, varsContent, 0644)
 		if err != nil {
 			a.logger.Printf("write vars file failed: %s\n", err.Error())

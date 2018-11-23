@@ -31,7 +31,7 @@ func New(projectPath string) (*Detector, error) {
 		projectPath: projectPath,
 		blueprint: common.Blueprint{
 			NonInfra: common.NonInfra{
-				ProjectPath: projectPath,
+				ProjectSourceCodePath: projectPath,
 			},
 		},
 	}, nil
