@@ -1,5 +1,5 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR/..
-dep ensure
+  dep ensure
 popd

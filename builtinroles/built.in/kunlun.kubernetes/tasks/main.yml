@@ -1,0 +1,12 @@
+---
+- import_role:
+    name: geerlingguy.docker
+  become: true
+  become_user: root
+
+- import_role:
+    name: geerlingguy.kubernetes
+  vars:
+    kubernetes_allow_pods_on_master: True
+  become: true
+  become_user: root

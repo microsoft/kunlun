@@ -43,9 +43,9 @@ vm_groups:
     roles:
       - name: kunlun.datadisk
 
-  - name: web-servers
+  - name: kubernetes
     count: 1
-    sku: Standard_DS1_v2
+    sku: Standard_DS2_v2
     type: vm 
     os_profile:
       admin_name: ((admin_name))
@@ -71,16 +71,17 @@ vm_groups:
         # - name_convension: uuid # this canbe uuid/group, if uuid, one uuid would be gnerated as name
     networks:
       - subnet_name: snet-1
-        load_balancer_name: load_balancer_1
-        load_balancer_backend_address_pool_name: backend_address_pool_1
-        network_security_group_name: webserver_nsg
+        # load_balancer_name: load_balancer_1
+        # load_balancer_backend_address_pool_name: backend_address_pool_1
+        network_security_group_name: kubernetes_nsg
     roles: # this is used to generate the deployment scripts
       - name: kunlun.datadisk
-      - name: kunlun.deploysourcecode
-        vars:
-          project_source_code_path: ((project_source_code_path))
-          project_git_revision: ((project_git_revision))
-      - name: kunlun.php
+      - name: kunlun.kubernetes
+      # - name: kunlun.deploysourcecode
+      #   vars:
+      #     project_source_code_path: ((project_source_code_path))
+      #     project_git_revision: ((project_git_revision))
+      # - name: kunlun.php
 
 vnets:
   - name: vnet-1
@@ -91,28 +92,28 @@ vnets:
         gateway: 10.0.0.1
 
 load_balancers:
-  - name: load_balancer_1
-    sku: Standard
-    backend_address_pools:
-      - name: backend_address_pool_1
-    health_probes:
-      - name: http_probe
-        protocol: Tcp # optional values: [Tcp, Http, Https]
-        port: 80
-        # request_path: "/" # required if protocol is set to Http or Https. Otherwise, it is not allowed.
-      - name: ssh_probe
-        protocol: Tcp
-        port: 22
-    rules:
-      - name: http_rule
-        protocol: Tcp # optional values: [Tcp, Udp, All]
-        frontend_port: 80
-        backend_port: 80
-        backend_address_pool_name: backend_address_pool_1
-        health_probe_name: http_probe
+  # - name: load_balancer_1
+  #   sku: Standard
+  #   backend_address_pools:
+  #     - name: backend_address_pool_1
+  #   health_probes:
+  #     - name: http_probe
+  #       protocol: Tcp # optional values: [Tcp, Http, Https]
+  #       port: 80
+  #       # request_path: "/" # required if protocol is set to Http or Https. Otherwise, it is not allowed.
+  #     - name: ssh_probe
+  #       protocol: Tcp
+  #       port: 22
+  #   rules:
+  #     - name: http_rule
+  #       protocol: Tcp # optional values: [Tcp, Udp, All]
+  #       frontend_port: 80
+  #       backend_port: 80
+  #       backend_address_pool_name: backend_address_pool_1
+  #       health_probe_name: http_probe
 
 network_security_groups:
-  - name: webserver_nsg
+  - name: kubernetes_nsg
     network_security_rules:
       - name: allow-http
         priority: 200
