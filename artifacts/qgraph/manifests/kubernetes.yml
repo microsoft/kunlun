@@ -1,6 +1,17 @@
 - name: kubernetes
   questions:
-    - var_name: "final_artifact"
-      persistent: true
-      description: "Guess your final artifact is:"
-      default: "kubernetes.yml"
+    - var_name: "kubernetes_deployment_type"
+      description: "Choose your deployment type:"
+      candidates:
+        - value: single_node_kubernetes
+          description: "Deploy a singleton node of kubernetes."
+  transitions:
+    - name: single_node_kubernetes
+      condition: "kubernetes_deployment_type == 'single_node_kubernetes'"
+
+- name: single_node_kubernetes
+  questions:
+  - var_name: "final_artifact"
+    persistent: true
+    description: "Guess your final artifact is:"
+    default: "small_kubernetes.yml"

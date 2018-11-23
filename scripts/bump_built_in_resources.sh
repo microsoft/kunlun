@@ -12,9 +12,18 @@ pushd $DIR/../builtinroles
   ansible-galaxy install geerlingguy.php-redis
   ansible-galaxy install geerlingguy.php-mysql
   ansible-galaxy install nginxinc.nginx
+  ansible-galaxy install geerlingguy.docker
+  ansible-galaxy install geerlingguy.kubernetes
 popd
 
 pushd $DIR/../builtinroles
   go generate
 popd
 
+pushd $DIR/../artifacts/builtinmanifests
+  go generate
+popd
+
+pushd $DIR/../artifacts/qgraph
+  go generate
+popd

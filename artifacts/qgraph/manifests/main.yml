@@ -42,7 +42,6 @@
       candidates:
         - value: php
           description: "Your project are using php language."
-  # prefix: application
   transitions:
     - name: php
       condition: "language_kind == 'php'"
