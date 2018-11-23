@@ -38,7 +38,7 @@ gometalinter \
 --vendor \
 --deadline 120s \
 --exclude artifacts/builtinmanifests/resources.go \
---exclude built-in-roles/resources.go \
+--exclude builtinroles/resources.go \
 ./... || exit_code=1
 
 echo
@@ -50,7 +50,7 @@ gometalinter \
 --vendor \
 --deadline 60s \
 --exclude artifacts/builtinmanifests/resources.go \
---exclude built-in-roles/resources.go \
+--exclude builtinroles/resources.go \
 ./... || exit_code=1
 
 exit $exit_code

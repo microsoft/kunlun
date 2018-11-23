@@ -7,7 +7,7 @@ import (
 	"path"
 
 	"github.com/Microsoft/kunlun/artifacts/deployments"
-	builtinroles "github.com/Microsoft/kunlun/built-in-roles"
+	builtinroles "github.com/Microsoft/kunlun/builtinroles"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/storage"
 	"github.com/Microsoft/kunlun/common/ui"

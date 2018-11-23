@@ -2,15 +2,20 @@ package commands
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
+	"path"
+	"strings"
 
-	builtinmanifests "github.com/Microsoft/kunlun/artifacts/builtinmanifests"
+	"github.com/Microsoft/kunlun/artifacts/builtinmanifests"
+	qgraph "github.com/Microsoft/kunlun/artifacts/qgraph"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/flags"
 	"github.com/Microsoft/kunlun/common/helpers"
 	"github.com/Microsoft/kunlun/common/storage"
-	digesterApis "github.com/Microsoft/kunlun/digester"
-	digesterCommon "github.com/Microsoft/kunlun/digester/common"
+	"github.com/Microsoft/kunlun/common/ui"
+	"github.com/andyliuliming/gquiz"
+	yaml "gopkg.in/yaml.v2"
 )
 
 type Digest struct {
@@ -18,6 +23,7 @@ type Digest struct {
 	envIDManager helpers.EnvIDManager
 
 	fs fileio.Fs
+	ui *ui.UI
 }
 
 type DiegestConfig struct {
@@ -28,11 +34,13 @@ func NewDigest(
 	stateStore storage.Store,
 	envIDManager helpers.EnvIDManager,
 	fs fileio.Fs,
+	ui *ui.UI,
 ) Digest {
 	return Digest{
 		stateStore:   stateStore,
 		envIDManager: envIDManager,
 		fs:           fs,
+		ui:           ui,
 	}
 }
 
@@ -68,9 +76,6 @@ func (p Digest) Execute(args []string, state storage.State) error {
 		return err
 	}
 	_, err = p.initialize(config, state)
-
-	// choose one manifest from the artifacts galary.
-
 	return err
 }
 
@@ -91,55 +96,55 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		return storage.State{}, err
 	}
 
-	if err := digesterApis.Run(state, artifactsVarsFilePath); err != nil {
-		return storage.State{}, fmt.Errorf("Call digester: %s", err)
-	}
+	qResult, err := p.doQuiz(artifactsVarsFilePath)
 
-	err = p.pickUpManifest()
+	bpBytes, _ := yaml.Marshal(qResult)
+	err = ioutil.WriteFile(artifactsVarsFilePath, bpBytes, 0644)
 
-	return state, err
-}
-
-func combine(is digesterCommon.InfraSize, pl digesterCommon.ProgrammingLanguage) string {
-	return string(is) + "|" + string(pl)
-}
-
-// TODO(zhongyi) This is a stub, should pick the manifest up based on the q&a file.
-func (p Digest) pickUpManifest() error {
-	artifactsVarsFilePath, err := p.stateStore.GetMainArtifactVarsFilePath()
+	content, err := builtinmanifests.FSByte(false, path.Join("/manifests", qResult["final_artifact"]))
 	if err != nil {
-		return err
+		return state, err
 	}
 
 	artifactFilePath, err := p.stateStore.GetMainArtifactFilePath()
 	if err != nil {
-		return err
-	}
-
-	bp, err := digesterApis.ImportBlueprintYaml(artifactsVarsFilePath)
-	if err != nil {
-		return err
-	}
-
-	var manifestFilePath string
-	switch combine(bp.Infra.Size, bp.NonInfra.ProgrammingLanguage) {
-	case combine(digesterCommon.SizeSmall, digesterCommon.PHP):
-		manifestFilePath = "/manifests/small_php.yml"
-	case combine(digesterCommon.SizeMedium, digesterCommon.PHP):
-		manifestFilePath = "/manifests/medium_php.yml"
-	case combine(digesterCommon.SizeLarge, digesterCommon.PHP):
-		manifestFilePath = "/manifests/large_php.yml"
-	case combine(digesterCommon.SizeMaximum, digesterCommon.PHP):
-		manifestFilePath = "/manifests/maximum_php.yml"
-	default:
-		return fmt.Errorf("we only support php")
-
-	}
-
-	content, err := builtinmanifests.FSByte(false, manifestFilePath)
-	if err != nil {
-		return err
+		return state, err
 	}
 	err = p.fs.WriteFile(artifactFilePath, content, 0644)
-	return err
+	return state, err
+}
+
+func (p Digest) doQuiz(artifactsVarsFilePath string) (gquiz.QResult, error) {
+	fs := qgraph.FS(false)
+	qgraphFolder := "/manifests"
+	file, err := fs.Open(qgraphFolder)
+	if err != nil {
+		return gquiz.QResult{}, err
+	}
+	files, err := file.Readdir(0)
+	var sb strings.Builder
+	for _, f := range files {
+		filePath := path.Join(qgraphFolder, f.Name())
+		content, err := qgraph.FSByte(false, filePath)
+		if err != nil {
+			return gquiz.QResult{}, err
+		}
+		_, err = sb.Write(content)
+		sb.WriteString("\n")
+		if err != nil {
+			return gquiz.QResult{}, err
+		}
+	}
+	quizeBuilder := gquiz.QuizBuilder{}
+
+	qGraph, err := quizeBuilder.BuildQGraph([]byte(sb.String()))
+	if err != nil {
+		return gquiz.QResult{}, err
+	}
+	quizExecutor := gquiz.NewQuizExecutor(p.ui)
+	qResult, err := quizExecutor.Execute(&qGraph)
+	if err != nil {
+		return gquiz.QResult{}, err
+	}
+	return qResult, nil
 }

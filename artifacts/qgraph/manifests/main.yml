@@ -1,0 +1,59 @@
+- name: root
+  questions:
+    - var_name: admin_name
+      persistent: true
+      description: "Admin name of your deployment?"
+      default: "kluser"
+    - var_name: location
+      persistent: true
+      description: "Which region do you want to deploy to?"
+      default: "eastus"
+    - var_name: resource_group_name
+      persistent: true
+      description: "What resource group name do you want?"
+    - var_name: kind
+      description: "Which kind of artifacts do you want?"
+      candidates:
+        - value: infrastructure
+          description: "To deployment the infrastructures, like: kubernetes..."
+        - value: application
+          description: "To deploy your application with code, like: php, java..."
+  transitions:
+    - name: infrastructure
+      condition: "kind == 'infrastructure'"
+    - name: application
+      condition: "kind == 'application'"
+
+- name: application
+  transitions:
+    - name: language
+
+- name: language
+  questions:
+    - var_name: "project_source_code_path"
+      persistent: true # TODO add support for the tree structure of the variables.
+      description: "Where's the source code of your project?"
+    - var_name: "project_git_revision"
+      persistent: true
+      description: "Which revision do you want to deploy?"
+      default: "master"
+    - var_name: "language_kind"
+      description: "Which kind of language are you using?"
+      candidates:
+        - value: php
+          description: "Your project are using php language."
+  # prefix: application
+  transitions:
+    - name: php
+      condition: "language_kind == 'php'"
+
+- name: infrastructure
+  questions:
+    - var_name: "infra_type"
+      description: "Which kind of infrastructure you want to deploy?"
+      candidates:
+        - value: kubernetes
+          description: "To deploy a kubernetes cluster."
+  transitions:
+    - name: kubernetes
+      condition: "infra_type == 'kubernetes'"

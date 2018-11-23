@@ -75,6 +75,16 @@ func (l *UI) Prompt(message string) bool {
 	return false
 }
 
+func (l *UI) GetInput() string {
+	var proceed string
+	_, err := fmt.Fscanln(l.reader, &proceed)
+	if err != nil {
+		// TODO This will procude  error like "unexpected newline", handle it later.
+		// os.Exit(1)
+	}
+	return proceed
+}
+
 func (l *UI) PromptWithDetails(resourceType, resourceName string) bool {
 	return l.Prompt(fmt.Sprintf("[%s: %s] Delete?", resourceType, resourceName))
 }
