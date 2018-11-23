@@ -137,7 +137,7 @@ func (dp DeploymentBuilder) generateDeployment(vmGroup artifacts.VMGroup) (deplo
 		if deployment.Vars == nil {
 			deployment.Vars = yaml.MapSlice{}
 		} else {
-			// TODO merge these together now, but we should think about to seperate them because
+			// TODO merge these together now, but we should think about to separate them because
 			// the names may conflict.
 			for _, item := range role.Vars {
 				deployment.Vars = append(deployment.Vars, item)

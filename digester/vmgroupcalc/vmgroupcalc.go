@@ -4,11 +4,11 @@ import (
 	"github.com/Microsoft/kunlun/digester/common"
 )
 
-type Requirment struct {
+type Requirement struct {
 	ConcurrentUserNumber int
 }
 
-func Calc(r Requirment) common.Infra {
+func Calc(r Requirement) common.Infra {
 	res := common.Infra{
 		Size: common.SizeSmall,
 	}

@@ -29,8 +29,6 @@ func main() {
 	if globals.NoConfirm {
 		logger.NoConfirm()
 	}
-	// stateJSON, _ := json.Marshal(globals)
-	// stderrLogger.Println(string(stateJSON))
 
 	// File IO
 	fs := afero.NewOsFs()
@@ -47,8 +45,6 @@ func main() {
 		log.Fatalf("\n\n%s\n", err)
 	}
 
-	// // Utilities
-	// envIDGenerator := helpers.NewEnvIDGenerator(rand.Reader)
 	usage := commands.NewUsage(logger)
 
 	app := executor.NewExecutor(appConfig, usage, logger, stateStore, afs)
