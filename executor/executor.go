@@ -7,8 +7,8 @@ import (
 	"github.com/Microsoft/kunlun/common/configuration"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/helpers"
-	"github.com/Microsoft/kunlun/common/logger"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	"github.com/Microsoft/kunlun/executor/commands"
 )
 
@@ -21,14 +21,14 @@ type Executor struct {
 	commands      commands.CommandSet
 	configuration configuration.Configuration
 	usage         usage
-	logger        logger.Logger
+	ui            *ui.UI
 	fs            fileio.Fs
 }
 
 func NewExecutor(
 	configuration configuration.Configuration,
 	usage usage,
-	logger *logger.Logger,
+	ui *ui.UI,
 	stateStore storage.Store,
 	fs fileio.Fs,
 ) Executor {
@@ -36,12 +36,12 @@ func NewExecutor(
 	envIDGenerator := helpers.NewEnvIDManager(rand.Reader)
 
 	commandSet := commands.CommandSet{}
-	commandSet["help"] = commands.NewUsage(logger)
+	commandSet["help"] = commands.NewUsage(ui)
 	commandSet["analyze"] = commands.NewDigest(stateStore, envIDGenerator, fs)
 	commandSet["interop"] = commands.NewInterop(stateStore)
-	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore, fs, logger)
+	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore, fs, ui)
 	commandSet["apply_infra"] = commands.NewApplyInfra(stateStore, fs)
-	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore, fs, logger)
+	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore, fs, ui)
 	commandSet["apply_deployment"] = commands.NewApplyDeployment(stateStore)
 	commandSet["promote"] = commands.NewPromote(stateStore)
 	return Executor{

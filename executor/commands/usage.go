@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 )
 
 const (
@@ -29,12 +30,12 @@ const GlobalUsage = `
 `
 
 type Usage struct {
-	logger logger
+	ui *ui.UI
 }
 
-func NewUsage(logger logger) Usage {
+func NewUsage(ui *ui.UI) Usage {
 	return Usage{
-		logger: logger,
+		ui: ui,
 	}
 }
 
@@ -49,11 +50,11 @@ func (u Usage) Execute(subcommandFlags []string, state storage.State) error {
 
 func (u Usage) Print() {
 	content := fmt.Sprintf(UsageHeader, "COMMAND", GlobalUsage)
-	u.logger.Println(strings.TrimLeft(content, "\n"))
+	u.ui.Println(strings.TrimLeft(content, "\n"))
 }
 
 func (u Usage) PrintCommandUsage(command, message string) {
 	commandUsage := fmt.Sprintf(CommandUsage, command, message)
 	content := fmt.Sprintf(UsageHeader, command, commandUsage)
-	u.logger.Println(strings.TrimLeft(content, "\n"))
+	u.ui.Println(strings.TrimLeft(content, "\n"))
 }

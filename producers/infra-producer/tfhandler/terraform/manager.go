@@ -5,11 +5,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/coreos/go-semver/semver"
 	artifacts "github.com/Microsoft/kunlun/artifacts"
-	"github.com/Microsoft/kunlun/common/logger"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	"github.com/Microsoft/kunlun/producers/infra-producer/handler"
+	"github.com/coreos/go-semver/semver"
 )
 
 type Manager struct {
@@ -17,16 +17,16 @@ type Manager struct {
 	templateGenerator     TemplateGenerator
 	inputGenerator        InputGenerator
 	terraformOutputBuffer *bytes.Buffer
-	logger                *logger.Logger
+	ui                    *ui.UI
 }
 
-func NewManager(executor Executor, templateGenerator TemplateGenerator, inputGenerator InputGenerator, terraformOutputBuffer *bytes.Buffer, logger *logger.Logger) Manager {
+func NewManager(executor Executor, templateGenerator TemplateGenerator, inputGenerator InputGenerator, terraformOutputBuffer *bytes.Buffer, ui *ui.UI) Manager {
 	return Manager{
 		executor:              executor,
 		templateGenerator:     templateGenerator,
 		inputGenerator:        inputGenerator,
 		terraformOutputBuffer: terraformOutputBuffer,
-		logger:                logger,
+		ui:                    ui,
 	}
 }
 
@@ -58,13 +58,13 @@ func (m Manager) ValidateVersion() error {
 }
 
 func (m Manager) Setup(manifest artifacts.Manifest, kunlunState storage.State) error {
-	m.logger.Step("generating terraform template")
+	m.ui.Step("generating terraform template")
 	template, err := m.templateGenerator.GenerateTemplate(manifest, kunlunState)
 	if err != nil {
 		return fmt.Errorf("Template generator generate: %s", err)
 	}
 
-	m.logger.Step("generating terraform variables")
+	m.ui.Step("generating terraform variables")
 	input, err := m.inputGenerator.GenerateInput(manifest, kunlunState)
 	if err != nil {
 		return fmt.Errorf("Input generator generate: %s", err)
@@ -78,7 +78,7 @@ func (m Manager) Setup(manifest artifacts.Manifest, kunlunState storage.State) e
 }
 
 func (m Manager) Init(kunlunState storage.State) error {
-	m.logger.Step("terraform init")
+	m.ui.Step("terraform init")
 	if err := m.executor.Init(); err != nil {
 		return fmt.Errorf("Executor init: %s", err)
 	}
@@ -86,12 +86,12 @@ func (m Manager) Init(kunlunState storage.State) error {
 }
 
 func (m Manager) Apply(kunlunState storage.State) (storage.State, error) {
-	m.logger.Step("terraform init")
+	m.ui.Step("terraform init")
 	if err := m.executor.Init(); err != nil {
 		return kunlunState, fmt.Errorf("Executor init: %s", err)
 	}
 
-	m.logger.Step("terraform apply")
+	m.ui.Step("terraform apply")
 	err := m.executor.Apply(m.inputGenerator.Credentials(kunlunState))
 
 	kunlunState.LatestTFOutput = readAndReset(m.terraformOutputBuffer)
@@ -104,7 +104,7 @@ func (m Manager) Apply(kunlunState storage.State) (storage.State, error) {
 }
 
 func (m Manager) Destroy(kunlunState storage.State) (storage.State, error) {
-	m.logger.Step("terraform destroy")
+	m.ui.Step("terraform destroy")
 	err := m.executor.Destroy(m.inputGenerator.Credentials(kunlunState))
 
 	kunlunState.LatestTFOutput = readAndReset(m.terraformOutputBuffer)
@@ -113,12 +113,12 @@ func (m Manager) Destroy(kunlunState storage.State) (storage.State, error) {
 		return kunlunState, fmt.Errorf("Executor destroy: %s", err)
 	}
 
-	m.logger.Step("finished destroying infrastructure")
+	m.ui.Step("finished destroying infrastructure")
 	return kunlunState, nil
 }
 
 func (m Manager) Validate(kunlunState storage.State) (storage.State, error) {
-	m.logger.Step("terraform validate")
+	m.ui.Step("terraform validate")
 	err := m.executor.Validate(m.inputGenerator.Credentials(kunlunState))
 
 	kunlunState.LatestTFOutput = readAndReset(m.terraformOutputBuffer)
