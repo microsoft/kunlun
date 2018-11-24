@@ -1,4 +1,4 @@
-package logger
+package ui
 
 import (
 	"fmt"
@@ -6,15 +6,15 @@ import (
 	"strings"
 )
 
-type Logger struct {
+type UI struct {
 	newline   bool
 	writer    io.Writer
 	reader    io.Reader
 	noConfirm bool
 }
 
-func NewLogger(writer io.Writer, reader io.Reader) *Logger {
-	return &Logger{
+func NewUI(writer io.Writer, reader io.Reader) *UI {
+	return &UI{
 		newline:   true,
 		writer:    writer,
 		reader:    reader,
@@ -22,7 +22,7 @@ func NewLogger(writer io.Writer, reader io.Reader) *Logger {
 	}
 }
 
-func (l *Logger) clear() {
+func (l *UI) clear() {
 	if l.newline {
 		return
 	}
@@ -31,32 +31,32 @@ func (l *Logger) clear() {
 	l.newline = true
 }
 
-func (l *Logger) Step(message string, a ...interface{}) {
+func (l *UI) Step(message string, a ...interface{}) {
 	l.clear()
 	fmt.Fprintf(l.writer, "step: %s\n", fmt.Sprintf(message, a...))
 	l.newline = true
 }
 
-func (l *Logger) Dot() {
+func (l *UI) Dot() {
 	l.writer.Write([]byte("\u2022"))
 	l.newline = false
 }
 
-func (l *Logger) Printf(message string, a ...interface{}) {
+func (l *UI) Printf(message string, a ...interface{}) {
 	l.clear()
 	fmt.Fprintf(l.writer, "%s", fmt.Sprintf(message, a...))
 }
 
-func (l *Logger) Println(message string) {
+func (l *UI) Println(message string) {
 	l.clear()
 	fmt.Fprintf(l.writer, "%s\n", message)
 }
 
-func (l *Logger) NoConfirm() {
+func (l *UI) NoConfirm() {
 	l.noConfirm = true
 }
 
-func (l *Logger) Prompt(message string) bool {
+func (l *UI) Prompt(message string) bool {
 	if l.noConfirm {
 		return true
 	}
@@ -75,6 +75,6 @@ func (l *Logger) Prompt(message string) bool {
 	return false
 }
 
-func (l *Logger) PromptWithDetails(resourceType, resourceName string) bool {
+func (l *UI) PromptWithDetails(resourceType, resourceName string) bool {
 	return l.Prompt(fmt.Sprintf("[%s: %s] Delete?", resourceType, resourceName))
 }

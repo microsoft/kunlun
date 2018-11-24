@@ -6,31 +6,25 @@ import (
 	"github.com/Microsoft/kunlun/artifacts/deployments"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	ashandler "github.com/Microsoft/kunlun/producers/deployment-producer/ashandler"
 	"github.com/Microsoft/kunlun/producers/deployment-producer/dpbuilder"
 )
 
-type logger interface {
-	Step(string, ...interface{})
-	Printf(string, ...interface{})
-	Println(string)
-	Prompt(string) bool
-}
-
 type DeploymentProducer struct {
 	stateStore storage.Store
-	logger     logger
+	ui         *ui.UI
 	fs         fileio.Fs
 }
 
 func NewDeploymentProducer(
 	stateStore storage.Store,
-	logger logger,
+	ui *ui.UI,
 	fs fileio.Fs,
 ) DeploymentProducer {
 	return DeploymentProducer{
 		stateStore: stateStore,
-		logger:     logger,
+		ui:         ui,
 		fs:         fs,
 	}
 }
@@ -51,7 +45,7 @@ func (dp DeploymentProducer) Produce(
 	}
 
 	// generate the ansible scripts based on the deployments.
-	asHandler := ashandler.NewASHandler(dp.stateStore, dp.logger, dp.fs)
+	asHandler := ashandler.NewASHandler(dp.stateStore, dp.ui, dp.fs)
 	err = asHandler.Handle(hostGroups, deployments)
 	if err != nil {
 		return err

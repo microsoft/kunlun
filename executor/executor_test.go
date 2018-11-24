@@ -8,8 +8,8 @@ import (
 	"github.com/spf13/afero"
 
 	"github.com/Microsoft/kunlun/common/configuration"
-	clogger "github.com/Microsoft/kunlun/common/logger"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	. "github.com/Microsoft/kunlun/executor"
 	"github.com/Microsoft/kunlun/executor/commands"
 )
@@ -28,12 +28,12 @@ var _ = Describe("Executor", func() {
 				fs := afero.NewOsFs()
 				afs := &afero.Afero{Fs: fs}
 
-				logger := clogger.NewLogger(os.Stdout, os.Stdin)
-				usage := commands.NewUsage(logger)
+				ui := ui.NewLogger(os.Stdout, os.Stdin)
+				usage := commands.NewUsage(ui)
 				config = configuration.Configuration{
 					Command: "helpx",
 				}
-				executor = NewExecutor(config, usage, logger, storage.Store{}, afs)
+				executor = NewExecutor(config, usage, ui, storage.Store{}, afs)
 			})
 			It("should raise one error", func() {
 				err := executor.Run()

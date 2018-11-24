@@ -11,7 +11,3 @@ type executor interface {
 	Output(string) (string, error)
 	IsPaved() (bool, error)
 }
-
-type logger interface {
-	Step(string, ...interface{})
-}

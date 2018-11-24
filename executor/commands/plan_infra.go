@@ -3,6 +3,7 @@ package commands
 import (
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	patching "github.com/Microsoft/kunlun/patching"
 	infra "github.com/Microsoft/kunlun/producers/infra-producer"
 	"github.com/Microsoft/kunlun/producers/infra-producer/handler"
@@ -11,18 +12,18 @@ import (
 type PlanInfra struct {
 	stateStore storage.Store
 	fs         fileio.Fs
-	logger     logger
+	ui         *ui.UI
 }
 
 func NewPlanInfra(
 	stateStore storage.Store,
 	fs fileio.Fs,
-	logger logger,
+	ui *ui.UI,
 ) PlanInfra {
 	return PlanInfra{
 		stateStore: stateStore,
 		fs:         fs,
-		logger:     logger,
+		ui:         ui,
 	}
 }
 

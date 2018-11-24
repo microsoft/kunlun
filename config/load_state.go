@@ -4,15 +4,12 @@ import (
 	"os"
 	"path/filepath"
 
-	flags "github.com/jessevdk/go-flags"
 	"github.com/Microsoft/kunlun/common/configuration"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
+	flags "github.com/jessevdk/go-flags"
 )
-
-type logger interface {
-	Println(string)
-}
 
 type merger interface {
 	MergeGlobalFlagsToState(globalflags GlobalFlags, state storage.State) (storage.State, error)
@@ -25,11 +22,11 @@ type fs interface {
 	fileio.FileWriter
 }
 
-func NewConfig(bootstrap storage.StateBootstrap, merger merger, logger logger, fs fs) Config {
+func NewConfig(bootstrap storage.StateBootstrap, merger merger, ui *ui.UI, fs fs) Config {
 	return Config{
 		stateBootstrap: bootstrap,
 		merger:         merger,
-		logger:         logger,
+		ui:             ui,
 		fs:             fs,
 	}
 }
@@ -37,7 +34,7 @@ func NewConfig(bootstrap storage.StateBootstrap, merger merger, logger logger, f
 type Config struct {
 	stateBootstrap storage.StateBootstrap
 	merger         merger
-	logger         logger
+	ui             *ui.UI
 	fs             fs
 }
 

@@ -10,31 +10,25 @@ import (
 	builtinroles "github.com/Microsoft/kunlun/built-in-roles"
 	"github.com/Microsoft/kunlun/common/fileio"
 	"github.com/Microsoft/kunlun/common/storage"
+	"github.com/Microsoft/kunlun/common/ui"
 	patching "github.com/Microsoft/kunlun/patching"
 	yaml "gopkg.in/yaml.v2"
 )
 
-type logger interface {
-	Step(string, ...interface{})
-	Printf(string, ...interface{})
-	Println(string)
-	Prompt(string) bool
-}
-
 type ASGenerator struct {
 	stateStore storage.Store
-	logger     logger
+	ui         *ui.UI
 	fs         fileio.Fs
 }
 
 func NewASGenerator(
 	stateStore storage.Store,
-	logger logger,
+	ui *ui.UI,
 	fs fileio.Fs,
 ) ASGenerator {
 	return ASGenerator{
 		stateStore: stateStore,
-		logger:     logger,
+		ui:         ui,
 		fs:         fs,
 	}
 }
@@ -57,33 +51,33 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 	}
 	ansibleInventoriesDir, _ := a.stateStore.GetAnsibleInventoriesDir()
 	hostsFile := path.Join(ansibleInventoriesDir, "hosts.yml")
-	a.logger.Printf("writing hosts file to %s\n", hostsFile)
+	a.ui.Printf("writing hosts file to %s\n", hostsFile)
 	err = a.fs.WriteFile(hostsFile, hostsFileContent, 0644)
 	if err != nil {
-		a.logger.Printf("write file failed: %s\n", err.Error())
+		a.ui.Printf("write file failed: %s\n", err.Error())
 		return err
 	}
 
 	err = a.prepareBuiltInRoles(deployments)
 	if err != nil {
-		a.logger.Printf("prepare built in roles failed: %s\n", err.Error())
+		a.ui.Printf("prepare built in roles failed: %s\n", err.Error())
 		return err
 	}
 	// generate the roles files.
 	playbookContent := a.generatePlaybookFile(deployments)
 	ansibleMainFile, err := a.stateStore.GetAnsibleMainFile()
 
-	a.logger.Printf("writing playbook file to %s\n", ansibleMainFile)
+	a.ui.Printf("writing playbook file to %s\n", ansibleMainFile)
 	err = ioutil.WriteFile(ansibleMainFile, playbookContent, 0644)
 	if err != nil {
-		a.logger.Printf("write file failed: %s\n", err.Error())
+		a.ui.Printf("write file failed: %s\n", err.Error())
 		return err
 	}
 
 	// generate the private key.
 	privateSshKey, err := a.getAdminSSHPrivateKey()
 	if err != nil {
-		a.logger.Printf("get admin ssh private key failed: %s\n", err.Error())
+		a.ui.Printf("get admin ssh private key failed: %s\n", err.Error())
 		return err
 	}
 	sshPrivateKeyPath, err := a.getSSHPrivateKeyPath()
@@ -103,7 +97,7 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 	}
 	err = a.fs.WriteFile(deploymentScriptFilePath, deploymentScriptContent, 0744)
 	if err != nil {
-		a.logger.Printf("write file failed: %s\n", err.Error())
+		a.ui.Printf("write file failed: %s\n", err.Error())
 		return err
 	}
 	return nil
@@ -239,10 +233,10 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 		varsFile := path.Join(varsDir, dep.HostGroupName+".yml")
 		varsContent, _ := yaml.Marshal(dep.Vars)
 
-		a.logger.Printf("writing vars file to %s\n", varsFile)
+		a.ui.Printf("writing vars file to %s\n", varsFile)
 		err := ioutil.WriteFile(varsFile, varsContent, 0644)
 		if err != nil {
-			a.logger.Printf("write vars file failed: %s\n", err.Error())
+			a.ui.Printf("write vars file failed: %s\n", err.Error())
 		}
 		depItem := depItem{
 			Hosts:    dep.HostGroupName,
@@ -301,12 +295,12 @@ func (a ASGenerator) prepareBuiltInRoles(deployments []deployments.Deployment) e
 					return err
 				}
 				targetPath := path.Join(ansibleDir, "./"+filePath)
-				// a.logger.Printf("base dir is %s\n", path.Dir(targetPath))
+				// a.ui.Printf("base dir is %s\n", path.Dir(targetPath))
 				err = a.fs.MkdirAll(path.Dir(targetPath), 0744)
 				if err != nil {
 					return err
 				}
-				// a.logger.Printf("writing to %s\n", targetPath)
+				// a.ui.Printf("writing to %s\n", targetPath)
 				err = a.fs.WriteFile(targetPath, content, 0644)
 				if err != nil {
 					return err
