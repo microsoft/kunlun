@@ -4,6 +4,14 @@ type Outputs struct {
 	Map map[string]interface{}
 }
 
+func (o Outputs) Keys() []string {
+	keys := make([]string, len(o.Map))
+	for key, _ := range o.Map {
+		keys = append(keys, key)
+	}
+	return keys
+}
+
 func (o Outputs) GetString(key string) string {
 	if val, ok := o.Map[key]; ok {
 		if s, ok := val.(string); ok {
