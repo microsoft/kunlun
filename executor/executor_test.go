@@ -28,7 +28,7 @@ var _ = Describe("Executor", func() {
 				fs := afero.NewOsFs()
 				afs := &afero.Afero{Fs: fs}
 
-				ui := ui.NewLogger(os.Stdout, os.Stdin)
+				ui := ui.NewUI(os.Stdout, os.Stdin)
 				usage := commands.NewUsage(ui)
 				config = configuration.Configuration{
 					Command: "helpx",

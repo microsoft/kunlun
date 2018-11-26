@@ -2,7 +2,7 @@ package commands_test
 
 import (
 	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	//. "github.com/onsi/gomega"
 	// testInfra "github.com/kun-lun/test-infra/pkg/apis"
 )
 
