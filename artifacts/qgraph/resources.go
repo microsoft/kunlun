@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "error.yml",
 		local:   "manifests/error.yml",
 		size:    13,
-		modtime: 1543192700,
+		modtime: 1543198791,
 		compressed: `
 H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 `,
@@ -223,7 +223,7 @@ H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 		name:    "kubernetes.yml",
 		local:   "manifests/kubernetes.yml",
 		size:    554,
-		modtime: 1543194820,
+		modtime: 1543198791,
 		compressed: `
 H4sIAAAAAAAC/4SRTW7rMAyE9z7FQJuskgMIyOo9oMcQWItuhcqUK1IFfPvCsY3E6J/WnPk0M2cIjezx
 1p65ChtrB7w3VktF1HcAcMYH1bDeufthiDzlMo8sFmye2N2Ogcja1zQtBh7u32spyphLq7gLsAj8ruhJ
@@ -237,7 +237,7 @@ AAD//2ut96QqAgAA
 		name:    "main.yml",
 		local:   "manifests/main.yml",
 		size:    1881,
-		modtime: 1543193929,
+		modtime: 1543198791,
 		compressed: `
 H4sIAAAAAAAC/5xUwW7jOgy85ysIvUMubT7AQFE8YO+9FCj2ZLASY6t1JC1FpcjfL6Q4jl07Rro3wyJn
 RsOhHsHhgSpg72UD8CdRFOtdrDYAAI9wRK7PFWgO1pXvcgQQiKONQk4qEE6X34aiZhsySgXq/9xVOMDv
@@ -256,7 +256,7 @@ rSuKLFkHAAA=
 		name:    "php.yml",
 		local:   "manifests/php.yml",
 		size:    1131,
-		modtime: 1543192700,
+		modtime: 1543198791,
 		compressed: `
 H4sIAAAAAAAC/8ySwW6rMBBF9/mKKy+yy1Nel1bbbX+ge2SRobFkGzozrsrfV4QAgdKq2cEOae6Zo7k+
 ILlIFs252QHvmUR9ncTuAOCAD8dFP2DKOpWZmZIWWYjNZQLQtiELn/T6fyIp2TcdxcK8nglTEENQ2SXx
