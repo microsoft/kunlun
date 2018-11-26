@@ -8,7 +8,7 @@
 
 ## Prepare the Environment
 
-* Install [Go](https://golang.org/doc/install)
+* Install [Go](https://golang.org/doc/install) version `1.10` or later
 
 * Install [Terraform](https://www.terraform.io/intro/getting-started/install.html)
 
@@ -45,7 +45,9 @@
 go get github.com/Microsoft/kunlun/cmd/kl
 ```
 
-Now you will have a `kl` command, please make sure you put GOPATH in your PATH.
+Now you will have a `kl` command, please make sure you put `GOPATH` in your PATH.
+
+If you hit the error `undefined: strings.Builder`, please upgrade your Go to version `1.10` or later.
 
 ## Analyze the Application you wish to deploy
 
