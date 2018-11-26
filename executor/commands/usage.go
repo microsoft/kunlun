@@ -11,12 +11,12 @@ import (
 const (
 	UsageHeader = `
 Usage:
-  bbl [GLOBAL OPTIONS] %s [OPTIONS]
+  kl [GLOBAL OPTIONS] %s [OPTIONS]
 
 Global Options:
   --help       [-h]        Prints usage. Use "kl [command] --help" for more information about a command
   --state-dir  [-s]        Directory containing the kl state                                            env:"KL_STATE_DIRECTORY"
-  --debug      [-d]        Prints debugging output                                                       env:"KL_DEBUG"
+  --debug      [-d]        Prints debugging output                                                      env:"KL_DEBUG"
   --version    [-v]        Prints version
   --no-confirm [-n]        No confirm
 %s
@@ -27,7 +27,14 @@ Global Options:
 )
 
 const GlobalUsage = `
-`
+Basic Commands: A good place to start
+  analyze		Analyzes the application you wish to deploy.
+  plan_infra		Generates the templates that will deploy your infrastrcuture. Currently, only terraform is supported.
+  apply_infra		Deploys your infrastrcuture.
+  plan_deployment	Generates the scripts that will install your software. Currently, only ansible is supported.
+  apply_deployment	Installs your software.
+Troubleshooting Commands:
+  help                    Prints usage`
 
 type Usage struct {
 	ui *ui.UI
