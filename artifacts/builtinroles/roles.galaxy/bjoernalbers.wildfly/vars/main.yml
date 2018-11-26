@@ -1,0 +1,14 @@
+---
+# Name of system user / group
+wildfly_user: "wildfly"
+
+# Install dir
+wildfly_prefix: "/opt"
+
+# WildFly's basedir
+wildfly_home: "{{ wildfly_prefix }}/{{ wildfly_basename }}"
+
+# Other version-based dir / file / url names
+wildfly_basename: "wildfly-{{ wildfly_version }}"
+wildfly_archive: "{{ wildfly_basename }}.zip"
+wildfly_url: "http://download.jboss.org/wildfly/{{ wildfly_version }}/{{ wildfly_archive }}"

@@ -1,0 +1,5 @@
+---
+# Required packages to install and run WildFly
+wildfly_packages:
+  - unzip
+  - java-1_8_0-openjdk-devel

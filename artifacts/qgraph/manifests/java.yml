@@ -1,0 +1,28 @@
+- name: java
+  questions:
+    - var_name: "framework"
+      description: "What framework you are using?"
+      candidates:
+        - value: tomcat
+          description: "Your project are using tomcat."
+        - value: wildfly
+          description: "Your project are using wildfly"
+  transitions:
+    - name: java_tomcat
+      condition: "framework == 'tomcat'"
+    - name: java_wildfly
+      condition: "framework == 'wildfly'"
+
+- name: java_tomcat
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "small_tomcat.yml"
+
+- name: java_wildfly
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "small_wildfly.yml"

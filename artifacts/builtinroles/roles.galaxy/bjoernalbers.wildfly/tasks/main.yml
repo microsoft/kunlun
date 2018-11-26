@@ -1,0 +1,108 @@
+---
+- name: include os-specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- import_tasks: clean.yml
+  when: wildfly_reinstall
+
+- name: install packages with apt
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ wildfly_packages }}"
+  when: ansible_distribution == "Ubuntu"
+
+- name: install packages with zypper
+  zypper:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ wildfly_packages }}"
+  when: ansible_distribution == "openSUSE"
+
+- name: create system group
+  group:
+    name: "{{ wildfly_user }}"
+    system: yes
+    state: present
+
+- name: create system user
+  user:
+    name: "{{ wildfly_user }}"
+    group: "{{ wildfly_user }}"
+    comment: "WildFly System User"
+    home: "{{ wildfly_home }}"
+    createhome: no
+    shell: "/usr/sbin/nologin"
+    system: yes
+    state: present
+
+- name: create install directory
+  file:
+    path: "{{ wildfly_prefix }}"
+    state: directory
+
+- name: download archive
+  get_url:
+    url: "{{ wildfly_url }}"
+    dest: "{{ wildfly_prefix }}/{{ wildfly_archive }}"
+    checksum: "{{ wildfly_checksum }}"
+
+- name: unzip archive
+  unarchive:
+    src: "{{ wildfly_prefix }}/{{ wildfly_archive }}"
+    remote_src: yes
+    dest: "{{ wildfly_prefix }}"
+    owner: "{{ wildfly_user }}"
+    group: "{{ wildfly_user }}"
+    creates: "{{ wildfly_prefix }}/{{ wildfly_basename }}"
+
+- name: create config directory
+  file:
+    path: "/etc/wildfly"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+- name: copy config file
+  template:
+    src: wildfly.conf.j2
+    dest: "/etc/wildfly/wildfly.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart wildfly
+
+- name: copy systemd service
+  template:
+    src: wildfly.service.j2
+    dest: "/etc/systemd/system/wildfly.service"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload systemd
+    - restart wildfly
+
+- name: copy systemd script
+  template:
+    src: launch.sh.j2
+    dest: "{{ wildfly_home }}/bin/launch.sh"
+    owner: "{{ wildfly_user }}"
+    group: "{{ wildfly_user }}"
+    mode: 0755
+  notify: restart wildfly
+
+- name: create var run directory
+  file:
+    path: "/var/run/wildfly"
+    owner: "{{ wildfly_user }}"
+    group: "{{ wildfly_user }}"
+    mode: 0755
+    state: directory
+
+- name: start wildfly
+  service:
+    name: "wildfly"
+    enabled: yes
+    state: started

@@ -1,0 +1,78 @@
+---
+- import_role:
+    name: nginxinc.nginx
+  become: true
+  become_user: root
+
+- import_role:
+    name: geerlingguy.java
+  become: true
+  become_user: root
+
+- name: Installing repo for Java 8 in Ubuntu
+  apt_repository: repo='ppa:openjdk-r/ppa'
+  become: true
+  become_user: root
+
+- import_role:
+    name: gantsign.maven
+  become: true
+  become_user: root
+
+- name: Setup directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ ansible_user }}"
+    # group: "{{ dashboard_group }}"
+    mode: 0755
+    state: directory
+  with_items:
+    - "{{ project_log_root }}"
+  become: true
+  become_user: root
+
+# remove the default nginx site
+- name: Remove the default configuration
+  file:
+    path: "{{ nginx_config_root }}/conf.d/default.conf"
+    state: absent
+  become: true
+  become_user: root
+
+# setup the nginx config.
+- name: Update nginx config
+  template:
+    src: nginx.j2
+    dest: "{{ nginx_config_root }}/conf.d/{{ kl_site_name }}.conf"
+    owner: "{{ ansible_user }}"
+    mode: 0644
+  become: true
+  become_user: root
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: true
+  become_user: root
+
+- import_role:
+    name: idealista.tomcat-role
+  become: true
+  become_user: root
+  vars:
+    tomcat_users:
+      - name: admin
+        password: "{{tomcat_admin_password}}"
+        roles: manager-gui
+
+- name: Build web app war
+  shell: mvn package
+  args:
+    chdir: "{{project_src_root}}/"
+
+- name: Copy war to the tomcat
+  shell: cp {{project_src_root}}/target/*.war {{tomcat_webapps_path}}
+  become: true
+  become_user: root
+  notify: restart tomcat
