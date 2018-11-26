@@ -1,0 +1,27 @@
+---
+
+- name: Tomcat | Install
+  import_tasks: install.yml
+  tags:
+    - install
+
+- name: Tomcat | Service
+  import_tasks: service.yml
+  tags:
+    - service
+
+- name: Tomcat | Config
+  import_tasks: config.yml
+  tags:
+    - config
+
+- name: Tomcat | Agent config
+  import_tasks: agent.yml
+  tags:
+    - agent_config
+  when: tomcat_agents_config is defined
+
+- name: Tomcat | Deploy
+  import_tasks: deploy.yml
+  tags:
+    - deploy

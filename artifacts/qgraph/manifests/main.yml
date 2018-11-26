@@ -66,9 +66,13 @@
       candidates:
         - value: php
           description: "Your project are using php language."
+        - value: java
+          description: "Your project are using java language."
   transitions:
     - name: php
       condition: "language_kind == 'php'"
+    - name: java
+      condition: "language_kind == 'java'"
 
 - name: infrastructure
   questions:

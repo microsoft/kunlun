@@ -1,0 +1,17 @@
+---
+# These two veriables have to be updated together for every new release
+# (the latter is the SHA-1 checksum of WildFly zip archive)!
+wildfly_version: "11.0.0.Final"
+wildfly_checksum: "sha1:ba2ba501f63dc957e69eaefbd2fe10f7aa6f61ae"
+
+# The configuration you want to run
+wildfly_config: standalone.xml
+
+# The mode you want to run
+wildfly_mode: standalone
+
+# The address to bind to
+wildfly_bind: 0.0.0.0
+
+# Remove wildfly_basedir before install (yes|no)?
+wildfly_reinstall: no

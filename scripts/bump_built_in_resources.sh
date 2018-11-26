@@ -7,6 +7,7 @@ pushd $DIR/../artifacts/builtinroles
   ansible-galaxy install geerlingguy.glusterfs
   ansible-galaxy install geerlingguy.firewall
   ansible-galaxy install geerlingguy.git
+  ansible-galaxy install geerlingguy.java
   ansible-galaxy install geerlingguy.mysql
   ansible-galaxy install geerlingguy.redis
   ansible-galaxy install geerlingguy.php-redis
@@ -16,6 +17,9 @@ pushd $DIR/../artifacts/builtinroles
   ansible-galaxy install geerlingguy.kubernetes
   ansible-galaxy install geerlingguy.java
   ansible-galaxy install wikivoks.jmeter
+  ansible-galaxy install idealista.tomcat-role
+  ansible-galaxy install gantsign.maven
+  ansible-galaxy install bjoernalbers.wildfly
 popd
 
 pushd $DIR/../artifacts/builtinroles

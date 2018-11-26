@@ -1,0 +1,35 @@
+galaxy_info:
+  author: Björn Albers
+  description: Install WildFly Application Server on Ubuntu
+
+  license: MIT
+
+  min_ansible_version: 2.2
+
+  platforms:
+  - name: Ubuntu
+    versions:
+  #  - all
+  #  - lucid
+  #  - maverick
+  #  - natty
+  #  - oneiric
+  #  - precise
+  #  - quantal
+  #  - raring
+  #  - saucy
+  #  - trusty
+  #  - utopic
+  #  - vivid
+  #  - wily
+    - xenial
+  #  - yakkety
+
+  galaxy_tags:
+    - development
+    - web
+    - wildfly
+    - java
+    - jdk
+
+dependencies: []

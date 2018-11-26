@@ -1,0 +1,9 @@
+tomcat_admin_password: "{{kunlun_tomcat_admin_password}}"
+project_root: /mnt/data/klproject
+project_src_root: "{{ project_root }}/sourcecode"
+project_log_root: "{{ project_root }}/log"
+dashboard_nginx_port: 80
+kl_site_name: "kl.site"
+nginx_config_root: /etc/nginx
+tomcat_install_path: "/opt/tomcat"
+tomcat_webapps_path: "{{ tomcat_install_path }}/webapps"

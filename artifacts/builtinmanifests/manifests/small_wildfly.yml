@@ -1,0 +1,140 @@
+---
+schema: v0.1
+
+env_name: kunlun
+resource_group_name: ((resource_group_name))
+location: ((location))
+
+iaas: azure # this can be azure or some other platform
+
+vm_groups:
+  - name: jumpbox
+    meta:
+      group_type: jumpbox
+    count: 1
+    sku: Standard_DS1_v2
+    type: vm # this can be vm or vmss, currently only vm is supported
+    os_profile:
+      admin_name: ((admin_name))
+      linux_configuration:
+        ssh:
+          public_keys:
+            - ((admin_ssh.public_key))
+    storage:
+      image:
+        offer: UbuntuServer
+        publisher: Canonical
+        sku: 16.04-LTS
+        version: latest
+      os_disk:
+        managed_disk_type: Standard_LRS
+        caching: ReadWrite
+        create_option: FromImage
+      data_disks:
+        - managed_disk_type: Standard_LRS
+          caching: ReadWrite
+          create_option: Empty
+          disk_size_gb: 100
+        # - name_convension: uuid # this canbe uuid/group, if uuid, one uuid would be gnerated as name
+    networks:
+      - subnet_name: snet-1
+        network_security_group_name: ssh_nsg
+        public_ip: static
+    roles:
+      - name: kunlun.datadisk
+
+  - name: web-servers
+    count: 1
+    sku: Standard_DS1_v2
+    type: vm 
+    os_profile:
+      admin_name: ((admin_name))
+      linux_configuration:
+        ssh:
+          public_keys:
+            - ((admin_ssh.public_key))
+    storage:
+      image:
+        offer: UbuntuServer
+        publisher: Canonical
+        sku: 16.04-LTS
+        version: latest
+      os_disk:
+        managed_disk_type: Standard_LRS
+        caching: ReadWrite
+        create_option: FromImage
+      data_disks:
+        - managed_disk_type: Standard_LRS
+          caching: ReadWrite
+          create_option: Empty
+          disk_size_gb: 100
+        # - name_convension: uuid # this canbe uuid/group, if uuid, one uuid would be gnerated as name
+    networks:
+      - subnet_name: snet-1
+        load_balancer_name: load_balancer_1
+        load_balancer_backend_address_pool_name: backend_address_pool_1
+        network_security_group_name: webserver_nsg
+    roles: # this is used to generate the deployment scripts
+      - name: kunlun.datadisk
+      - name: kunlun.deploysourcecode
+        vars:
+          project_source_code_path: ((project_source_code_path))
+          project_git_revision: ((project_git_revision))
+      - name: kunlun.wildfly
+
+vnets:
+  - name: vnet-1
+    address_space: 10.0.0.0/16
+    subnets:
+      - name: snet-1
+        range: 10.0.0.0/24
+        gateway: 10.0.0.1
+
+load_balancers:
+  - name: load_balancer_1
+    sku: Standard
+    backend_address_pools:
+      - name: backend_address_pool_1
+    health_probes:
+      - name: http_probe
+        protocol: Tcp # optional values: [Tcp, Http, Https]
+        port: 80
+        # request_path: "/" # required if protocol is set to Http or Https. Otherwise, it is not allowed.
+      - name: ssh_probe
+        protocol: Tcp
+        port: 22
+    rules:
+      - name: http_rule
+        protocol: Tcp # optional values: [Tcp, Udp, All]
+        frontend_port: 80
+        backend_port: 80
+        backend_address_pool_name: backend_address_pool_1
+        health_probe_name: http_probe
+
+network_security_groups:
+  - name: webserver_nsg
+    network_security_rules:
+      - name: allow-http
+        priority: 200
+        direction: Inbound
+        access: Allow
+        protocol: Tcp
+        source_port_range: "*"
+        destination_port_range: 80
+        source_address_prefix: "*"
+        destination_address_prefix: "*"
+  - name: ssh_nsg
+    network_security_rules:
+      - name: allow-ssh
+        priority: 100
+        direction: Inbound
+        access: Allow
+        protocol: Tcp
+        source_port_range: "*"
+        destination_port_range: 22
+        source_address_prefix: "*"
+        destination_address_prefix: "*"
+
+variables:
+  - name: admin_ssh
+    type: ssh

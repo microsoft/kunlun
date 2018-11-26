@@ -1,0 +1,21 @@
+---
+language: python
+python: "2.7.13"
+sudo: required
+
+env:
+  - ansible_version: 2.4.0.0
+  - ansible_version: 2.5.0.0
+  - ansible_version: 2.6.2.0
+
+services:
+  - docker
+
+install:
+  - pip install ansible==${ansible_version}
+  - pip install -r test-requirements.txt
+script:
+  - molecule test --all
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

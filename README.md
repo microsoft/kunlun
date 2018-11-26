@@ -54,7 +54,9 @@ If you hit the error `undefined: strings.Builder`, please upgrade your Go to ver
 
 Run `kl analyze`.
 
-Please type in the git repository address for your application, e.g. https://github.com/kun-lun/2048php.git, as the project path.
+Please type in the git repository address for your application.
+e.g. https://github.com/kun-lun/2048php.git a sample php project.
+     https://github.com/kun-lun/2048java.git a sample java project.
 
 You will get one folder called `artifacts` in your working dir. With a `main.yml` file and one `patches` folder.
 
@@ -120,3 +122,9 @@ you can create one patch file to add more roles into the artifact and run
 ## Deploy
 
 Run `kl apply_deployment` to do the real deployment.
+
+
+## More Languages we support
+
+### Java
+    one sample: choose the sample app: https://github.com/andyliuliming/2048java as the code path when you do "kl analyze"

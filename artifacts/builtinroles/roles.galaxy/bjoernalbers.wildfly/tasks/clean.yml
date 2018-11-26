@@ -1,0 +1,12 @@
+---
+- name: stop wildfly
+  service:
+    name: "wildfly"
+    enabled: no
+    state: stopped
+  ignore_errors: yes
+
+- name: delete basedir
+  file:
+    path: "{{ wildfly_home }}"
+    state: absent

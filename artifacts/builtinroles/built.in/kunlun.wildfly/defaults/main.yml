@@ -1,0 +1,11 @@
+dashboard_nginx_port: 80
+kl_site_name: "kl.site"
+nginx_config_root: /etc/nginx
+project_root: /mnt/data/klproject
+project_src_root: "{{ project_root }}/sourcecode"
+project_log_root: "{{ project_root }}/log"
+
+wildfly_version: "11.0.0.Final"
+wildfly_prefix: /opt
+wildfly_basename: "wildfly-{{ wildfly_version }}"
+wildfly_webapps_path: "{{ wildfly_prefix }}/{{ wildfly_basename }}/standalone/deployments/"
