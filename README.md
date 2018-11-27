@@ -53,7 +53,7 @@ If you hit the error `undefined: strings.Builder`, please upgrade your Go to ver
 
 Run `kl analyze`.
 
-Please type in the git repository address for your application, e.g. https://github.com/moodle/moodle.git, as the project path.
+Please type in the git repository address for your application, e.g. https://github.com/kun-lun/2048php.git, as the project path.
 
 You will get one folder called `artifacts` in your working dir. With a `main.yml` file and one `patches` folder.
 
