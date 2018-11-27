@@ -12,7 +12,7 @@ vm_groups:
     meta:
       group_type: jumpbox
     count: 1
-    sku: Standard_B1s
+    sku: Standard_DS1_v2
     type: vm # this can be vm or vmss, currently only vm is supported
     os_profile:
       admin_name: ((admin_name))
@@ -45,7 +45,7 @@ vm_groups:
 
   - name: web-servers
     count: 1
-    sku: Standard_B1s
+    sku: Standard_DS1_v2
     type: vm
     os_profile:
       admin_name: ((admin_name))
