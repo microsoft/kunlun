@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "large_php.yml",
 		local:   "manifests/large_php.yml",
 		size:    3838,
-		modtime: 1543322182,
+		modtime: 1543322378,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -240,7 +240,7 @@ TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 		name:    "maximum_php.yml",
 		local:   "manifests/maximum_php.yml",
 		size:    3838,
-		modtime: 1543322182,
+		modtime: 1543322378,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -267,7 +267,7 @@ TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 		name:    "medium_php.yml",
 		local:   "manifests/medium_php.yml",
 		size:    3838,
-		modtime: 1543322182,
+		modtime: 1543322378,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -287,6 +287,28 @@ Db+FlXOnCJegOJgZyyC0tjus1qeVoual55wkejd8tJzXzyATNF8LzIeqW8IPWk+obJ01HKpzBs+hbM8q
 vn6WzMtdnBU5uzxqjmh5PnDOLl1ELJZkFYLNIFM2XMjhbjbzK+VQDh+Kt6a03lSjSkiJRHnAz+4+U8M0
 TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 29psiQynvwMAAP//FAGNRf4OAAA=
+`,
+	},
+
+	"/manifests/small_jmeter.yml": {
+		name:    "small_jmeter.yml",
+		local:   "manifests/small_jmeter.yml",
+		size:    3043,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/+xWTY/bNhC981cM0ktcVK5lbAJEt6IfQICcsil6FEbUWGJXIoUZUrvOry8oyZL8seki
+6KEIAl/EeaM3o8d5pJMkUaJrajGDfrdNlSLb5xZbyuAh2CZYxSQusKa8Yhe6CXv9+kZ4s1GN0+iNszHj
+9LzZKGUQJQP8HJjgB/C1EdBooaAp5hjEtQTO18TQNegPjlul+nbkl0wBJDAW/zu0XeGeFABASx6z4Qlg
+7MQfu4sc7YL1GaTDQh5CBvcebYlc5r/dp3m/H4Dxvb696K9vY3N9K/IT6MBM1jdHcLY5RsgISOg6x57K
+gcVJ3rE7mIZOXWHZGjvLtqw2mymhMTY85drZg6kCj/JNEIBIvSwAulA0RucPdJR1OGpz4hapt0vaVEW8
+Y6zmnky7WgC4w4E4gz+LYH24J+6J1VlFqSP+K1pnjcZm6S6Kmb7d7u6SD5/u53BPLMMQNOhJ/BR3kpdG
+HpayLVqsqByi07bNG/Ph40KnUdfGVhl8JCz/YuNpgZjQU+66cej+YNe+j982JZTocaBfqZW8uO4XK1/V
+/r3t/HEFD+xiPlNeFRmku92AWfKPjpd+EpBQWPLTgIgln6Qzy5SdC+nAxh/PPChS51YqdTEbpstAPHqj
+B4RdQ6tqa2tvozyxTbU2V0ueOIllieUr/PPdBt9t8KwN7l7ugpVk/2KEcWSjFwCedwO83A430bGKUr0l
+f3Yd9YtnsSyZRHLpUFM0/Xb4/Zy+Hcdv+Mir8hemZ7TV+uX93QxV6OkRjzOY3mI6E25Ntn/z5kt0EU5P
+kFKNwzIvsEGriSVT6vYenEmxPpKu0jnckB6bxj0mIvWycWxczF/OzHGMmPQ4Ye9t4YItZwi1JpEMfolU
+KxrnnXZNBp90tzh1/M8SL+x8kubVj6+WKiTe2OHsOcvZ7y8ZTjvdMR3M0/Mst/POD9uvlSwpqb8tW/qN
+6nYtw+TKmyrs/ycqpLt37/5LHVSPbLCYRmPW43TtrW7juPonAAD//0GbVcDjCwAA
 `,
 	},
 
@@ -357,6 +379,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/manifests/large_php.yml"],
 		_escData["/manifests/maximum_php.yml"],
 		_escData["/manifests/medium_php.yml"],
+		_escData["/manifests/small_jmeter.yml"],
 		_escData["/manifests/small_kubernetes.yml"],
 		_escData["/manifests/small_php.yml"],
 	},
