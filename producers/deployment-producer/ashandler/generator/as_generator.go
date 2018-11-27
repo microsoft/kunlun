@@ -1,10 +1,12 @@
 package generator
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"path"
+	"text/template"
 
 	"github.com/Microsoft/kunlun/artifacts/builtinroles"
 	"github.com/Microsoft/kunlun/artifacts/deployments"
@@ -36,13 +38,16 @@ func NewASGenerator(
 // https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html?highlight=roles
 func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []deployments.Deployment) error {
 	// generate the ansible config file.
-	builtInRolesFS, err := builtinroles.FSByte(false, "/ansible.cfg")
-	if err != nil {
-		return err
+	filesToCopy := []string{"ansible.cfg"}
+	for _, f := range filesToCopy {
+		builtInRolesFS, err := builtinroles.FSByte(false, fmt.Sprintf("/%s", f))
+		if err != nil {
+			return err
+		}
+		ansibleDir, err := a.stateStore.GetAnsibleDir()
+		filePath := path.Join(ansibleDir, f)
+		a.fs.WriteFile(filePath, builtInRolesFS, 0644)
 	}
-	ansibleDir, err := a.stateStore.GetAnsibleDir()
-	ansibleConfigFile := path.Join(ansibleDir, "ansible.cfg")
-	a.fs.WriteFile(ansibleConfigFile, builtInRolesFS, 0644)
 
 	// generate the hosts files.
 	hostsFileContent, err := a.generateHostsFile(hostGroups)
@@ -103,6 +108,15 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 	return nil
 }
 
+func (a ASGenerator) getSSHKnownHostsFilePath() (string, error) {
+	deploymentFolder, err := a.stateStore.GetDeploymentsDir()
+	if err != nil {
+		return "", err
+	}
+	sshKnownHostsFilePath := path.Join(deploymentFolder, "known_hosts")
+	return sshKnownHostsFilePath, nil
+}
+
 func (a ASGenerator) getSSHPrivateKeyPath() (string, error) {
 	varsFolder, err := a.stateStore.GetVarsDir()
 	if err != nil {
@@ -156,13 +170,33 @@ func (a ASGenerator) generateHostsFile(hostGroups []deployments.HostGroup) ([]by
 	if err != nil {
 		return nil, err
 	}
+	knownHostsFilePath, err := a.getSSHKnownHostsFilePath()
+	if err != nil {
+		return nil, err
+	}
 	for _, hostGroup := range hostGroups {
 		hosts := yaml.MapSlice{}
 
 		for _, host := range hostGroup.Hosts {
 			sshCommonArgs := ""
 			if host.SSHCommonArgs != "" {
-				sshCommonArgs = host.SSHCommonArgs[0:len(host.SSHCommonArgs)-1] + " -i " + privateKeyPath + "\""
+				type SSHConfig struct {
+					UserKnownHostsFile string
+					SSHPrivateKey      string
+				}
+				var tpl bytes.Buffer
+				tmpl, err := template.New("ssh_args").Parse(host.SSHCommonArgs)
+				if err != nil {
+					return nil, err
+				}
+				err = tmpl.Execute(&tpl, SSHConfig{
+					UserKnownHostsFile: knownHostsFilePath,
+					SSHPrivateKey:      privateKeyPath,
+				})
+				if err != nil {
+					return nil, err
+				}
+				sshCommonArgs = tpl.String()
 			}
 			hostSlice := yaml.MapItem{
 				Key: host.Alias,
@@ -266,7 +300,6 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 }
 
 func (a ASGenerator) prepareBuiltInRoles(deployments []deployments.Deployment) error {
-	//
 	ansibleDir, err := a.stateStore.GetAnsibleDir()
 	if err != nil {
 		return err
