@@ -1,0 +1,12 @@
+- name: load_test
+  questions:
+    - var_name: jmeter_load_test_endpoint
+      persistent: true
+      description: "What's your endpoint to be tested"
+      default: 'http://www.azure.com'
+    - var_name: jmeter_report_local_dest
+      persistent: true
+      description: "Where do you want to download the test report"
+      default: '/tmp'
+  transitions:
+    - name: artifact_kind

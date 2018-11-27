@@ -3,7 +3,7 @@
   become: true
   become_user: root
 
-- name: installing repo for Java 8 in Ubuntu
+- name: Installing repo for Java 8 in Ubuntu
   apt_repository: repo='ppa:openjdk-r/ppa'
   become: true
   become_user: root  
@@ -21,3 +21,66 @@
     name: wikivoks.jmeter
   become: true
   become_user: root
+
+- name: Uploading JMeter test file
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+  with_items:
+    - { src: '{{ jmeter_test_file_src }}', dest: '{{ jmeter_test_file_dest }}' }
+
+- name: Customize JMeter test file
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  replace:
+    path: '{{ item.path }}'
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+  with_items:
+    - { path: '{{ jmeter_test_file_dest }}', regexp: 'MAIN_ENDPOINT_CONTENT', replace: '{{ jmeter_load_test_endpoint }}' }
+    - { path: '{{ jmeter_test_file_dest }}', regexp: 'CONCURRENT_THREADS_VALUE', replace: '{{ jmeter_load_test_thread_per_node }}' }
+    - { path: '{{ jmeter_test_file_dest }}', regexp: 'LOOP_COUNT_VALUE', replace: '{{ jmeter_load_test_loop_count }}' }
+    - { path: '{{ jmeter_test_file_dest }}', regexp: 'RAMP_UP_PERIOD_VALUE', replace: '{{ jmeter_load_test_ramp_up_period }}' }
+
+- name: Reset JMeter result folder
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  file:
+    path: '{{ jmeter_report_file_dest }}'
+    owner: '{{ ansible_user }}'
+    mode: 0755
+    state: '{{ item }}'
+  with_items:
+    - absent
+    - directory
+
+- name: Cleanup JMeter test log
+  when: jmeter_load_test_enabled != 'False'
+  file:
+    path: '{{ item }}'
+    state: 'absent'
+  with_items:
+    - '{{ jmeter_test_log_dest }}'
+
+- name: Starting JMeter test
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  command: '/usr/bin/jmeter -n -t {{ item.test_file }} -l {{ item.log_file }} -e -o {{ item.report_folder }}'
+  with_items:
+    - { test_file: '{{ jmeter_test_file_dest }}', log_file: '{{ jmeter_test_log_dest }}', report_folder: '{{ jmeter_report_file_dest }}' }
+
+- name: Waiting JMeter test to complete
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  wait_for:
+    path: '{{ jmeter_report_file_dest }}/index.html'
+    timeout: 3600
+
+- name: Packaging test result
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  archive:
+    path: '{{ jmeter_report_file_dest }}'
+    dest: '{{ jmeter_report_file_archive }}'
+
+- name: Fetching test reesult tp {{ jmeter_report_local_dest }}
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  fetch:
+    src: '{{ jmeter_report_file_archive }}'
+    dest: '{{ jmeter_report_local_dest }}'

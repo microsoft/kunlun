@@ -19,6 +19,22 @@
           description: "Ask for your approval when do ssh host key checking."
         - value: "no"
           description: "Do not do host key checking."
+    - var_name: jmeter_load_test_enabled
+      persistent: true
+      description: "Do you want a load test after the deployment?"
+      candidates:
+        - value: 'True'
+          description: "To enable load tests..."
+        - value: 'False'
+          description: "To skip load tests..."
+  transitions:
+    - name: load_test
+      condition: "jmeter_load_test_enabled == 'True'"
+    - name: artifact_kind
+      condition: "jmeter_load_test_enabled == 'False'"
+
+- name: artifact_kind
+  questions:
     - var_name: kind
       description: "Which kind of artifacts do you want?"
       candidates:
