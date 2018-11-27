@@ -63,7 +63,7 @@ func (dp DeploymentBuilder) provisionJumpboxParameters(hostGroups []deployments.
 		for index := range hostGroup.Hosts {
 			hostGroup.Hosts[index].SSHCommonArgs = "-o UserKnownHostsFile={{.UserKnownHostsFile}}"
 			if hostGroup.GroupType != deployments.JumpboxHostGroupType {
-				hostGroup.Hosts[index].SSHCommonArgs = hostGroup.Hosts[index].SSHCommonArgs + fmt.Sprintf(" -o ProxyCommand=\"ssh -W %%h:%%p -q %s@%s\" -i {{.SSHPrivateKey}}", jumpboxUser, jumpboxHost)
+				hostGroup.Hosts[index].SSHCommonArgs = hostGroup.Hosts[index].SSHCommonArgs + fmt.Sprintf(" -o ProxyCommand=\"ssh -W %%h:%%p -q %s@%s -i {{.SSHPrivateKey}}\"", jumpboxUser, jumpboxHost)
 			}
 		}
 	}
