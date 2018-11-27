@@ -311,6 +311,31 @@ PEafR9rIcZtem6quAqEwMSUKcvca7+XO8VVvCalPoL6AafLOmqTwo0RsrX1sXIJr2yEmqRUuHCnM5uo5
 `,
 	},
 
+	"/built.in/kunlun.jmeter/defaults/main.yml": {
+		name:    "main.yml",
+		local:   "built.in/kunlun.jmeter/defaults/main.yml",
+		size:    94,
+		modtime: 1543323412,
+		compressed: `
+H4sIAAAAAAAC/yooys9KTS6JL8rPL7FS0M/NK9FPSSxJ1M/Ogcpw5SaWpebFZ+TnpsYXJBal5pXEp2QW
+pSaX5BdVWikoVVcrIBuhUFurj9CgBAgAAP//K4Yugl4AAAA=
+`,
+	},
+
+	"/built.in/kunlun.jmeter/tasks/main.yml": {
+		name:    "main.yml",
+		local:   "built.in/kunlun.jmeter/tasks/main.yml",
+		size:    461,
+		modtime: 1543323734,
+		compressed: `
+H4sIAAAAAAAC/4yRsW4yMRCEez/FiIbq+P8GJbKUF0gbpT4tsMDCndda7x1CiHePfCSXKhLlzni+sb0N
+pM9q3pp2HAMAJOo54sBsnaTDYbiuTjRSADa81Wq5DTyP7VDYIkzVQ2i+w5KKU1fjMM6KvRreaSS8QhI+
+N0PyIQCUva1+EVe7xuns2zJnipo5nXbnxv7lTMsnuoHf9g/2IWMnxltXEy4B2MvP8zL5MWJxu0Gce9zv
+i0nWS6qsqlMqsuke9NnvdccR/1/W62ksTs5xLrkG4CJ+bCuzPIqaCdbTyKk91ttmMk7ezpmJHf7cwEXO
+Muq5rE49O9sTn/AVAAD//1xlCSTNAQAA
+`,
+	},
+
 	"/built.in/kunlun.kubernetes/defaults/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.kubernetes/defaults/main.yml",
@@ -1664,6 +1689,341 @@ eW2MKQwCvbPFfZCcGPv9Hdoh4dFnUU4PT3CCmFg46L8CoKhV4jiI0yF92AIAptqijJFst7T9X7+tmPMZ
 X0UVI1VHTuKGgHEs525RUraXjPkox4aUq5rqni00ZS6mlM5NNnbjR03DTQGceg5bLQsXW8Ir2cl5j8Qu
 iJL3cC20X27gRILXLIrZfOVeYGev+Q8w1zgjnI6cbgi1dxeuFZUOK+mtkZfEuqfQzVhKnVg8l/LmYkVB
 3MFz5V3Q8uUXNCdYsf5+/O+baril7Kcn4ZmELXY/9r2RMY674jMAAP//7mjd03UCAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/.gitignore": {
+		name:    ".gitignore",
+		local:   "roles.galaxy/geerlingguy.java/.gitignore",
+		size:    28,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LSK0otKark0tKPjy+oTE5MzkiNj+fS0iuoTOYCBAAA//9p5D9xHAAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/.travis.yml": {
+		name:    ".travis.yml",
+		local:   "roles.galaxy/geerlingguy.java/.travis.yml",
+		size:    680,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/4RRzW7UMBC++ylGgmsSilApuVUQoUpbVlroeTVxJolbx2PZ49C8PUqyu8Ah29t4vh/P
+N5NlmbLouoQdleAn6dmpSGE0mmIJDesXCkqRG0sF0Fmu0c4VQAaH/a46/rh/rEp4xhEVwIASzOsZf9zv
+qq9Pu+r47eHnr8O+BE1OOH6+Dt9uwS01HPDjpjzVyUm6ufvw6Q3G7Tajodqg+3IdvlPKuChol028g4f1
+AUJRoCFPriGnDcVczS7eeDjxYWBLOlm6LLamlgMdow7Gy2r3FAlQS0IL9y6a2hJ8R4uvEwS2BA4HgpYD
+SE/gAz+TFmhMIC0cpvVL3UCeF0s5jICrSzbLs/eXq0FHFKxxXZem/G/7bLCBqn9HPSS3pD4lvaSbe0o5
+FtMajWLYxVnwm+qe+SWW0Iv4WBZFtwTLTxPmmocCvSnGm+I/caH+BAAA//+z0rE9qAIAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/LICENSE": {
+		name:    "LICENSE",
+		local:   "roles.galaxy/geerlingguy.java/LICENSE",
+		size:    1080,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/1SRTY/rJhiF9/yKo1nNSNb0Y1OpO8YmMa0NEZCbZunYOKZyIDKko/n3FU7mzr0ry7wf
+5zznNZNFyw0a11sfLZ5bbl4IKcP1Y3HnKeG5f8Hvv/72B/6y44ittcvs/JmQnV0uLkYXPFzEZBd7+sB5
+6XyyQ4FxsRZhRD91y9kWSAGd/8DVLjF4hFPqnHf+jA59uH4gjCRNLiKGMb13i0XnB3Qxht51yQ4YQn+7
+WJ+6lPVGN9uI5zRZPOnHxNPLKjLYbobzJNc+S3h3aQq3hMXGtLg+7yjgfD/fhuzhszy7i3so5PEVPyIF
+cou2WH0WuITBjflrV6zr7TS7OBUYXF59uiVbIObHNc0ic/wSFkQ7z3mDs/HO+uVu7cnWrznQ9Igo6+J9
+Chf8ROIixtviXZzsOjMExFCQeDv9a/uUX3L7GOY5vGe0PvjBZaL4JyH51N0p/GdXlvt1fUiuv8e9HuD6
+ddVHKU7dPONkH4HZAc6jm2fyibNk4Jg6n1w34xqWVS8f/0frr4SYmkHLjTlQxcA1dkp+4xWr8EQ1uH4q
+cOCmlnuDA1WKCnOE3ICKI/7moirA/tkppjWkIrzdNZxVBbgom33FxRZvewMhDRrecsMqGIks+FjFmc7L
+WqbKmgpD33jDzbHAhhvBtCYbqUCxo8rwct9Qhd1e7aRmoKKCkIKLjeJiy1omzCu4gJBg35gw0DVtmlWK
+7k0t1eqvlLuj4tvaoJZNxZTGG0PD6VvDsEqJI8qG8rZARVu6ze4UpKmZWtse7g41y0+EC1ABWhouRcYo
+pTCKlqaAkcp8Hz1wzQpQxXUOZKNkWyDHKTe5hQtSSiHYfUuOGj9dRKr1f6/Zl5eK0YaLrc7EPza/kv8D
+AAD//1W10mo4BAAA
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/README.md": {
+		name:    "README.md",
+		local:   "roles.galaxy/geerlingguy.java/README.md",
+		size:    1684,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/7xVwW7jNhA9l1/xGh+8ASIpKRbdwGhQeOu0SbrbFHG6l6DwjqWRxZgmWZKS139fkJK9
+SZsWRQ+rEzEezsx78x49wlR7uVSMO6N4ghvqSIiHrx/etlJVmAcKrf/9VROC9ZOiCI466bNS5satihWz
+U1KvVu2uoL5M5ozi7JE6yn23+n7pSJfNxYZ8YHf8v+ocC3GtfSClfJoOtXG44+qKQvED63A7B+kKM15K
+0sVvy1aHFkrq9hM8u46dz4UYjXDHf7TS8YZ18EL8YjQPcaMYH8hJWir2Qkw7kiqe0e2DIMdQ0geusGRl
+ticgZfQKWxkaVFxTqwI6Ui37iRAAMMJ9w/ufPKwznazi9R1CIz0ivFTWWy5lLUsEA6ayQSV9cHLZBml0
+nmpFFhaWyjWtYn2kL0vh7Cx/k59mxrJ+rNZCzDkgNIwIWxpdVNyxMjaCxloGmLrnMBjIntRnUEjvYELD
+DppL9p7crs/fd88xNxsecoyNM3pIXaq26uEM5wpSp0GeoskOWGsZWU0pAxdjj/GerTFqoyp2ufgMvzEb
+nuDoSIjrGp7DSaqeWNxKpWIoRVbKLEmBdSed0Qn3fo34eDP9MF1c3b6//BgJSL3T0nohzNiyrliXkp8J
+5PITbaxi/KpotzRmjVetl3p12PvAzQla35JSO9xa1jezn/HmuAeQoTE++Mlej8MG4/CHdcasJzbIH5MP
+X+w+LO7Q5vxYiB+jJ64u36FA74nJi63/qbNL3v9bfxy+bcN6gqPBnAvjFzVtpNrh4gLj3ozjoyf5L0r2
+L8I9fyrcCGDw7nc4+zY/ff2vCAL59TMEmqI+Bmridhxbk56KpN/zKLa+vgC+6m+RDYuY5mUwbjdJVy7G
+1tJkGCtzhbU0Tm2+HJ39S/bf6dwPe54lJkcjvJMla89CvL++R4G381kKT9vQGIdrXRu3oehIIe4Pj9GW
+PErHFHrzfnN69jq+Vg83XNf4acDy+QXfbrf5I9f1HmVemk1xfALqm5gaD/t/lriFGXe31j+/PsCvjau4
+M9b3JXLxZwAAAP//NMAsFpQGAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/defaults/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/geerlingguy.java/defaults/main.yml",
+		size:    138,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/1TMoQ7CMBSFYX+f4mQzILoERTKNAoFAEkJu6CkrK+2ytiO8PQGH+cUvPmOMtDix4KGL
+Xie9jXpnhnd4p4pXqsEi+JEoCTUTCuud48xYsHDOPkWUQb+htLB0WkPB6jgx7ncHbLrtupP2n+9xvoj8
+1pCe7NE08gkAAP//zFLIsooAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/meta/.galaxy_install_info": {
+		name:    ".galaxy_install_info",
+		local:   "roles.galaxy/geerlingguy.java/meta/.galaxy_install_info",
+		size:    59,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/6rOzCsuSczJiU9JLEm1UlAPKU1V8MsvUzAyVzAwtTIxtzI1VDAyMLRQ11EoSy0qzszP
+s1Iw1LPUM6nlAgQAAP//3SK2GjsAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/meta/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/geerlingguy.java/meta/main.yml",
+		size:    642,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/3xSwa7TMBC8+ytWPYH08gRPCKQcS0ECpafCCaFq40zTLc46sp204etRi0HJJbeZ2Z0Z
+23JRFKZBD22gVhBL+vHTmJYd36aj6MmXhoiHdPahpBYITrRth8kQNYg2SJ/Ea0lfeWQ6+UCV6HAzRNZ3
+PetU0mYvzRUxISjt2T5RVX3cGCInFhpR0iYjerU97J5o/+Xb6/u8Ez2yRqkdjiNCfNS8PL8zRL3jdPKh
+i/fDERWk3KGkT9WDEuX1PP678n6GPyxsn9H4wCtWdm5h2KEW1hXD9Qz8nmbCBTEKZkJMAcmeF7Hf60HT
+sBLbB1iJ85gUhpjmRTeosJsJtXgVu7xvALaH3UrR2zfPL4Yo/4LE7f+HbjDC+b6DpqzEKSZ0mVxRZ3Th
+kf/B5ldGvofOWGDrYP4EAAD//8fvDIyCAgAA
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default/molecule.yml": {
+		name:    "molecule.yml",
+		local:   "roles.galaxy/geerlingguy.java/molecule/default/molecule.yml",
+		size:    587,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/2yRwc7bIBCE7zwFsnqlPrbi9jd/DlWSukrbQ08WgQWtsoAF2KpV5d0rHEexoh6Z3VnN
+fAghmIEBgoGgZ8k4D8qD5E6R+jMzk3CC9JRN1FdIjDCUpzgrT1VhnMehYAy5zjjXMVh0wiKB5D4S6JGg
+NWDVSKWtLlFtH2dPbCBVbEx+sYr1MIZcVNCwXEOvHEjeOIBEGJwb5/YeR3z4e+qO+92v475///rj57mT
+QkMoMX+6CRUyXggkqQK5NGsw71Uwkm+N3e6wP/e77nR6+/YuRdPclt0p0uhhbVSjtXnOrc2tdimOg3x5
+prgsDgknJHBgJC9phFWE/jIimX7tskyGFCfMGMOW85qacf5A/TIRK/CB1HyJ8fpEPkGqtzfVvh/ffn/p
+uoMUj+2K/MayhqASxs333v+GTZDQ4jZQhYfBJvWfSJbUFT6zfwEAAP//N6iYOEsCAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default/playbook.yml": {
+		name:    "playbook.yml",
+		local:   "roles.galaxy/geerlingguy.java/molecule/default/playbook.yml",
+		size:    250,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/zyOsW7EIBBEe75iuqt8uioFkqvkF1KjtT2HSdZgAXZ0fx/BXVLuvnmjGYbBDIiy0eI9
+xZPZ0wBrKrVYiKoBJs6p8ZoPGgPsma5K+S7WAMCf/rkvUgnZK2aZV147RXtYHB26DsZW9My4UzQsroaN
+49vt9jJ+VkYLiSVMSpeKu8sW9IFxxOWDU5B4eSXnVaLn4p7GXbT0hTkp/9e1w8KTWUP0/nhcv+QU8xsA
+AP//+AGYsPoAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default/tests/test_default.py": {
+		name:    "test_default.py",
+		local:   "roles.galaxy/geerlingguy.java/molecule/default/tests/test_default.py",
+		size:    313,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/4SNQUsDMRCF7/Mr5pbdS3oX9iCyQmFtoaggImHVSQ3ETJmZFX++JCtiT73Ne99789Ln
+icWQFeD3NFJLJcrsF0tZ/Vw0vWYKspRCAvDHwwerKQ4XGv56lYemOkBEZPVUvpJweXZ3+2m8eZjGsN09
+jrv7/eEp3G6n0b30/ki2jnRuztn1APBOse2tfogpU1fP/qo9jjhglb4BtyF727RkLdfArEpiGD19JzU9
+9xYlwWFAJ8zmztlReDn9gz8BAAD//0bYjWs5AQAA
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default/yaml-lint.yml": {
+		name:    "yaml-lint.yml",
+		local:   "roles.galaxy/geerlingguy.java/molecule/default/yaml-lint.yml",
+		size:    75,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/xzHvQ2EMAwF4N5TvAUs3VF6m0h5hEjGRX4g4yMoP1UVrsHI3ZC5p+lD2nR2E8BrUJ1R
+xvESONMy/LffB+dFN9ypRY0iTwAAAP//nEpPuUsAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/tasks/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/geerlingguy.java/tasks/main.yml",
+		size:    1630,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/7RUT0/bThC9+1PMj98h7cEOQqgHSxwopEoRFRJRe6kqa+wdxwPrXWt37DaCfPfKfwJO
+SQSR2pyinbdv3ps33jAMgxAMlhTDZ5PpWhHcLEJfUcY5Z9CgY0w1ecitg0+krENo/zmij4vLKADg/lrS
+oPMxHD08ABrPqaZEsRfHaS1sDazX0arURwHAz4JMvBt0dgaTgXrSttkP6pRMghfiG3Kerdnn4IKM3Cym
+t/PZ9Q7tt6TmKOEeC8nAHflKs7ybRJP3349/vN1Y37v1FcDw24u9JQVzFJgZIVc59gTXbOpfb749Rzl8
+Ol/T2kh9UKj/ali9lMMtXFLKaN5u4VFYNP09I9YnOZasV52LXs3IxSXlbAjusMGkwuwel+RbsZ4kyTGT
+uAt3q9xrT5KtQ3gEzV5gvX6WsA1gD8YKqK6hCoL/YUFSV1M2XlBrEPT3PgrCpzl1B3GrpK7CfoNai684
+HK3aTqIhj9eJRqPaSbR5cV5n2jwgreeZadhZU5KRnid6imJBAlfn386T+c2XGXAOmTU5L2tHqk1EqKw0
+CvWJeJcNAy5sSZEvoruTrqDISwxTkmxaOZuzpkhNx8AOVVpFMRx/OD3dTqvFtEkNKQEaNSr8dwaT0e5c
+FJTdgxQEV9jg5kMIADJblmhUzwnhqFCgWZJK+o45ak8BgKMleyE3aNjAn3eUfaVx9aJTOxVFab3sR9Lg
+nwzdKbnUepZVDCfB7wAAAP//XLGXiV4GAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/tasks/setup-Debian.yml": {
+		name:    "setup-Debian.yml",
+		local:   "roles.galaxy/geerlingguy.java/tasks/setup-Debian.yml",
+		size:    435,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/3yQP4/bMAzFd30KIhk8yWrQIEgMBJ26dC06B5TNymxt2SCptEGQ735wcv9www1cHh8f
++aP33q3hJ1EDvdmsTQixJK07ioy5niSFNrGPnBddaJ7E6jbxt1jScb/7ujkcAHPn1q/jia0vsW6nMSQi
+GTinVC4Bs3IcyMs0kP+DZwysWkjDbus8ZBypge9ZixBUI+YKOhZqbZIL0H9W09oB/OaBGgcAMKP1DYSi
+ErRHoTBiXmpz76qhUfMWcReF2iJKDZgUcgD/esqPMA/P1506VhOOxXjKcDxC9SuWbKX6xHY6k+iLfbOv
+v2wr95HoB54RWIGzGg4DdQsMzvZY/7CurldY/nKasf2LiRRut9V7mllIKZt7CgAA///R8n0gswEAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/tasks/setup-FreeBSD.yml": {
+		name:    "setup-FreeBSD.yml",
+		local:   "roles.galaxy/geerlingguy.java/tasks/setup-FreeBSD.yml",
+		size:    297,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/3yNwWqFMBBF9/mKi/vUfSDLbvoTZTATsWoMmWgp4r8XE32Lx+PtLsyZc7TWSiPQzAaf
+QdbE+KKNMAiGIJmmid2HAuLYh94oABfc7Dt+aKPvSN1IPQuOoyl3yZTZICYWDlk99Fz1MS3dqZ+XNWR2
+CnWZQtm2nL3kv8j23F4gqSsTS8xi028t2FvwHPCO5V3B8dZ6dzcKfUXq5+vKfwAAAP//iU6juikBAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/tasks/setup-RedHat.yml": {
+		name:    "setup-RedHat.yml",
+		local:   "roles.galaxy/geerlingguy.java/tasks/setup-RedHat.yml",
+		size:    100,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/yzKMQoCMRAF0H5O8dl+PEB6Gy8hHx1kdR1CZkwTcndhSf2eqorC+bWCq8evGW7sxB7Y
+PZLHYc+LAJWPD19WBMDq2xh4s/O+LDDndnok0wpqszBP+QcAAP//e/1PuWQAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/templates/java_home.sh.j2": {
+		name:    "java_home.sh.j2",
+		local:   "roles.galaxy/geerlingguy.java/templates/java_home.sh.j2",
+		size:    33,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/0qtKMgvKlHwcgxzjPfw93W1ra5WyEosS4zPyM9NVait5QIEAAD//+3CYF0hAAAA
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Debian-8.yml": {
+		name:    "Debian-8.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Debian-8.yml",
+		size:    121,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnXNdLNSstHEzMFi8fEg5fEFicnZiempxVZcmEoAAQAA///55LadeQAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Debian-9.yml": {
+		name:    "Debian-9.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Debian-9.yml",
+		size:    101,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnUtdLNSsrni40FS8QWJydmJ6anFVlyYSgABAAD//4zCR5dlAAAA
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Fedora.yml": {
+		name:    "Fedora.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Fedora.yml",
+		size:    111,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS0Ri6hrq
+WegZ6OYXpOZlpWRzxceDBOMLEpOzE9NTi624cKgDBAAA///w1sYubwAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/FreeBSD.yml": {
+		name:    "FreeBSD.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/FreeBSD.yml",
+		size:    120,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWSMsvUnArSk11CnZRyMxLzilNSbXiUlZQ
+UNBVyC9IzctKyUblmaFyLbji47MSyxLjCxKTsxPTU4utuJC1AgIAAP//yIk20HgAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/RedHat-6.yml": {
+		name:    "RedHat-6.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/RedHat-6.yml",
+		size:    136,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS0Ri6hrq
+mekZ6OYXpOZlpWSjSpgjScTHgwTjCxKTsxPTU4utuHCoAwQAAP//qj5Wu4gAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/RedHat-7.yml": {
+		name:    "RedHat-7.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/RedHat-7.yml",
+		size:    161,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS0Ri6hrq
+mekZ6OYXpOZlpWSjSpjjkrBAkoiPBwnGFyQmZyempxZbceFQBwgAAP///Nhn8KEAAAA=
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Ubuntu-12.yml": {
+		name:    "Ubuntu-12.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Ubuntu-12.yml",
+		size:    121,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnXNdLNSstHEzMFi8fEg5fEFicnZiempxVZcmEoAAQAA///55LadeQAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Ubuntu-14.yml": {
+		name:    "Ubuntu-14.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Ubuntu-14.yml",
+		size:    121,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnXNdLNSstHEzMFi8fEg5fEFicnZiempxVZcmEoAAQAA///55LadeQAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Ubuntu-16.yml": {
+		name:    "Ubuntu-16.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Ubuntu-16.yml",
+		size:    121,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnUtdLNSstHELMFi8fEg5fEFicnZiempxVZcmNoAAQAA//+cbizTeQAAAA==
+`,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars/Ubuntu-18.yml": {
+		name:    "Ubuntu-18.yml",
+		local:   "roles.galaxy/geerlingguy.java/vars/Ubuntu-18.yml",
+		size:    103,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSVvBy8VYoSy0qzszPU8gvKMnMzytWyMxLzilNSbXiUlZQUNBVyEosS4Qy8wtS
+87JSsnUNDXWzUrK54uNBcvEFicnZiempxVZcWNQAAgAA//9+gvnaZwAAAA==
 `,
 	},
 
@@ -5030,6 +5390,129 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 `,
 	},
 
+	"/roles.galaxy/wikivoks.jmeter/README.md": {
+		name:    "README.md",
+		local:   "roles.galaxy/wikivoks.jmeter/README.md",
+		size:    1317,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/2yUz47bNhDG73yK71IgAbzatLm0BnpQkR520QRFGmzOI2pkMUtxVA5lRSh665P00fok
+xUjetZ1EJ4ueP9/8vqHqpKGJjPcSeY96JN8z7t9y4YzX1Wv389Pj6oTLYJSeCkLSQjFeJzr3oefro//+
++Rc0jjF4KkESgkJGTlCZsmeodGWmzDsQvn/16juMU2bc05GuslrWcEjcogiiUIvCWtBNydvfFNFwT8cg
+GZRaDExqZUbOneSBkucKdwUzKSSHQ0gU43Iu2kleC4Z0wEduUJ87K5qpoCeFhuQZ/Hmk1G5CpPScr5Vo
+5dx7/nMKmQdORd3NxeNOdPMWoCB0kwnxMowxUCq4f3iLH3eYGdQeg55YLzI98460NhxCkowjZzU80qH0
+ooyBPp2PtdpA/mTQk5RVKrdbOy4cFxiQ7uz6DybfLH6gHKiJfD3AzY1ztWHzOYzluTFDuRQLx/Epb2Pa
+B0W2etrLFFscBD2b2SH5OLXGm9JykbWOS5kRzPOOplj0dqCQqmWIOwu8fDWvv5HvKd2eGjarNhwDYaRM
+g82p5p2pNmUV6m8LyEwtuizDyWYLVut4uw7GOERpKEK9jIwXgSv0osUU7nDIMo3YfnPx1Uuc9dheBLG1
+MxTmwMwxVs694ZFTy8mHL7A7904SV3gnhfdPZtlK3tcPZscpbang3K+fyczF75GWRuTxC/+s2N0Fe/Ap
+Xjr0MhuZSdkWbpsYL8zHdfeS5x3mUPoLWiOpcmtmkV4AfmkLR3GmRZGC53UZJt3Qy945ALhZeekeytkW
+dj3Exnl/elnD/lrP9pjDYzjKo1af1i7427nfguek7J5n++WPN87VU+kl4y6tl99gf0XBYj88b6d9F3xm
+ssvRLPj41Aju/wAAAP//YDnz+yUFAAA=
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/defaults/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/defaults/main.yml",
+		size:    204,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/zzOwW7EIAwE0DtfYdEz4bA3fga5xFmoCEa22Sp/X6lp9zgjzdOEEBx8wE4Hrm4KR+sE
+BwsUlK48wrVOB18nGUlWXlIody5ojUcCX82mphhRSm0v2nBiqbSxPOPe1OI9jJ9toDRS/6Yqn5QnCg3L
+exMqxnIliDzNAX8PkryUJIH3//kpvOZd/CEvEv398dgeDtxPAAAA//9pbjJzzAAAAA==
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/handlers/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/handlers/main.yml",
+		size:    5,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/meta/.galaxy_install_info": {
+		name:    ".galaxy_install_info",
+		local:   "roles.galaxy/wikivoks.jmeter/meta/.galaxy_install_info",
+		size:    60,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/6rOzCsuSczJiU9JLEm1UlAPKU1V8MsvUzAyVzAwtTKxsDIwUDAyMLRQ11EoSy0qzszP
+s1LITSwuSS2q5QIEAAD//+bZ/Ao8AAAA
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/meta/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/meta/main.yml",
+		size:    1834,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/5RVTW/kNgy9+1c8YA+7C0ycJkVRxLd8bNMUKRJgti2KxWLAkekxG1ky9OFk+usLyR7H
+06JF6pNE8z1S5KO0I00v+42YxlYFQDG01lX4TZ7kV/vkC6Bmr5z0Qayp8FPHgR3E+EBaUzIWgLJdT2Y/
+woYEK4B3uGsQWoZ4HxnBkXpih8Y67G10cFanfzA2wBrsJLRxu0I0ynYdm5CwmcbwS4AWwyBTo3d2kJpB
+GEjH0SNH2EwRNtHpCm0IfXV6yi/U9ZpLZbvT7HU6eY0Zrm3H8HG3Yx+4hhbFxrOv8s8TXK1v8KHmhqIO
+Hyfbz3efp9Xt4/1wvlh/O60ve1JT6ie4vj65+r3AgbpKnCl2J2ZDxstW82Zg53N1z8rzReXEg3BtTSAx
+7PDJ0FZzneu2msuQCtyJkS52uBz5FpiJucyky5Dq4DIHHwM/5D6T1nv4npU0+xxh68ioFrdZLHgWrRE9
+47llA1KKvRezy563En6M28zluLe53fkoKe0SN9Elz7H3o4hWkAbGItDOgxyDBhKdzrrKNH8PmtnGhGY+
+6XrrwpHrmBYa0eyRVfruGHrX4LOjQTzEBN65LOYkSGVNI7vouF7BGr1PCpVGVHbw84ky41SYHHHLOWgf
+uC7xEFp2z+J5BTEgraHIs1/lIqXKvPeYlDWRZL4P0cdc/Y58YPdxZo6e69zGcU42I2bsWkb2mkJjXeeR
+daPFB9jm1bzK08Ok2tmGlpKroW4crVfUJApf/pP+MBsJVeEHrq2jbMKMqqb9STr3vD7/7giZRu9xIn0T
+/qz8Zl5/P68uLsqLiwLH+WGO8uk+b4+5x+/A/up82dGfWSlvBdzwVuj/AH7ZRhPifwB6x0o8LyyOksIX
+Bk9R7Rf74KIPS8MLG6HjuOs4c74lzbXV5LLC/w1xdlam6256PdLoHur+R34hpk3PLjWFjOLJQofLMW3W
+D5ePRUFa2+dNHXudZox9hT37oqi5Z1OzUZJMX77mlt8ngb4+H0sftOw4TSynsPnBKHGVrnfHCBaOOzuM
+F+b7L1/fg7Z2mK4YaRInqK6PGYMdr4w0FuVfAQAA//8snlePKgcAAA==
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/tasks/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/tasks/main.yml",
+		size:    632,
+		modtime: 1543324083,
+		compressed: `
+H4sIAAAAAAAC/4yRQW+jQAyF7/Mr3uaSywJ3pD3tT9jtGU0HJ7iBAdkmLUX894pAQqpWao7jZz9/z5Mk
+iUsQfUM5/lYUThyP4ANeGjISsMLXQr4cwFHN1zWVDlDzlsMBQOetyrEbx3WkqNqGis4LRStKFgrWyoBp
+ynznQ0XJ0pZsA2cS5TZimnYOEDqyGkl+le/33lCfopdQ8ZnWLgf011J+4VIJn7C07SVQUbfB27LtAaDU
+ju+7i11Jahe/xp8pfh9yCQCEthtyxNYBrxXFr0nS+X4pvbGa4tcf/Jee3PYNQt4I/4am5nhSBxy4XlMt
+GPtxBBs16fzENO23xDdJJWyKeaMcs93MxFYVc48ungnGdTb7Id4DF8ueOWZLdf/7ipv1KvcCJvcRAAD/
+/7hf2z94AgAA
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/tests/inventory": {
+		name:    "inventory",
+		local:   "roles.galaxy/wikivoks.jmeter/tests/inventory",
+		size:    11,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/8rJT07MycgvLuHiAgQAAP//+nKR6wsAAAA=
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/tests/test.yml": {
+		name:    "test.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/tests/test.yml",
+		size:    64,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/xzIwQmAQAwEwH+q2AbSQJoRkQWRHAtJ7F+83zDubo5bPR1IXWf+NqC4NDzeZgVK2qdk
+hwGA41kc1hcAAP//ohEGQEAAAAA=
+`,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/vars/main.yml": {
+		name:    "main.yml",
+		local:   "roles.galaxy/wikivoks.jmeter/vars/main.yml",
+		size:    5,
+		modtime: 1543323298,
+		compressed: `
+H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
+`,
+	},
+
 	"/built.in": {
 		name:  "built.in",
 		local: `built.in`,
@@ -5087,6 +5570,24 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 	"/built.in/kunlun.glusterfs/tasks": {
 		name:  "tasks",
 		local: `built.in/kunlun.glusterfs/tasks`,
+		isDir: true,
+	},
+
+	"/built.in/kunlun.jmeter": {
+		name:  "kunlun.jmeter",
+		local: `built.in/kunlun.jmeter`,
+		isDir: true,
+	},
+
+	"/built.in/kunlun.jmeter/defaults": {
+		name:  "defaults",
+		local: `built.in/kunlun.jmeter/defaults`,
+		isDir: true,
+	},
+
+	"/built.in/kunlun.jmeter/tasks": {
+		name:  "tasks",
+		local: `built.in/kunlun.jmeter/tasks`,
 		isDir: true,
 	},
 
@@ -5369,6 +5870,60 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 	"/roles.galaxy/geerlingguy.glusterfs/tasks": {
 		name:  "tasks",
 		local: `roles.galaxy/geerlingguy.glusterfs/tasks`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java": {
+		name:  "geerlingguy.java",
+		local: `roles.galaxy/geerlingguy.java`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/defaults": {
+		name:  "defaults",
+		local: `roles.galaxy/geerlingguy.java/defaults`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/meta": {
+		name:  "meta",
+		local: `roles.galaxy/geerlingguy.java/meta`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule": {
+		name:  "molecule",
+		local: `roles.galaxy/geerlingguy.java/molecule`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default": {
+		name:  "default",
+		local: `roles.galaxy/geerlingguy.java/molecule/default`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/molecule/default/tests": {
+		name:  "tests",
+		local: `roles.galaxy/geerlingguy.java/molecule/default/tests`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/tasks": {
+		name:  "tasks",
+		local: `roles.galaxy/geerlingguy.java/tasks`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/templates": {
+		name:  "templates",
+		local: `roles.galaxy/geerlingguy.java/templates`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/geerlingguy.java/vars": {
+		name:  "vars",
+		local: `roles.galaxy/geerlingguy.java/vars`,
 		isDir: true,
 	},
 
@@ -5875,6 +6430,48 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 		local: `roles.galaxy/nginxinc.nginx/vars`,
 		isDir: true,
 	},
+
+	"/roles.galaxy/wikivoks.jmeter": {
+		name:  "wikivoks.jmeter",
+		local: `roles.galaxy/wikivoks.jmeter`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/defaults": {
+		name:  "defaults",
+		local: `roles.galaxy/wikivoks.jmeter/defaults`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/handlers": {
+		name:  "handlers",
+		local: `roles.galaxy/wikivoks.jmeter/handlers`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/meta": {
+		name:  "meta",
+		local: `roles.galaxy/wikivoks.jmeter/meta`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/tasks": {
+		name:  "tasks",
+		local: `roles.galaxy/wikivoks.jmeter/tasks`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/tests": {
+		name:  "tests",
+		local: `roles.galaxy/wikivoks.jmeter/tests`,
+		isDir: true,
+	},
+
+	"/roles.galaxy/wikivoks.jmeter/vars": {
+		name:  "vars",
+		local: `roles.galaxy/wikivoks.jmeter/vars`,
+		isDir: true,
+	},
 }
 
 var _escDirs = map[string][]os.FileInfo{
@@ -5883,6 +6480,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/built.in/kunlun.datadisk"],
 		_escData["/built.in/kunlun.deploysourcecode"],
 		_escData["/built.in/kunlun.glusterfs"],
+		_escData["/built.in/kunlun.jmeter"],
 		_escData["/built.in/kunlun.kubernetes"],
 		_escData["/built.in/kunlun.php"],
 	},
@@ -5927,6 +6525,19 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/built.in/kunlun.glusterfs/tasks/main.yml"],
 	},
 
+	"built.in/kunlun.jmeter": {
+		_escData["/built.in/kunlun.jmeter/defaults"],
+		_escData["/built.in/kunlun.jmeter/tasks"],
+	},
+
+	"built.in/kunlun.jmeter/defaults": {
+		_escData["/built.in/kunlun.jmeter/defaults/main.yml"],
+	},
+
+	"built.in/kunlun.jmeter/tasks": {
+		_escData["/built.in/kunlun.jmeter/tasks/main.yml"],
+	},
+
 	"built.in/kunlun.kubernetes": {
 		_escData["/built.in/kunlun.kubernetes/defaults"],
 		_escData["/built.in/kunlun.kubernetes/tasks"],
@@ -5964,6 +6575,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/roles.galaxy/geerlingguy.firewall"],
 		_escData["/roles.galaxy/geerlingguy.git"],
 		_escData["/roles.galaxy/geerlingguy.glusterfs"],
+		_escData["/roles.galaxy/geerlingguy.java"],
 		_escData["/roles.galaxy/geerlingguy.kubernetes"],
 		_escData["/roles.galaxy/geerlingguy.mysql"],
 		_escData["/roles.galaxy/geerlingguy.php"],
@@ -5971,6 +6583,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/roles.galaxy/geerlingguy.php-redis"],
 		_escData["/roles.galaxy/geerlingguy.redis"],
 		_escData["/roles.galaxy/nginxinc.nginx"],
+		_escData["/roles.galaxy/wikivoks.jmeter"],
 	},
 
 	"roles.galaxy/geerlingguy.composer": {
@@ -6207,6 +6820,67 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/roles.galaxy/geerlingguy.glusterfs/tasks/setup-Debian.yml"],
 		_escData["/roles.galaxy/geerlingguy.glusterfs/tasks/setup-RedHat.yml"],
 		_escData["/roles.galaxy/geerlingguy.glusterfs/tasks/setup-Ubuntu.yml"],
+	},
+
+	"roles.galaxy/geerlingguy.java": {
+		_escData["/roles.galaxy/geerlingguy.java/.gitignore"],
+		_escData["/roles.galaxy/geerlingguy.java/.travis.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/LICENSE"],
+		_escData["/roles.galaxy/geerlingguy.java/README.md"],
+		_escData["/roles.galaxy/geerlingguy.java/defaults"],
+		_escData["/roles.galaxy/geerlingguy.java/meta"],
+		_escData["/roles.galaxy/geerlingguy.java/molecule"],
+		_escData["/roles.galaxy/geerlingguy.java/tasks"],
+		_escData["/roles.galaxy/geerlingguy.java/templates"],
+		_escData["/roles.galaxy/geerlingguy.java/vars"],
+	},
+
+	"roles.galaxy/geerlingguy.java/defaults": {
+		_escData["/roles.galaxy/geerlingguy.java/defaults/main.yml"],
+	},
+
+	"roles.galaxy/geerlingguy.java/meta": {
+		_escData["/roles.galaxy/geerlingguy.java/meta/.galaxy_install_info"],
+		_escData["/roles.galaxy/geerlingguy.java/meta/main.yml"],
+	},
+
+	"roles.galaxy/geerlingguy.java/molecule": {
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default"],
+	},
+
+	"roles.galaxy/geerlingguy.java/molecule/default": {
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default/molecule.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default/playbook.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default/tests"],
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default/yaml-lint.yml"],
+	},
+
+	"roles.galaxy/geerlingguy.java/molecule/default/tests": {
+		_escData["/roles.galaxy/geerlingguy.java/molecule/default/tests/test_default.py"],
+	},
+
+	"roles.galaxy/geerlingguy.java/tasks": {
+		_escData["/roles.galaxy/geerlingguy.java/tasks/main.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/tasks/setup-Debian.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/tasks/setup-FreeBSD.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/tasks/setup-RedHat.yml"],
+	},
+
+	"roles.galaxy/geerlingguy.java/templates": {
+		_escData["/roles.galaxy/geerlingguy.java/templates/java_home.sh.j2"],
+	},
+
+	"roles.galaxy/geerlingguy.java/vars": {
+		_escData["/roles.galaxy/geerlingguy.java/vars/Debian-8.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Debian-9.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Fedora.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/FreeBSD.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/RedHat-6.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/RedHat-7.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Ubuntu-12.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Ubuntu-14.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Ubuntu-16.yml"],
+		_escData["/roles.galaxy/geerlingguy.java/vars/Ubuntu-18.yml"],
 	},
 
 	"roles.galaxy/geerlingguy.kubernetes": {
@@ -6740,5 +7414,41 @@ var _escDirs = map[string][]os.FileInfo{
 
 	"roles.galaxy/nginxinc.nginx/vars": {
 		_escData["/roles.galaxy/nginxinc.nginx/vars/main.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter": {
+		_escData["/roles.galaxy/wikivoks.jmeter/README.md"],
+		_escData["/roles.galaxy/wikivoks.jmeter/defaults"],
+		_escData["/roles.galaxy/wikivoks.jmeter/handlers"],
+		_escData["/roles.galaxy/wikivoks.jmeter/meta"],
+		_escData["/roles.galaxy/wikivoks.jmeter/tasks"],
+		_escData["/roles.galaxy/wikivoks.jmeter/tests"],
+		_escData["/roles.galaxy/wikivoks.jmeter/vars"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/defaults": {
+		_escData["/roles.galaxy/wikivoks.jmeter/defaults/main.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/handlers": {
+		_escData["/roles.galaxy/wikivoks.jmeter/handlers/main.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/meta": {
+		_escData["/roles.galaxy/wikivoks.jmeter/meta/.galaxy_install_info"],
+		_escData["/roles.galaxy/wikivoks.jmeter/meta/main.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/tasks": {
+		_escData["/roles.galaxy/wikivoks.jmeter/tasks/main.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/tests": {
+		_escData["/roles.galaxy/wikivoks.jmeter/tests/inventory"],
+		_escData["/roles.galaxy/wikivoks.jmeter/tests/test.yml"],
+	},
+
+	"roles.galaxy/wikivoks.jmeter/vars": {
+		_escData["/roles.galaxy/wikivoks.jmeter/vars/main.yml"],
 	},
 }

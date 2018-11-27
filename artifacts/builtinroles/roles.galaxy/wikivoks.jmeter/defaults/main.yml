@@ -1,0 +1,8 @@
+---
+ # defaults file for carlson-yum
+ jmeter_source_location: "https://archive.apache.org/dist/jmeter/binaries"
+ jmeter_home_parent_directory: /opt
+ owner_user: ""
+ owner_group: ""
+ jmeter_version: 3.3
+ 

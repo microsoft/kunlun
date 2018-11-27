@@ -53,6 +53,10 @@
       candidates:
         - value: kubernetes
           description: "To deploy a kubernetes cluster."
+        - value: jmeter
+          description: "To deploy a jmeter cluster."
   transitions:
     - name: kubernetes
       condition: "infra_type == 'kubernetes'"
+    - name: jmeter
+      condition: "infra_type == 'jmeter'"

@@ -1,0 +1,17 @@
+- name: jmeter
+  questions:
+    - var_name: "jmeter_deployment_type"
+      description: "Choose your deployment type:"
+      candidates:
+        - value: small_jmeter
+          description: "Deploy a small cluster of jmeter."
+  transitions:
+    - name: small_jmeter
+      condition: "jmeter_deployment_type == 'small_jmeter'"
+
+- name: small_jmeter
+  questions:
+  - var_name: "final_artifact"
+    persistent: true
+    description: "Guess your final artifact is:"
+    default: "small_jmeter.yml"

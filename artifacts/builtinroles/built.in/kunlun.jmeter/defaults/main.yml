@@ -1,0 +1,2 @@
+project_root: /mnt/data/klproject
+maven_home_parent_directory: "{{ project_root }}/maven_home"

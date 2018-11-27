@@ -14,6 +14,8 @@ pushd $DIR/../artifacts/builtinroles
   ansible-galaxy install nginxinc.nginx
   ansible-galaxy install geerlingguy.docker
   ansible-galaxy install geerlingguy.kubernetes
+  ansible-galaxy install geerlingguy.java
+  ansible-galaxy install wikivoks.jmeter
 popd
 
 pushd $DIR/../artifacts/builtinroles

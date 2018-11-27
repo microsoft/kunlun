@@ -1,0 +1,23 @@
+- import_role:
+    name: geerlingguy.java
+  become: true
+  become_user: root
+
+- name: installing repo for Java 8 in Ubuntu
+  apt_repository: repo='ppa:openjdk-r/ppa'
+  become: true
+  become_user: root  
+
+- name: Setup directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ ansible_user }}"
+    mode: 0755
+    state: directory
+  with_items:
+    - "{{ maven_home_parent_directory }}"
+
+- import_role:
+    name: wikivoks.jmeter
+  become: true
+  become_user: root

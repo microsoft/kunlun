@@ -1,0 +1,20 @@
+---
+- name: Checking if jmeter is already installed
+  stat: 
+    path: "{{ jmeter_home_parent_directory }}/apache-jmeter-{{ jmeter_version }}"
+  register: jmeter_installed
+  
+- name: Unarchive jmeter
+  unarchive:
+    src: "{{ jmeter_source_location }}/apache-jmeter-{{ jmeter_version }}.tgz"
+    dest: "{{maven_home_parent_directory}}"
+    copy: no
+  when: jmeter_installed.stat.exists != True
+
+- name: Create Symlinks
+  file:
+    dest: '{{ item.dest }}'
+    src: '{{ item.src }}'
+    state: link
+  with_items:
+    - { src: '/{{maven_home_parent_directory}}/apache-jmeter-{{ jmeter_version }}/bin/jmeter', dest: '/usr/bin/jmeter' }
