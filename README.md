@@ -20,6 +20,8 @@
 
     ```
     az login
+    export KL_AZURE_SUBSCRIPTION_ID=<YOUR SUBSCRIPTION ID>
+    az account set --subscription $KL_AZURE_SUBSCRIPTION_ID
     ```
 
 * Create a Service Principle for your application
@@ -27,7 +29,7 @@
     ```
     export KL_AZURE_CLIENT_SECRET=password
     export KL_AZURE_CLIENT_ID="$(az ad sp create-for-rbac --name kunlun --password $KL_AZURE_CLIENT_SECRET --output tsv --query appId)"
-    export KL_AZURE_TENANT_ID=$(az ad sp show --id $KL_AZURE_CLIENT_ID --output tsv --query additionalProperties.appOwnerTenantId)
+    export KL_AZURE_TENANT_ID=$(az ad sp show --id $KL_AZURE_CLIENT_ID --output tsv --query appOwnerTenantId)
     ```
 
 * Set some environment variables
@@ -36,7 +38,6 @@
     export KL_IAAS=azure
     export KL_AZURE_ENVIRONMENT=public
     export KL_AZURE_REGION=southcentralus
-    export KL_AZURE_SUBSCRIPTION_ID=$(az account show --output tsv --query id)
     ```
 
 ## Building from Source
