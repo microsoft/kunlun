@@ -1,2 +1,15 @@
 project_root: /mnt/data/klproject
 maven_home_parent_directory: "{{ project_root }}/maven_home"
+jmeter_load_test_thread_per_node: 10
+jmeter_load_test_loop_count: 10
+jmeter_load_test_ramp_up_period: 5
+jmeter_load_test_enabled: 'False'
+jmeter_load_test_endpoint: 'http://www.azure.com'
+jmeter_load_test_mode: single_node # single_node, master, worker
+jmeter_test_file_src: 'sample.jmx'
+jmeter_test_file_dest: /tmp/jmeter_test.jmx
+jmeter_test_log_dest: /tmp/jmeter_log.log
+jmeter_report_file_dest: /tmp/jmeter_result
+jmeter_report_file_archive: /tmp/jmeter_result.tgz
+jmeter_report_local_dest: /tmp
+jmeter_test_plan_endpoint_placeholder: MAIN_ENDPOINT_CONTENT

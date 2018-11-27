@@ -74,6 +74,15 @@ vm_groups:
     roles:
       - name: kunlun.datadisk
       - name: kunlun.jmeter
+        vars:
+          jmeter_load_test_enabled: ((jmeter_load_test_enabled))
+          jmeter_load_test_endpoint: ((jmeter_load_test_endpoint))
+          jmeter_report_local_dest: ((jmeter_report_local_dest))
+          jmeter_load_test_mode: 'single_node'
+          jmeter_load_test_thread_per_node: 100
+          jmeter_load_test_loop_count: 25
+          jmeter_load_test_ramp_up_period: 2
+
 
 vnets:
   - name: vnet-1

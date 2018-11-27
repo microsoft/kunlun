@@ -223,7 +223,7 @@ H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 		name:    "jmeter.yml",
 		local:   "manifests/jmeter.yml",
 		size:    493,
-		modtime: 1543367031,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/3SQTWrDMBCF9z7FQ5uskgMIsmqhxzCDNKYq+nE1o4JvX2zZbUzTWb+fed8VmRJbfCRW
 rgPw2Vg0lCx2AIArvqiOXWO6aPQ8x7IkzjrqMrPZhIBncTXMq9nCvLyXIoyltIpfA1aDPRyOsg+elPey
@@ -246,23 +246,38 @@ AAD//2ut96QqAgAA
 `,
 	},
 
+	"/manifests/load_test.yml": {
+		name:    "load_test.yml",
+		local:   "manifests/load_test.yml",
+		size:    383,
+		modtime: 1543389307,
+		compressed: `
+H4sIAAAAAAAC/5TQsU7EMAwG4L1P8euWTnfd8yKMkWl8aqCNg+MQwdOjEKiEEANr9Nv5fl+R6GCHXSh4
+42IT8FK5WJRU3AQAV7yS+hF7OthY/Zn2nEKWmOwzCWTWEotxMgfTyl/PgcuqMfelDpeHjWwueJOq+J6H
+CR4ZfSeHyzl2p7qbw7yZZbcsrbUbvVfl2yrH/JdOOYua32Wl3YfR6R84VkaQzkOjIQvSUu8M24YR44/f
+0MWO3GGmlEr8ccVhJLV4p9X8c0xh+ggAAP//h1NUzH8BAAA=
+`,
+	},
+
 	"/manifests/main.yml": {
 		name:    "main.yml",
 		local:   "manifests/main.yml",
-		size:    2342,
-		modtime: 1543385087,
+		size:    2844,
+		modtime: 1543389307,
 		compressed: `
-H4sIAAAAAAAC/5xUzW7jPAy85ykIfYdc2jxAgKL4gN57KVDsyWBlJlbtSFqKSpG3X0ixHbv+2XRvgULO
-jIfkPILFE+2BnZMNwO9IQYyzYb8BAHiEM3JxrcDyZGz+nf8C8MTBBCErexCO3XNJQbPxCWUP6v/UlTnA
-HeDiIkNJvnGXE1l5Vn3PAWMje1B1EwOxmrA3TmOC/An3e2V0BUxH4yyULrHDF1oBca0IEDejgTBIDFMN
-TMFF1lQc2UX/YyveK5QeAzLG1ZiBtOcpK9pgPhoqKhekqOlS6Ip0bezxJ9wvg68PwkYLhFBBwoSaLtBh
-9m5otKUpUajdhE5VE2kPCkOt+ufJyEMNB8fXYaP37M7YwFdFeQiztDs1Q2LdMseLA+sk4S1hDS2sjS1X
-NiT9nbYTWcwBtYSZifzFEWMPjEE4aolMi7Lf3GD7QSr61hgeoDF1Uhw/iC0Jhd1uzhz0vjGji1gh6yfR
-tcCXkQq0K6nj85V/gE88Y0snnNZulARXK2c/VDtbmpY1m/n0BNtx5VaNYKb6ZzEGZVu12cx3L2pt0B4j
-HunW2L+sJp3y7D5JS9GeezKq8CiVWjg5+A/eXl9eAcsSQvTeseQLSAMWJoLehrRm6fWMbPCjobBb2Eti
-2oZc2uZFEtFHaCtwJi167UcjBdPZBOOs+pfUvLbO5+ZMaJ4wyFxwq87zIk1V3XGGXQMgU+aO4e5k8pVf
-vIdfA+cydsZNLT3l+u7fwIfLOvq+vLW+8sNtnZzM2url4kIunu6xagy9NqhV125pc0eY4KAcdBPT2Oci
-6vNEQnwX4LV0BLY4hInW4Sxu7uVB3Gq/xc9I2wrAtW6r/gQAAP//R0efXyYJAAA=
+H4sIAAAAAAAC/5xVzW7zOAy85ykI7SGXNg8QoCgWKPbaS4FiTwZrM7FqR9JHUSny9h8k/8Suf5r0Fjjk
+DDUcko9g8ER7YGtlA/AnkBdtjd9vAAAe4YycNRFYnLRJv9NfAI7Yay9kZA/CoftckM9Zu4iyB/VvzEoc
+YA9wsYGhIFfby4mMPKs+54Chlj2oqg6eWE3Ya5tjhLyH+73UeQlMR20NFDaywxcaAbFtESB2pgZCL8FP
+a2DyNnBO2ZFtcHdL8V6i9BiQMBphBqU9T1nReP1RU1ZaL1lFlywvKa+0Od7D/TJ4vRfWuYD3JURMqOgC
+HWavRo6m0AUKtU7oqqoD7UGhr1T/edJyX8HBctNsdI7tGWv4Kik1YZZ2p2ZIjF3meLFgrES8JayhhJ8n
+EuKstlhkQl4yMvhRU/FbBREiFEQowIMQg5Q05+tVFbdvHGi7+MQ3C02ZVzK/280ptf0Pa7+O5CvtpjjC
+0Vyjee+mrVWqe4c1hW7RlsSEp6f2SWqEhSz6gLlklTbFvXjNy9Rms4S2srAGfHN7If4dd1KH6Gfm8IcO
+anNg9MIhl8C0pv/VG8kq40T/ALWuYsXhg9iQ0EKj0blaj/bgClk/f10KfGkpIbcFdXyudA/wiWf8yQ+z
+Dx02MYkZGzaO/G6FSf2zGIOwUetH2cveRXMMeKRrYv9l1S7Ksf2kXLJ2yUehModSqoU1Af/A2+vLK2BR
+gA/OWZa092KDhYmglyHaLH49I+vobb9b8CUxbX0Kba9ELKI/nG2BMzeir/2oJWM6a6+tUb+5lU3q/LWc
+OZUn9DJ3rlWneZpTdcMYdgmATIk7+JvvkSvd4jz8P1AuYSfcmNJTrnv/Cj406+h9ybWudEO3TkZmzXop
+OJOLo1ukGkOvNWpVteu2uWGZ4CAc8jrEts+tqGab3wTYhI7AFpswqXXYi6t6qRHX2G/rZ1TbCkATt1V/
+AwAA//8DsxTzHAsAAA==
 `,
 	},
 
@@ -293,6 +308,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/manifests/error.yml"],
 		_escData["/manifests/jmeter.yml"],
 		_escData["/manifests/kubernetes.yml"],
+		_escData["/manifests/load_test.yml"],
 		_escData["/manifests/main.yml"],
 		_escData["/manifests/php.yml"],
 	},

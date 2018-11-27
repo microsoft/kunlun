@@ -314,25 +314,71 @@ PEafR9rIcZtem6quAqEwMSUKcvca7+XO8VVvCalPoL6AafLOmqTwo0RsrX1sXIJr2yEmqRUuHCnM5uo5
 	"/built.in/kunlun.jmeter/defaults/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.jmeter/defaults/main.yml",
-		size:    94,
-		modtime: 1543372784,
+		size:    656,
+		modtime: 1543389307,
 		compressed: `
-H4sIAAAAAAAC/yooys9KTS6JL8rPL7FS0M/NK9FPSSxJ1M/Ogcpw5SaWpebFZ+TnpsYXJBal5pXEp2QW
-pSaX5BdVWikoVVcrIBuhUFurj9CgBAgAAP//K4Yugl4AAAA=
+H4sIAAAAAAAC/3SRMW/bMBCFd/8Kwh20GFI7dOFWtC7goXIH7wRLXiXZRx5xPFmJDf/3QEacyLEyHt73
+Pj2IiWkPTgwTiVZViFJ5K7Y64GuyCPYI0bQUwCTLEMX4jsEJ8bNWy/NZTRXqcqneC8vFPoAAGyTrjUAW
+Iy2D9SYBm0getPr29RFComQc9VHmc7YhmT6Nlo68Vt8fEYj2H4LXqvhtMUMxR/hE3fiJohVJuqqGYSjt
+qWcoHYWZRrgOzl1sEK7r1ZfptVLBZgFeqYH4AHwTXLv/OwST2WlVZBsSQrkPT8Uj4iGP7yAhVZNshO9Y
+pGYGRWpKpOZGMiTiT70MuUeZYy27tjvCHF5Kc/pQQXIWJ/67nQltfPvT4+WgJfTAWv35sanNuv71d7up
+d+bntt6t693iJQAA//+o6WW8kAIAAA==
+`,
+	},
+
+	"/built.in/kunlun.jmeter/files/sample.jmx": {
+		name:    "sample.jmx",
+		local:   "built.in/kunlun.jmeter/files/sample.jmx",
+		size:    7030,
+		modtime: 1543389314,
+		compressed: `
+H4sIAAAAAAAC/+xZW2/iOBR+n19hRfs60LktVKKMWGCmlVpANPTVMuQAmXXsrO3Qdlf731d2SGI7CZ2y
+2oeV+hafy+dzP6YdfH1KKDqAkDFnV8GHzkWAgG14FLPdVbAKv73vB1+H7wY/ElAgQpBqQQmzFT4GKBU8
+BaFikFfBF42QS5sDEh/6ny8uP30Jhu8QGuyJ3IcCQB8QGpSAuyzeUCLlVVCQvmdxgBRI5dFzIiMJ5DSU
+E4GRNYXoKlAigyCHR2gglYjZbiF4iioVrdHZ8CQBpmQwHHQrqVJxzTltUttmbKNizgjFCY8gGG4JlTDo
+FvIvAiggYsIfGeYMy32mIv7IgqG2+hUgEkRMaPwnYLUXQKKd4Fkq240BCtrZJqhMgsARbGMGET4QEes4
+ygAdVcLnFK6CkdhlebSsTJXEBWFAnWRZ8lW2VhIEmuQ3oQfrpsbUITTYcErBRNsyvITukPKSbulo1/L0
+J4rAch4b01Oi9k0VMegWOsezW8gIDbR3CyKIKX1phcll+GXtcmvhslmvi5ML3NFEaSk1haX/8aLfu+xd
+9ILh3ehmhqezyWJ+MwubGkSHxL33lQblhYsPhGa+YY3qvct+/3P/08e+I9vkxvsPX3qfe5e9y18/eY7g
+8XwWTtscOulSO8frUc/NFASOFQiiNdsbtOuqlfSizKoKD03cvuuGt6dmRa0NzorlzE5DRkd6a23Ve6eC
+6+gRRpKUAgYhuAiGG85UzPQoa6yYhjFkoSUkZlgjCB1q4Y2gW87TscWsfLc49Unkq1UB0Bxks9piUM+x
+C9opvMZbLuAAojXNzRH10CjnepTfzucLPJ6vZiF+GN2upm1N2DDwXkoby5Lj3pDBcDyfjVfL5XQW4vB6
+OR1N7k/edxJYkCTFKk4gGC5Hdwu8WuDFdHkzn5yE9JecBSg3e4gyejKkp02KsqL1znEoAkqeW1VPGG4U
+IbpXRKjW7d61NGodb91zHYaLe9NnYiH407NV+9dKpXoz5Wy/9X1Fu/w1Dy3hjwykOln79abVqnnfi461
+6V9+MWjF//rVcObL4UQzNRWJFdlOxPXkaquSl7RTrivkTF3BFd9weq6+HlzA1PT44D/bDPNo+uUvZ9f+
+fR5WAmrPo2D4fdq+pb2+s9W3nFL+iAVEsYCNft03995LOCRT3EY5NdBPwGQS8O8AKaHxAc61ZTLHd6vb
+8GYxWoZ4Mb8PX7lfbCxI1hBFEOFMUCzgXxQOg40ys55nZ9evAJlyJuElnEHXn2QWr/5E6tYe50uQGVXj
+fCpwYY2ke0XUQywz82tKOOPIU7KH0mi3E7AjCtASTANX48ikJmjfEh5qx7ycMOW7nenA9jXH1z9q0dWQ
+Q0kOMOZsG+8GXUOwJcz7GhXOmgjel/LlbnSnp87GsVbNp8ulRAHbPB8FilMdQSqSpBZMfvbe7tlmA1Ie
+pYqTf98aaHmb/vZnfVRYaz5dbgJSkl0hUJw8a80anpHK64rgSkZEEb3fjnLl0ZUq/oBSJLM8u2JEShA6
+/oX/FsEP01qYsqkiVRJcyaKjJkSR4nqH5gHnLWVL2yRX+CmhhZD+dJnbGKiJWGGiRWg28RpIpH/qeFYW
+ZF/JPFRqOg61PRRzNtVt1hSRguUH5gCjIh15y8pvJKaZgDunon5CsC3rR+mQ64YcXtj5d1kuwPpZlUHO
+vz3TganfLJnq7Mplougq/dXUEWOesbLkHJIrHUcUwmpmlEe/T83OsARtivMMM0PLHv+12VffK9uYgv5q
++Xte15u7J35hty+LhxgeixxnlL5+b2gAdERA+ta3xfG2ON4Wx9vieFsc//fF4f7qsE+Drvvfs+G7fwIA
+AP//jpyW0XYbAAA=
 `,
 	},
 
 	"/built.in/kunlun.jmeter/tasks/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.jmeter/tasks/main.yml",
-		size:    461,
-		modtime: 1543372784,
+		size:    2972,
+		modtime: 1543391457,
 		compressed: `
-H4sIAAAAAAAC/4yRsW4yMRCEez/FiIbq+P8GJbKUF0gbpT4tsMDCndda7x1CiHePfCSXKhLlzni+sb0N
-pM9q3pp2HAMAJOo54sBsnaTDYbiuTjRSADa81Wq5DTyP7VDYIkzVQ2i+w5KKU1fjMM6KvRreaSS8QhI+
-N0PyIQCUva1+EVe7xuns2zJnipo5nXbnxv7lTMsnuoHf9g/2IWMnxltXEy4B2MvP8zL5MWJxu0Gce9zv
-i0nWS6qsqlMqsuke9NnvdccR/1/W62ksTs5xLrkG4CJ+bCuzPIqaCdbTyKk91ttmMk7ezpmJHf7cwEXO
-Muq5rE49O9sTn/AVAAD//1xlCSTNAQAA
+H4sIAAAAAAAC/7xWwW7jNhC96yume9FlFQcoti0E7CFwvGgWG9nw2u2RoKWJxZgiCXJkbxr43wtStqTY
+iZM0zR7JGc578zzz5AREZbQlZrXENAIAULzCFJaIVgq1XNZ3Z7d8zSOABebah8jW2B5Z7dCmYLWmKEp2
+j6+UIy79c7BoNNxoC1/5msMfIBTMF7WiOgLghpiPO0Ha3qUh93NsDE+1QXVbrBI7MIbHL8AG6NC/I9UG
+CmExJ20FugjgRuzbM5zKFD7c34MgrGC7/RCu9Ub5Wv6eKycWsqnexitdYArnv3/6FI6OOGHagtxFABtB
+JfM1XQOUhGIVX6NipWdruEVFrH0TakdP/gIbsRJrvXJntxUS2lf9AHMjNS+8/l+v/WMgdBRE8ERLVCk0
+VZnPYz7KUPGFxAJ++QzxFy4dxsBVcZznlQhJG21XaP2vk2tz11B3Nk8h3ol75mwO220cIgU66oX8cRc7
+Fu6+q7ODD8ieP9vV/NgreJSzLw7bTpJh7UhX4h/8OZJYNJLnD2au7d0fW10sLvGH6UWbi168KdRPCDcn
+1OvwnpTmYwd8fXGVsVF2ORlfZTM2HGezUTYLCT3kR7QpjBZqr/N/gx6Os+F8Oh1lMzb7czq6uPzO/rr4
+Nh89i06lRV4wg5YpL/5bSHwbjydsOJ5nsxeCS60Ny3X9xuanF9cTNp+wyWh6Nb58IbbllWG18Z0LXRwO
++RQd0n7ALbpaEtxoWQT7+P+H/NBVe4y9l9uD3vtGGx8bbXzCaOPOrx8fer5wqGh36Gy5W3+JXNXmwfJL
+vXyNLE803KPV0W3oPE71cD6kXnYSdV8x4pYOHPydzLuquCpSiAe1s4OFUIPmGSQKEoK97bSzDNstJLK9
+9/Tba4REQ8+owgyEATxhV23lZ3dnj5WeFDHsUIf87Fz2N+hvLg5VB9JeJCOR3udbseHCc7UvX6WBUAX+
+OCupks3ckahQ15TCr7+dn3fdTHi+4kvfT2ikcYR36YHbvBTrV7vB0Ue8n7mr+XAvviDlZa+jxuTIwFEN
+qXMu93Dv43+ey8Efn2f6ONX0A8Jx9G8AAAD//4z2YsecCwAA
 `,
 	},
 
@@ -1777,7 +1823,7 @@ Xie9jXpnhnd4p4pXqsEi+JEoCTUTCuud48xYsHDOPkWUQb+htLB0WkPB6jgx7ncHbLrtupP2n+9xvoj8
 		name:    ".galaxy_install_info",
 		local:   "roles.galaxy/geerlingguy.java/meta/.galaxy_install_info",
 		size:    59,
-		modtime: 1543368169,
+		modtime: 1543389307,
 		compressed: `
 H4sIAAAAAAAC/6rOzCsuSczJiU9JLEm1UlAPKU1V8MsvUzAyVzAwtTIxtzI1VDAyMLRQ11EoSy0qzszP
 s1Iw1LPUM6nlAgQAAP//3SK2GjsAAAA=
@@ -5394,7 +5440,7 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 		name:    "README.md",
 		local:   "roles.galaxy/wikivoks.jmeter/README.md",
 		size:    1317,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/2yUz47bNhDG73yK71IgAbzatLm0BnpQkR520QRFGmzOI2pkMUtxVA5lRSh665P00fok
 xUjetZ1EJ4ueP9/8vqHqpKGJjPcSeY96JN8z7t9y4YzX1Wv389Pj6oTLYJSeCkLSQjFeJzr3oefro//+
@@ -5415,7 +5461,7 @@ ssvRLPj41Aju/wAAAP//YDnz+yUFAAA=
 		name:    "main.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/defaults/main.yml",
 		size:    204,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/zzOwW7EIAwE0DtfYdEz4bA3fga5xFmoCEa22Sp/X6lp9zgjzdOEEBx8wE4Hrm4KR+sE
 BwsUlK48wrVOB18nGUlWXlIody5ojUcCX82mphhRSm0v2nBiqbSxPOPe1OI9jJ9toDRS/6Yqn5QnCg3L
@@ -5427,7 +5473,7 @@ exMqxnIliDzNAX8PkryUJIH3//kpvOZd/CEvEv398dgeDtxPAAAA//9pbjJzzAAAAA==
 		name:    "main.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/handlers/main.yml",
 		size:    5,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
 `,
@@ -5437,7 +5483,7 @@ H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
 		name:    ".galaxy_install_info",
 		local:   "roles.galaxy/wikivoks.jmeter/meta/.galaxy_install_info",
 		size:    60,
-		modtime: 1543368169,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/6rOzCsuSczJiU9JLEm1UlAPKU1V8MsvUzAyVzAwtTKxsDIwUDAyMLRQ11EoSy0qzszP
 s1LITSwuSS2q5QIEAAD//+bZ/Ao8AAAA
@@ -5448,7 +5494,7 @@ s1LITSwuSS2q5QIEAAD//+bZ/Ao8AAAA
 		name:    "main.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/meta/main.yml",
 		size:    1834,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/5RVTW/kNgy9+1c8YA+7C0ycJkVRxLd8bNMUKRJgti2KxWLAkekxG1ky9OFk+usLyR7H
 06JF6pNE8z1S5KO0I00v+42YxlYFQDG01lX4TZ7kV/vkC6Bmr5z0Qayp8FPHgR3E+EBaUzIWgLJdT2Y/
@@ -5471,7 +5517,7 @@ F+b7L1/fg7Z2mK4YaRInqK6PGYMdr4w0FuVfAQAA//8snlePKgcAAA==
 		name:    "main.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/tasks/main.yml",
 		size:    632,
-		modtime: 1543368169,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/4yRQW+jQAyF7/Mr3uaSywJ3pD3tT9jtGU0HJ7iBAdkmLUX894pAQqpWao7jZz9/z5Mk
 iUsQfUM5/lYUThyP4ANeGjISsMLXQr4cwFHN1zWVDlDzlsMBQOetyrEbx3WkqNqGis4LRStKFgrWyoBp
@@ -5486,7 +5532,7 @@ GPtxBBs16fzENO23xDdJJWyKeaMcs93MxFYVc48ungnGdTb7Id4DF8ueOWZLdf/7ipv1KvcCJvcRAAD/
 		name:    "inventory",
 		local:   "roles.galaxy/wikivoks.jmeter/tests/inventory",
 		size:    11,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/8rJT07MycgvLuHiAgQAAP//+nKR6wsAAAA=
 `,
@@ -5496,7 +5542,7 @@ H4sIAAAAAAAC/8rJT07MycgvLuHiAgQAAP//+nKR6wsAAAA=
 		name:    "test.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/tests/test.yml",
 		size:    64,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/xzIwQmAQAwEwH+q2AbSQJoRkQWRHAtJ7F+83zDubo5bPR1IXWf+NqC4NDzeZgVK2qdk
 hwGA41kc1hcAAP//ohEGQEAAAAA=
@@ -5507,7 +5553,7 @@ hwGA41kc1hcAAP//ohEGQEAAAAA=
 		name:    "main.yml",
 		local:   "roles.galaxy/wikivoks.jmeter/vars/main.yml",
 		size:    5,
-		modtime: 1543366461,
+		modtime: 1543388100,
 		compressed: `
 H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
 `,
@@ -5582,6 +5628,12 @@ H4sIAAAAAAAC/9LV1eVSBgQAAP//ACc2xQUAAAA=
 	"/built.in/kunlun.jmeter/defaults": {
 		name:  "defaults",
 		local: `built.in/kunlun.jmeter/defaults`,
+		isDir: true,
+	},
+
+	"/built.in/kunlun.jmeter/files": {
+		name:  "files",
+		local: `built.in/kunlun.jmeter/files`,
 		isDir: true,
 	},
 
@@ -6527,11 +6579,16 @@ var _escDirs = map[string][]os.FileInfo{
 
 	"built.in/kunlun.jmeter": {
 		_escData["/built.in/kunlun.jmeter/defaults"],
+		_escData["/built.in/kunlun.jmeter/files"],
 		_escData["/built.in/kunlun.jmeter/tasks"],
 	},
 
 	"built.in/kunlun.jmeter/defaults": {
 		_escData["/built.in/kunlun.jmeter/defaults/main.yml"],
+	},
+
+	"built.in/kunlun.jmeter/files": {
+		_escData["/built.in/kunlun.jmeter/files/sample.jmx"],
 	},
 
 	"built.in/kunlun.jmeter/tasks": {
