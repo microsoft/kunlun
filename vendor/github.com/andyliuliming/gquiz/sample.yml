@@ -1,0 +1,126 @@
+- name: root
+  questions:
+    - var_name: iaas
+      persistent: true
+      description: "What's your iaas provider(Only azure supported for now.)"
+      default: "azure"
+      default_env: "KL_IAAS"
+    - var_name: admin_name
+      persistent: true
+      description: "Admin name of your deployment?"
+      default: "kluser"
+    - var_name: location
+      persistent: true
+      description: "Which region do you want to deploy to?"
+      default: "eastus"
+    - var_name: resource_group_name
+      persistent: true
+      description: "What resource group name do you want?"
+    - var_name: kind
+      description: "Which kind of artifacts do you want?"
+      candidates:
+        - value: infrastructure
+          description: "To deployment the infrastructures, like: kubernetes..."
+        - value: application
+          description: "To deploy your application with code, like: php, java..."
+  transitions:
+    - name: infrastructure
+      condition: "kind == 'infrastructure'"
+    - name: application
+      condition: "kind == 'application'"
+
+- name: application
+  transitions:
+    - name: language
+
+- name: language
+  questions:
+    - var_name: "project_source_code_path"
+      persistent: true # TODO add support for the tree structure of the variables.
+      description: "Where's the source code of your project?(Git repository path.)"
+    - var_name: "project_git_revision"
+      persistent: true
+      description: "Which revision do you want to deploy?"
+      default: "master"
+    - var_name: "language_kind"
+      description: "Which kind of language are you using?"
+      candidates:
+        - value: php
+          description: "Your project are using php language."
+  transitions:
+    - name: php
+      condition: "language_kind == 'php'"
+
+- name: infrastructure
+  questions:
+    - var_name: "infra_type"
+      description: "Which kind of infrastructure you want to deploy?"
+      candidates:
+        - value: kubernetes
+          description: "To deploy a kubernetes cluster."
+  transitions:
+    - name: kubernetes
+      condition: "infra_type == 'kubernetes'"
+
+- name: php
+  questions:
+    - var_name: "concurrent_user"
+      type: int
+      description: "The concurrent user"
+  transitions:
+    - name: small_php
+      condition: "concurrent_user <= 100"
+    - name: medium_php
+      condition: "concurrent_user > 100 && concurrent_user <= 1000"
+    - name: large_php
+      condition: "concurrent_user > 1000 && concurrent_user <= 2000"
+    - name: maximum_php
+      condition: "concurrent_user > 2000"
+
+- name: small_php
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "small_php.yml"
+
+- name: medium_php
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "medium_php.yml"
+
+- name: large_php
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "large_php.yml"
+
+- name: maximum_php
+  questions:
+    - var_name: "final_artifact"
+      persistent: true
+      description: "Guess your final artifact is:"
+      default: "maximum_php.yml"
+
+- name: kubernetes
+  questions:
+    - var_name: "kubernetes_deployment_type"
+      description: "Choose your deployment type:"
+      candidates:
+        - value: single_node_kubernetes
+          description: "Deploy a singleton node of kubernetes."
+  transitions:
+    - name: single_node_kubernetes
+      condition: "kubernetes_deployment_type == 'single_node_kubernetes'"
+
+- name: single_node_kubernetes
+  questions:
+  - var_name: "final_artifact"
+    persistent: true
+    description: "Guess your final artifact is:"
+    default: "small_kubernetes.yml"
+
+- name: error

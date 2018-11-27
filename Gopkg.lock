@@ -11,11 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c6e45374dc6c9c014435f3aa6508f78f4091e536e43ce0e8463ab4b11250f1fa"
+  digest = "1:86e6c645503d51bb6c5fe71b95c0e162ba54d82ebab58d667667bdfca2e1b06d"
   name = "github.com/andyliuliming/gquiz"
   packages = ["."]
   pruneopts = "UT"
-  revision = "b5787ab6f9229fc80b9343181403f00d196468a6"
+  revision = "50bd95ae372d901dd070b600c91c66dd5205dbef"
 
 [[projects]]
   digest = "1:0ef770954bca104ee99b3b6b7f9b240605ac03517d9f98cbc1893daa03f3c038"
@@ -152,7 +152,7 @@
     "ssh",
   ]
   pruneopts = "UT"
-  revision = "3d3f9f413869b949e48070b5bc593aa22cc2b8f2"
+  revision = "e657309f52e71501f9934566ac06dc5c2f7f11a1"
 
 [[projects]]
   branch = "master"
