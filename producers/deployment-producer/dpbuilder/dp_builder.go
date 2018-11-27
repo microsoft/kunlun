@@ -22,7 +22,6 @@ func (dp DeploymentBuilder) Produce(
 	// generate the deployments
 	deploymentItems := []deploymentItem{}
 	for _, item := range manifest.VMGroups {
-		// if item.Roles != nil && len(item.Roles) > 0 {
 		hostGroup, err := dp.produceHostGroup(item)
 		if err != nil {
 			return nil, nil, err
@@ -35,7 +34,6 @@ func (dp DeploymentBuilder) Produce(
 			hostGroup:  hostGroup,
 			deployment: deployment,
 		})
-		// }
 	}
 	// generate the ansible scripts based on the deployments.
 	hostGroups := []deployments.HostGroup{}
@@ -62,9 +60,10 @@ func (dp DeploymentBuilder) provisionJumpboxParameters(hostGroups []deployments.
 		}
 	}
 	for _, hostGroup := range hostGroups {
-		if hostGroup.GroupType != deployments.JumpboxHostGroupType {
-			for index := range hostGroup.Hosts {
-				hostGroup.Hosts[index].SSHCommonArgs = fmt.Sprintf("-o ProxyCommand=\"ssh -W %%h:%%p -q %s@%s\"", jumpboxUser, jumpboxHost)
+		for index := range hostGroup.Hosts {
+			hostGroup.Hosts[index].SSHCommonArgs = "-o UserKnownHostsFile={{.UserKnownHostsFile}}"
+			if hostGroup.GroupType != deployments.JumpboxHostGroupType {
+				hostGroup.Hosts[index].SSHCommonArgs = hostGroup.Hosts[index].SSHCommonArgs + fmt.Sprintf(" -o ProxyCommand=\"ssh -W %%h:%%p -q %s@%s\" -i {{.SSHPrivateKey}}", jumpboxUser, jumpboxHost)
 			}
 		}
 	}
