@@ -96,12 +96,21 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		return storage.State{}, err
 	}
 
-	qResult, err := p.doQuiz(artifactsVarsFilePath)
+	var defaults gquiz.QResult
+	if _, err := os.Stat(artifactsVarsFilePath); !os.IsNotExist(err) {
+		varsContent, err := ioutil.ReadFile(artifactsVarsFilePath)
+		if err != nil {
+			return storage.State{}, err
+		}
+		yaml.Unmarshal(varsContent, &defaults)
+	}
+
+	qResult, err := p.doQuiz(&defaults)
 
 	bpBytes, _ := yaml.Marshal(qResult)
 	err = ioutil.WriteFile(artifactsVarsFilePath, bpBytes, 0644)
 
-	content, err := builtinmanifests.FSByte(false, path.Join("/manifests", qResult["final_artifact"]))
+	content, err := builtinmanifests.FSByte(false, path.Join("/manifests", (*qResult)["final_artifact"]))
 	if err != nil {
 		return state, err
 	}
@@ -114,12 +123,12 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 	return state, err
 }
 
-func (p Digest) doQuiz(artifactsVarsFilePath string) (gquiz.QResult, error) {
+func (p Digest) doQuiz(defaults *gquiz.QResult) (*gquiz.QResult, error) {
 	fs := qgraph.FS(false)
 	qgraphFolder := "/manifests"
 	file, err := fs.Open(qgraphFolder)
 	if err != nil {
-		return gquiz.QResult{}, err
+		return nil, err
 	}
 	files, err := file.Readdir(0)
 	var sb strings.Builder
@@ -127,24 +136,26 @@ func (p Digest) doQuiz(artifactsVarsFilePath string) (gquiz.QResult, error) {
 		filePath := path.Join(qgraphFolder, f.Name())
 		content, err := qgraph.FSByte(false, filePath)
 		if err != nil {
-			return gquiz.QResult{}, err
+			return nil, err
 		}
 		_, err = sb.Write(content)
 		sb.WriteString("\n")
 		if err != nil {
-			return gquiz.QResult{}, err
+			return nil, err
 		}
 	}
 	quizeBuilder := gquiz.QuizBuilder{}
 
 	qGraph, err := quizeBuilder.BuildQGraph([]byte(sb.String()))
 	if err != nil {
-		return gquiz.QResult{}, err
+		return nil, err
 	}
-	quizExecutor := gquiz.NewQuizExecutor(p.ui)
+
+	// read the main vars as the default qresult.
+	quizExecutor := gquiz.NewQuizExecutor(p.ui, defaults)
 	qResult, err := quizExecutor.Execute(&qGraph)
 	if err != nil {
-		return gquiz.QResult{}, err
+		return nil, err
 	}
 	return qResult, nil
 }

@@ -27,6 +27,7 @@ type Question struct {
 	Description string            `yaml:"description"`
 	Candidates  []CandidateAnswer `yaml:"candidates,omitempty"`
 	Default     string            `yaml:"default"`
+	DefaultEnv  string            `yaml:"default_env"`
 	Persistent  bool              `yaml:"persistent"`
 }
 

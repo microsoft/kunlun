@@ -3,6 +3,7 @@ package gquiz
 import (
 	"errors"
 	"fmt"
+	"os"
 	"strconv"
 
 	"github.com/Knetic/govaluate"
@@ -10,20 +11,23 @@ import (
 
 type QuizExecutor struct {
 	ui      UI
-	qResult QResult
+	qResult *QResult
 }
 
-func NewQuizExecutor(ui UI) *QuizExecutor {
+func NewQuizExecutor(ui UI, qr *QResult) *QuizExecutor {
+	if qr == nil {
+		qr = &QResult{}
+	}
 	return &QuizExecutor{
 		ui:      ui,
-		qResult: QResult{},
+		qResult: qr,
 	}
 }
 
-func (qe *QuizExecutor) Execute(qGraph *QGraph) (QResult, error) {
+func (qe *QuizExecutor) Execute(qGraph *QGraph) (*QResult, error) {
 	root := qGraph.FindRootNode()
 	if root == nil {
-		return QResult{}, errors.New("no root node found")
+		return nil, errors.New("no root node found")
 	}
 
 	var currentNode *QNode
@@ -32,7 +36,7 @@ func (qe *QuizExecutor) Execute(qGraph *QGraph) (QResult, error) {
 		nextNodeName, err := qe.HandleNode(currentNode)
 
 		if err != nil {
-			return QResult{}, err
+			return nil, err
 		}
 		if nextNodeName != "" {
 			currentNode = qGraph.FindNode(nextNodeName)
@@ -67,7 +71,7 @@ func (qe *QuizExecutor) HandleNode(qNode *QNode) (string, error) {
 			currentVars[q.VarName] = answer
 		}
 		if q.Persistent {
-			qe.qResult[q.VarName] = answer
+			(*qe.qResult)[q.VarName] = answer
 		}
 	}
 
@@ -93,8 +97,18 @@ func (qe *QuizExecutor) HandleNode(qNode *QNode) (string, error) {
 
 func (qe *QuizExecutor) HandleQuestion(q *Question) (string, error) {
 	var answer string
-	if q.Default != "" {
-		qe.ui.Println(fmt.Sprintf("%s(%s)", q.Description, q.Default))
+	// use the values in the old vars as the default value.
+	var defaultValue string
+	if (*qe.qResult)[q.VarName] != "" {
+		defaultValue = (*qe.qResult)[q.VarName]
+	} else if q.DefaultEnv != "" {
+		defaultValue = os.Getenv(q.DefaultEnv)
+	}
+	if defaultValue == "" {
+		defaultValue = q.Default
+	}
+	if defaultValue != "" {
+		qe.ui.Println(fmt.Sprintf("%s(%s)", q.Description, defaultValue))
 	} else {
 		qe.ui.Println(q.Description)
 	}
@@ -119,8 +133,8 @@ func (qe *QuizExecutor) HandleQuestion(q *Question) (string, error) {
 	}
 	if answer == "" {
 		answer = qe.ui.GetInput()
-		if answer == "" && q.Default != "" {
-			answer = q.Default
+		if answer == "" && defaultValue != "" {
+			answer = defaultValue
 		}
 	}
 	return answer, nil
