@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type NetworkSecurityGroup struct {
 	Name                 string                `yaml:"name"`

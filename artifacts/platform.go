@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 // Platform contains information about the project type. Several possible values for type:
 // `tomcat/golang/python/java/php/nodejs`

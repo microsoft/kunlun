@@ -1,4 +1,4 @@
-package apis_test
+package artifacts_test
 
 import (
 	"testing"

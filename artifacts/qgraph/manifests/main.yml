@@ -11,6 +11,14 @@
     - var_name: resource_group_name
       persistent: true
       description: "What resource group name do you want?"
+    - var_name: ansible_host_key_checking
+      persistent: true
+      description: "Do you want strict ssh host key checking?"
+      candidates:
+        - value: "ask"
+          description: "Ask for your approval when do ssh host key checking."
+        - value: "no"
+          description: "Do not do host key checking."
     - var_name: kind
       description: "Which kind of artifacts do you want?"
       candidates:

@@ -35,7 +35,7 @@ type deploymentItem struct {
 }
 
 func (dp DeploymentProducer) Produce(
-	manifest apis.Manifest,
+	manifest artifacts.Manifest,
 ) error {
 	// generate the deployments
 	dpBuilder := dpbuilder.DeploymentBuilder{}

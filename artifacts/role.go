@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 import yaml "gopkg.in/yaml.v2"
 

@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 import "fmt"
 

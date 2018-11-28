@@ -1,7 +1,11 @@
-package apis
+package artifacts
 
 import (
 	"gopkg.in/yaml.v2"
+)
+
+const (
+	JumpboxHostGroupType = "jumpbox"
 )
 
 // VMGroup contains needed information to create a set of VMs on Azure. VMs in the group
@@ -16,6 +20,15 @@ type VMGroup struct {
 	Storage      *VMStorage      `yaml:"storage"`
 	NetworkInfos []VMNetworkInfo `yaml:"networks"`
 	Roles        []Role          `yaml:"roles"`
+}
+
+func (vg VMGroup) Jumpbox() bool {
+	for _, item := range vg.Meta {
+		if item.Key == "group_type" && item.Value == JumpboxHostGroupType {
+			return true
+		}
+	}
+	return false
 }
 
 type VMOSProfile struct {

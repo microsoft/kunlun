@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type VirtualNetwork struct {
 	Name         string   `yaml:"name"`

@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type Image struct {
 	Offer     string `yaml:"offer"`

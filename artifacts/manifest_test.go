@@ -1,4 +1,4 @@
-package apis_test
+package artifacts_test
 
 import (
 	"encoding/json"
@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/go-test/deep"
 	. "github.com/Microsoft/kunlun/artifacts"
+	"github.com/go-test/deep"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

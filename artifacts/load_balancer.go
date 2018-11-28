@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 // LoadBalancer contains needed information to create a load balancer on Azure.
 type LoadBalancer struct {

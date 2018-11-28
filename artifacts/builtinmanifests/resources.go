@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "large_php.yml",
 		local:   "manifests/large_php.yml",
 		size:    3838,
-		modtime: 1543322378,
+		modtime: 1543367031,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -240,7 +240,7 @@ TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 		name:    "maximum_php.yml",
 		local:   "manifests/maximum_php.yml",
 		size:    3838,
-		modtime: 1543322378,
+		modtime: 1543367031,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -267,7 +267,7 @@ TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 		name:    "medium_php.yml",
 		local:   "manifests/medium_php.yml",
 		size:    3838,
-		modtime: 1543322378,
+		modtime: 1543367031,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2
@@ -294,7 +294,7 @@ TQJ2RWrJq/9dTVGQWJm4QhzZzFBOHkYkHW7V0/NeLtvNqfctgBE1F/Da/GvwSk3yD+GV9cIpUSY0RiQO
 		name:    "small_jmeter.yml",
 		local:   "manifests/small_jmeter.yml",
 		size:    3043,
-		modtime: 1543323298,
+		modtime: 1543372784,
 		compressed: `
 H4sIAAAAAAAC/+xWTY/bNhC981cM0ktcVK5lbAJEt6IfQICcsil6FEbUWGJXIoUZUrvOry8oyZL8seki
 6KEIAl/EeaM3o8d5pJMkUaJrajGDfrdNlSLb5xZbyuAh2CZYxSQusKa8Yhe6CXv9+kZ4s1GN0+iNszHj
@@ -316,7 +316,7 @@ KxrnnXZNBp90tzh1/M8SL+x8kubVj6+WKiTe2OHsOcvZ7y8ZTjvdMR3M0/Mst/POD9uvlSwpqb8tW/qN
 		name:    "small_kubernetes.yml",
 		local:   "manifests/small_kubernetes.yml",
 		size:    3924,
-		modtime: 1543231989,
+		modtime: 1543299825,
 		compressed: `
 H4sIAAAAAAAC/+xWW6vbuBN/96cYTl56/iRpEkopfvuzF7ZQWOhp2YdlMbI8sdUjS17NyGn66RfJiu1c
 Ti/LPuxCOXCI5jeaGf/molmtVhnJBluRQ79Zb7MMTV8Y0WIOj95obzKHZL2TWNTO+i5hz57dEN/fZ9pK
@@ -343,7 +343,7 @@ vSSVciiH5+e1Ka031QgJKZEoD0Taw8zMeVLTMz4MnkBgkTr37n93kxckViYuJmc6rzaXFkYyHe7Vx6et
 		name:    "small_php.yml",
 		local:   "manifests/small_php.yml",
 		size:    3839,
-		modtime: 1543321722,
+		modtime: 1543372784,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvkOA++51eI7svUS1V1VzMML7kt+8EODCxM97CHZQmOo0o87dhZS051za9f7LiS
 1Ef3fLCHXRgamrIkS/KjR4pWq1VGssFW5NDfrjdZhqYvjGgxh0dvtDeZQ7LeSSxqZ32XdK9eXRAvFpm2

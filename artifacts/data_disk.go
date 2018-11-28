@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type DataDisk struct {
 	ManagedDiskType string `yaml:"managed_disk_type"`
