@@ -73,6 +73,15 @@
     path: '{{ jmeter_report_file_dest }}/index.html'
     timeout: 3600
 
+- name: Including JMeter test file in result folder
+  when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
+  copy:
+    remote_src: True
+    src: '{{ item }}'
+    dest: '{{ jmeter_report_file_dest }}'
+  with_items:
+    - '{{ jmeter_test_file_dest }}'
+
 - name: Packaging test result
   when: jmeter_load_test_enabled != 'False' and jmeter_load_test_mode != 'worker'
   archive:
