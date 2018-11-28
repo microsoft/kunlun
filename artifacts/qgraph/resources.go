@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "error.yml",
 		local:   "manifests/error.yml",
 		size:    13,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 `,
@@ -223,7 +223,7 @@ H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 		name:    "jmeter.yml",
 		local:   "manifests/jmeter.yml",
 		size:    493,
-		modtime: 1543388100,
+		modtime: 1543325497,
 		compressed: `
 H4sIAAAAAAAC/3SQTWrDMBCF9z7FQ5uskgMIsmqhxzCDNKYq+nE1o4JvX2zZbUzTWb+fed8VmRJbfCRW
 rgPw2Vg0lCx2AIArvqiOXWO6aPQ8x7IkzjrqMrPZhIBncTXMq9nCvLyXIoyltIpfA1aDPRyOsg+elPey
@@ -236,7 +236,7 @@ U8gUR6oaJnLagcxcJYhyVgutjYe/e98ai3SoWwKOBATZsXqeqEW1MI/P3JYUzXcAAAD//xjOPM3tAQAA
 		name:    "kubernetes.yml",
 		local:   "manifests/kubernetes.yml",
 		size:    554,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/4SRTW7rMAyE9z7FQJuskgMIyOo9oMcQWItuhcqUK1IFfPvCsY3E6J/WnPk0M2cIjezx
 1p65ChtrB7w3VktF1HcAcMYH1bDeufthiDzlMo8sFmye2N2Ogcja1zQtBh7u32spyphLq7gLsAj8ruhJ
@@ -249,13 +249,13 @@ AAD//2ut96QqAgAA
 	"/manifests/load_test.yml": {
 		name:    "load_test.yml",
 		local:   "manifests/load_test.yml",
-		size:    383,
-		modtime: 1543389307,
+		size:    411,
+		modtime: 1543404742,
 		compressed: `
-H4sIAAAAAAAC/5TQsU7EMAwG4L1P8euWTnfd8yKMkWl8aqCNg+MQwdOjEKiEEANr9Nv5fl+R6GCHXSh4
-42IT8FK5WJRU3AQAV7yS+hF7OthY/Zn2nEKWmOwzCWTWEotxMgfTyl/PgcuqMfelDpeHjWwueJOq+J6H
-CR4ZfSeHyzl2p7qbw7yZZbcsrbUbvVfl2yrH/JdOOYua32Wl3YfR6R84VkaQzkOjIQvSUu8M24YR44/f
-0MWO3GGmlEr8ccVhJLV4p9X8c0xh+ggAAP//h1NUzH8BAAA=
+H4sIAAAAAAAC/6TQsU7EMBAE0D5fMbom1V16/wiltcR7iiHxmvUaC74eGSsnIURFa814n+aKRAc77ELB
+GxebgLfKxaKk4iYAuOKd1I/Yy8HG6h9pzylkicn8WUoUlb97QGYtsRgnczCt53PgsmrMPe1wedrI5oIP
+qYrzN5jgmdEvcLg8anequznMm1l2y9Jau9FnVb6tcsx/WZWzqPldVtp96OZ/UFkZQToWjYYzSEt9D9g2
+xBgXf7MXO3JnmlIq8cfCQ0xq8U6r+deYwvQVAAD//wUJAPabAQAA
 `,
 	},
 
@@ -263,7 +263,7 @@ CR4ZfSeHyzl2p7qbw7yZZbcsrbUbvVfl2yrH/JdOOYua32Wl3YfR6R84VkaQzkOjIQvSUu8M24YR44/f
 		name:    "main.yml",
 		local:   "manifests/main.yml",
 		size:    2844,
-		modtime: 1543389307,
+		modtime: 1543404597,
 		compressed: `
 H4sIAAAAAAAC/5xVzW7zOAy85ykI7SGXNg8QoCgWKPbaS4FiTwZrM7FqR9JHUSny9h8k/8Suf5r0Fjjk
 DDUcko9g8ER7YGtlA/AnkBdtjd9vAAAe4YycNRFYnLRJv9NfAI7Yay9kZA/CoftckM9Zu4iyB/VvzEoc
@@ -285,7 +285,7 @@ AwAA//8DsxTzHAsAAA==
 		name:    "php.yml",
 		local:   "manifests/php.yml",
 		size:    1131,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/8ySwW6rMBBF9/mKKy+yy1Nel1bbbX+ge2SRobFkGzozrsrfV4QAgdKq2cEOae6Zo7k+
 ILlIFs252QHvmUR9ncTuAOCAD8dFP2DKOpWZmZIWWYjNZQLQtiELn/T6fyIp2TcdxcK8nglTEENQ2SXx
