@@ -104,13 +104,11 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		}
 		yaml.Unmarshal(varsContent, &defaults)
 	}
-
-	qResult, err := p.doQuiz(&defaults)
-
+	qResult, err := p.doQuiz(defaults)
 	bpBytes, _ := yaml.Marshal(qResult)
 	err = ioutil.WriteFile(artifactsVarsFilePath, bpBytes, 0644)
 
-	content, err := builtinmanifests.FSByte(false, path.Join("/manifests", (*qResult)["final_artifact"]))
+	content, err := builtinmanifests.FSByte(false, path.Join("/manifests", (qResult)["final_artifact"]))
 	if err != nil {
 		return state, err
 	}
@@ -123,7 +121,7 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 	return state, err
 }
 
-func (p Digest) doQuiz(defaults *gquiz.QResult) (*gquiz.QResult, error) {
+func (p Digest) doQuiz(defaults gquiz.QResult) (gquiz.QResult, error) {
 	fs := qgraph.FS(false)
 	qgraphFolder := "/manifests"
 	file, err := fs.Open(qgraphFolder)
