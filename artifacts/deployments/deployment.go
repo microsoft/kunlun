@@ -8,5 +8,5 @@ import (
 type Deployment struct {
 	HostGroupName string
 	Vars          yaml.MapSlice
-	Roles         []apis.Role
+	Roles         []artifacts.Role
 }

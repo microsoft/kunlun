@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type StorageAccount struct {
 	Name     string `yaml:"name"`

@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type AzureFile struct {
 	StorageAccount string `yaml:"storage_account"`

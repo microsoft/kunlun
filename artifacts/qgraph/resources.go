@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "error.yml",
 		local:   "manifests/error.yml",
 		size:    13,
-		modtime: 1543231989,
+		modtime: 1543299825,
 		compressed: `
 H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 `,
@@ -223,7 +223,7 @@ H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 		name:    "jmeter.yml",
 		local:   "manifests/jmeter.yml",
 		size:    493,
-		modtime: 1543323298,
+		modtime: 1543367031,
 		compressed: `
 H4sIAAAAAAAC/3SQTWrDMBCF9z7FQ5uskgMIsmqhxzCDNKYq+nE1o4JvX2zZbUzTWb+fed8VmRJbfCRW
 rgPw2Vg0lCx2AIArvqiOXWO6aPQ8x7IkzjrqMrPZhIBncTXMq9nCvLyXIoyltIpfA1aDPRyOsg+elPey
@@ -236,7 +236,7 @@ U8gUR6oaJnLagcxcJYhyVgutjYe/e98ai3SoWwKOBATZsXqeqEW1MI/P3JYUzXcAAAD//xjOPM3tAQAA
 		name:    "kubernetes.yml",
 		local:   "manifests/kubernetes.yml",
 		size:    554,
-		modtime: 1543231989,
+		modtime: 1543299825,
 		compressed: `
 H4sIAAAAAAAC/4SRTW7rMAyE9z7FQJuskgMIyOo9oMcQWItuhcqUK1IFfPvCsY3E6J/WnPk0M2cIjezx
 1p65ChtrB7w3VktF1HcAcMYH1bDeufthiDzlMo8sFmye2N2Ogcja1zQtBh7u32spyphLq7gLsAj8ruhJ
@@ -249,19 +249,20 @@ AAD//2ut96QqAgAA
 	"/manifests/main.yml": {
 		name:    "main.yml",
 		local:   "manifests/main.yml",
-		size:    2019,
-		modtime: 1543323298,
+		size:    2342,
+		modtime: 1543385087,
 		compressed: `
-H4sIAAAAAAAC/5xUwW7jOgy85ysIvUMubT7AQFE8YO+9FCj2ZLAWY6txJC1FpcjfLyQ7jh07Rro3wyJn
-RsOhnsHikQpg52QD8CdSEONsKDYAAM9wQi67CtRHY/N3PgLwxMEEISsFCMfLb02hYuMTSgHq/9SVOcDt
-4ewigybfuvORrLyqoWePsZUC1KGNgVjN2FtXYYL8CfdHY6oGmGrjLGiX2OEbrYC4XgSIW9BAGCSGuQam
-4CJXVNbsov+xFR8NyoABGaMzZiTtdc56MFavXC8dJ2uRxeyxkrAAB1Ch1UajUD/YC0kbqQBj94xBOFYS
-mYbzW753NxodSEM3jeEJWnNIiuMnsSWhsNvt1JwPvW/NZJwrZF1mRi3wbaSBymm68PnGP8EXnrCnE0Yb
-zCTGnZWLF62c1aZnzWa+vMB2WrlVE5i5/kWMUdlWbTbL3Xe1tmjriDVdG4c/q2uqPLsvqqTss5qMKj1K
-o+5kFf6D97dfb4BaQ4jeOxbYO84DFiaCwYYUs/T3hGzws6Wwu5NLYtqGXNqHPYkY9r8XuBD1QXttpGQ6
-mWCcVf+y8l3r8tIvbPwRgyy9OurieZmmqh5Yw0sDIFPmjsHY+rE99I2/uw+/R85l7IybWgbK9exfwcdh
-ndwvp9Y3fpzW2cqsRS8Xl3L29IhVU+i1Qa26dn1tHnhMcFQOVRvT2JeeqK8jCfFDgF3pBOzuEGZax7O4
-upcHca29eX4m2lYAurqt+hsAAP//uGHdcOMHAAA=
+H4sIAAAAAAAC/5xUzW7jPAy85ykIfYdc2jxAgKL4gN57KVDsyWBlJlbtSFqKSpG3X0ixHbv+2XRvgULO
+jIfkPILFE+2BnZMNwO9IQYyzYb8BAHiEM3JxrcDyZGz+nf8C8MTBBCErexCO3XNJQbPxCWUP6v/UlTnA
+HeDiIkNJvnGXE1l5Vn3PAWMje1B1EwOxmrA3TmOC/An3e2V0BUxH4yyULrHDF1oBca0IEDejgTBIDFMN
+TMFF1lQc2UX/YyveK5QeAzLG1ZiBtOcpK9pgPhoqKhekqOlS6Ip0bezxJ9wvg68PwkYLhFBBwoSaLtBh
+9m5otKUpUajdhE5VE2kPCkOt+ufJyEMNB8fXYaP37M7YwFdFeQiztDs1Q2LdMseLA+sk4S1hDS2sjS1X
+NiT9nbYTWcwBtYSZifzFEWMPjEE4aolMi7Lf3GD7QSr61hgeoDF1Uhw/iC0Jhd1uzhz0vjGji1gh6yfR
+tcCXkQq0K6nj85V/gE88Y0snnNZulARXK2c/VDtbmpY1m/n0BNtx5VaNYKb6ZzEGZVu12cx3L2pt0B4j
+HunW2L+sJp3y7D5JS9GeezKq8CiVWjg5+A/eXl9eAcsSQvTeseQLSAMWJoLehrRm6fWMbPCjobBb2Eti
+2oZc2uZFEtFHaCtwJi167UcjBdPZBOOs+pfUvLbO5+ZMaJ4wyFxwq87zIk1V3XGGXQMgU+aO4e5k8pVf
+vIdfA+cydsZNLT3l+u7fwIfLOvq+vLW+8sNtnZzM2url4kIunu6xagy9NqhV125pc0eY4KAcdBPT2Oci
+6vNEQnwX4LV0BLY4hInW4Sxu7uVB3Gq/xc9I2wrAtW6r/gQAAP//R0efXyYJAAA=
 `,
 	},
 
@@ -269,7 +270,7 @@ upcHca29eX4m2lYAurqt+hsAAP//uGHdcOMHAAA=
 		name:    "php.yml",
 		local:   "manifests/php.yml",
 		size:    1131,
-		modtime: 1543231989,
+		modtime: 1543299825,
 		compressed: `
 H4sIAAAAAAAC/8ySwW6rMBBF9/mKKy+yy1Nel1bbbX+ge2SRobFkGzozrsrfV4QAgdKq2cEOae6Zo7k+
 ILlIFs252QHvmUR9ncTuAOCAD8dFP2DKOpWZmZIWWYjNZQLQtiELn/T6fyIp2TcdxcK8nglTEENQ2SXx

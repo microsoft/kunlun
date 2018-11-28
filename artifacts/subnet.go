@@ -1,4 +1,4 @@
-package apis
+package artifacts
 
 type Subnet struct {
 	Name    string `yaml:"name"`

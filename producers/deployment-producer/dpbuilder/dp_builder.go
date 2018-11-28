@@ -43,30 +43,7 @@ func (dp DeploymentBuilder) Produce(
 		deployments = append(deployments, di.deployment)
 	}
 
-	dp.provisionJumpboxParameters(hostGroups)
 	return hostGroups, deployments, nil
-}
-
-func (dp DeploymentBuilder) provisionJumpboxParameters(hostGroups []deployments.HostGroup) {
-	// find the ip of the jumpbox
-	var (
-		jumpboxUser string
-		jumpboxHost string
-	)
-	for _, hostGroup := range hostGroups {
-		if hostGroup.GroupType == deployments.JumpboxHostGroupType {
-			jumpboxUser = hostGroup.Hosts[0].User
-			jumpboxHost = hostGroup.Hosts[0].Host
-		}
-	}
-	for _, hostGroup := range hostGroups {
-		for index := range hostGroup.Hosts {
-			hostGroup.Hosts[index].SSHCommonArgs = "-o UserKnownHostsFile={{.UserKnownHostsFile}}"
-			if hostGroup.GroupType != deployments.JumpboxHostGroupType {
-				hostGroup.Hosts[index].SSHCommonArgs = hostGroup.Hosts[index].SSHCommonArgs + fmt.Sprintf(" -o ProxyCommand=\"ssh -W %%h:%%p -q %s@%s -i {{.SSHPrivateKey}}\"", jumpboxUser, jumpboxHost)
-			}
-		}
-	}
 }
 
 func (dp DeploymentBuilder) produceHostGroup(vmGroup artifacts.VMGroup) (deployments.HostGroup, error) {
@@ -81,10 +58,10 @@ func (dp DeploymentBuilder) produceHostGroup(vmGroup artifacts.VMGroup) (deploym
 	}
 	host := deployments.Host{}
 	host.User = vmGroup.OSProfile.AdminName
-	if dp.isJumpbox(vmGroup) {
-		hostGroup.GroupType = deployments.JumpboxHostGroupType
+	if vmGroup.Jumpbox() {
+		hostGroup.GroupType = artifacts.JumpboxHostGroupType
 		if vmGroup.Count != 1 {
-			return deployments.HostGroup{}, errors.New("jumpbox count should be one")
+			return deployments.HostGroup{}, errors.New("jumpbox count should be only one")
 		}
 		host.Alias = hostGroup.Name
 		if networkInfos[0].Outputs[0].Host == "" {
@@ -108,15 +85,6 @@ func (dp DeploymentBuilder) produceHostGroup(vmGroup artifacts.VMGroup) (deploym
 	}
 
 	return hostGroup, nil
-}
-
-func (dp DeploymentBuilder) isJumpbox(vmGroup artifacts.VMGroup) bool {
-	for _, item := range vmGroup.Meta {
-		if item.Key == "group_type" && item.Value == deployments.JumpboxHostGroupType {
-			return true
-		}
-	}
-	return false
 }
 
 func (dp DeploymentBuilder) generateHostGroupName(vmGroup artifacts.VMGroup) string {

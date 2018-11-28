@@ -8,6 +8,7 @@ import (
 	"path"
 	"text/template"
 
+	"github.com/Microsoft/kunlun/artifacts"
 	"github.com/Microsoft/kunlun/artifacts/builtinroles"
 	"github.com/Microsoft/kunlun/artifacts/deployments"
 	"github.com/Microsoft/kunlun/common/fileio"
@@ -33,6 +34,14 @@ func NewASGenerator(
 		ui:         ui,
 		fs:         fs,
 	}
+}
+
+type SSHConfig struct {
+	UserKnownHostsFile    string
+	SSHPrivateKey         string
+	JumpboxUser           string
+	JumpboxHost           string
+	StrictHostKeyChecking string
 }
 
 // https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html?highlight=roles
@@ -166,11 +175,8 @@ func (a ASGenerator) generateHostsFile(hostGroups []deployments.HostGroup) ([]by
 	// 	     ansible_ssh_user: andy
 	// 	     ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q andy@65.52.176.243" -i private key'
 	hostGroupsSlices := yaml.MapSlice{}
-	privateKeyPath, err := a.getSSHPrivateKeyPath()
-	if err != nil {
-		return nil, err
-	}
-	knownHostsFilePath, err := a.getSSHKnownHostsFilePath()
+
+	err := a.provisionJumpboxParameters(hostGroups)
 	if err != nil {
 		return nil, err
 	}
@@ -178,32 +184,13 @@ func (a ASGenerator) generateHostsFile(hostGroups []deployments.HostGroup) ([]by
 		hosts := yaml.MapSlice{}
 
 		for _, host := range hostGroup.Hosts {
-			sshCommonArgs := ""
-			if host.SSHCommonArgs != "" {
-				type SSHConfig struct {
-					UserKnownHostsFile string
-					SSHPrivateKey      string
-				}
-				var tpl bytes.Buffer
-				tmpl, err := template.New("ssh_args").Parse(host.SSHCommonArgs)
-				if err != nil {
-					return nil, err
-				}
-				err = tmpl.Execute(&tpl, SSHConfig{
-					UserKnownHostsFile: knownHostsFilePath,
-					SSHPrivateKey:      privateKeyPath,
-				})
-				if err != nil {
-					return nil, err
-				}
-				sshCommonArgs = tpl.String()
-			}
+
 			hostSlice := yaml.MapItem{
 				Key: host.Alias,
 				Value: AnsibleHost{
 					Host:          host.Host,
 					SSHUser:       host.User,
-					SSHCommonArgs: sshCommonArgs,
+					SSHCommonArgs: host.SSHCommonArgs,
 				},
 			}
 			hosts = append(hosts, hostSlice)
@@ -224,6 +211,56 @@ func (a ASGenerator) generateHostsFile(hostGroups []deployments.HostGroup) ([]by
 	return content, nil
 }
 
+func (a ASGenerator) provisionJumpboxParameters(hostGroups []deployments.HostGroup) error {
+	// find the ip of the jumpbox
+	var (
+		jumpboxUser string
+		jumpboxHost string
+	)
+	for _, hostGroup := range hostGroups {
+		if hostGroup.GroupType == artifacts.JumpboxHostGroupType {
+			jumpboxUser = hostGroup.Hosts[0].User
+			jumpboxHost = hostGroup.Hosts[0].Host
+		}
+	}
+	privateKeyPath, err := a.getSSHPrivateKeyPath()
+	if err != nil {
+		return err
+	}
+	knownHostsFilePath, err := a.getSSHKnownHostsFilePath()
+	if err != nil {
+		return err
+	}
+	jumpBoxSSHCommonArgs := "-o UserKnownHostsFile={{.UserKnownHostsFile}} -o StrictHostKeyChecking={{.StrictHostKeyChecking}}"
+	nonJumpboxSSHCommonArgs := "-o UserKnownHostsFile={{.UserKnownHostsFile}} -o StrictHostKeyChecking={{.StrictHostKeyChecking}} " +
+		"-o ProxyCommand=\"ssh -o StrictHostKeyChecking={{.StrictHostKeyChecking}} -W %h:%p -q {{.JumpboxUser}}@{{.JumpboxHost}} -i {{.SSHPrivateKey}}\""
+	sshConfig := SSHConfig{
+		UserKnownHostsFile:    knownHostsFilePath,
+		SSHPrivateKey:         privateKeyPath,
+		JumpboxUser:           jumpboxUser,
+		JumpboxHost:           jumpboxHost,
+		StrictHostKeyChecking: "{{ansible_host_key_checking}}",
+	}
+	jumpBoxSSHCommonArgs, err = a.provisionSSHCommonArgs(jumpBoxSSHCommonArgs, sshConfig)
+	if err != nil {
+		return err
+	}
+	nonJumpboxSSHCommonArgs, err = a.provisionSSHCommonArgs(nonJumpboxSSHCommonArgs, sshConfig)
+	if err != nil {
+		return err
+	}
+	for _, hostGroup := range hostGroups {
+		for index := range hostGroup.Hosts {
+			if hostGroup.GroupType != artifacts.JumpboxHostGroupType {
+				hostGroup.Hosts[index].SSHCommonArgs = nonJumpboxSSHCommonArgs
+			} else {
+				hostGroup.Hosts[index].SSHCommonArgs = jumpBoxSSHCommonArgs
+			}
+		}
+	}
+	return nil
+}
+
 type AnsibleHost struct {
 	Host          string `yaml:"ansible_host"`
 	SSHUser       string `yaml:"ansible_ssh_user"`
@@ -239,6 +276,20 @@ type depItem struct {
 	Hosts    string   `yaml:"hosts"`
 	VarsFile []string `yaml:"vars_files"`
 	Roles    []role   `yaml:"roles"`
+}
+
+func (a ASGenerator) provisionSSHCommonArgs(commonArgs string, sshConfig SSHConfig) (string, error) {
+	var tpl bytes.Buffer
+	tmpl, err := template.New("ssh_args").Parse(commonArgs)
+	if err != nil {
+		return "", err
+	}
+	err = tmpl.Execute(&tpl, sshConfig)
+	if err != nil {
+		return "", err
+	}
+	sshCommonArgs := tpl.String()
+	return sshCommonArgs, nil
 }
 
 // TODO error handling.
@@ -263,6 +314,7 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 	// write the vars files
 	for _, dep := range deployments {
 		// write the files
+		mainVarsFilePath, _ := a.stateStore.GetMainArtifactVarsFilePath()
 		varsDir, _ := a.stateStore.GetAnsibleDir()
 		varsFile := path.Join(varsDir, dep.HostGroupName+".yml")
 		varsContent, _ := yaml.Marshal(dep.Vars)
@@ -274,7 +326,7 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 		}
 		depItem := depItem{
 			Hosts:    dep.HostGroupName,
-			VarsFile: []string{varsFile},
+			VarsFile: []string{mainVarsFilePath, varsFile},
 		}
 
 		roles := []role{}
