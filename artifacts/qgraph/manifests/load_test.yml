@@ -1,10 +1,10 @@
 - name: load_test
   questions:
-    - var_name: jmeter_load_test_endpoint
+    - var_name: jmeter_load_test_endpoint_questionnaire
       persistent: true
       description: "What's your endpoint to be tested"
       default: 'http://www.azure.com'
-    - var_name: jmeter_report_local_dest
+    - var_name: jmeter_report_local_dest_questionnaire
       persistent: true
       description: "Where do you want to download the test report"
       default: '/tmp'
