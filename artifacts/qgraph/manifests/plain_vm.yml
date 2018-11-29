@@ -3,4 +3,4 @@
   - var_name: "final_artifact"
     persistent: true
     description: "Guess your final artifact is:"
-    default: "plain_vm.yml"
+    constant_value: "plain_vm.yml"

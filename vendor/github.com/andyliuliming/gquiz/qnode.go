@@ -22,13 +22,14 @@ type QNode struct {
 }
 
 type Question struct {
-	VarName     string            `yaml:"var_name"`
-	Type        string            `yaml:"type"`
-	Description string            `yaml:"description"`
-	Candidates  []CandidateAnswer `yaml:"candidates,omitempty"`
-	Default     string            `yaml:"default"`
-	DefaultEnv  string            `yaml:"default_env"`
-	Persistent  bool              `yaml:"persistent"`
+	VarName       string            `yaml:"var_name"`
+	Type          string            `yaml:"type"`
+	Description   string            `yaml:"description"`
+	Candidates    []CandidateAnswer `yaml:"candidates,omitempty"`
+	Default       string            `yaml:"default"`
+	DefaultEnv    string            `yaml:"default_env"`
+	Persistent    bool              `yaml:"persistent"`
+	ConstantValue string            `yaml:"constant_value"`
 }
 
 type CandidateAnswer struct {

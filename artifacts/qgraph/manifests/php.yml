@@ -18,26 +18,26 @@
     - var_name: "final_artifact"
       persistent: true
       description: "Guess your final artifact is:"
-      default: "small_php.yml"
+      constant_value: "small_php.yml"
 
 - name: medium_php
   questions:
     - var_name: "final_artifact"
       persistent: true
       description: "Guess your final artifact is:"
-      default: "medium_php.yml"
+      constant_value: "medium_php.yml"
 
 - name: large_php
   questions:
     - var_name: "final_artifact"
       persistent: true
       description: "Guess your final artifact is:"
-      default: "large_php.yml"
+      constant_value: "large_php.yml"
 
 - name: maximum_php
   questions:
     - var_name: "final_artifact"
       persistent: true
       description: "Guess your final artifact is:"
-      default: "maximum_php.yml"
+      constant_value: "maximum_php.yml"
   
