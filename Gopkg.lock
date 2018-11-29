@@ -11,11 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:6b2b1e39d53727f0a1404969df3b703c2e00df0881b00843abf9c6e6125e5202"
+  digest = "1:7d8a8a34c74dcabf6255839587a269bb2fb8ac6ff2243b4be3c1c2cc4a91bc69"
   name = "github.com/andyliuliming/gquiz"
   packages = ["."]
   pruneopts = "UT"
-  revision = "6647bea253d04db28222333bdb8a199faf405532"
+  revision = "99106728b1b59a2b401089ececc0059a7ca80f39"
 
 [[projects]]
   digest = "1:0ef770954bca104ee99b3b6b7f9b240605ac03517d9f98cbc1893daa03f3c038"
@@ -221,12 +221,12 @@
   revision = "dd632973f1e7218eb1089048e0798ec9ae7dceb8"
 
 [[projects]]
-  digest = "1:342378ac4dcb378a5448dd723f0784ae519383532f5e70ade24132c4c8693202"
+  digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   pruneopts = "UT"
-  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
-  version = "v2.2.1"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [solve-meta]
   analyzer-name = "dep"

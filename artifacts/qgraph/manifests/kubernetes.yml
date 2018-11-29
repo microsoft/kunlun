@@ -14,4 +14,4 @@
   - var_name: "final_artifact"
     persistent: true
     description: "Guess your final artifact is:"
-    default: "small_kubernetes.yml"
+    constant_value: "small_kubernetes.yml"
