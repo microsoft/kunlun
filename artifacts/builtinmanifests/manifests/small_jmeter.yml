@@ -30,17 +30,10 @@ vm_groups:
         managed_disk_type: Standard_LRS
         caching: ReadWrite
         create_option: FromImage
-      data_disks:
-        - managed_disk_type: Standard_LRS
-          caching: ReadWrite
-          create_option: Empty
-          disk_size_gb: 100
     networks:
       - subnet_name: snet-1
         network_security_group_name: ssh_nsg
         public_ip: static
-    roles:
-      - name: kunlun.datadisk
 
   - name: jmeter-workers
     count: 1

@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine" "{{.vmGroupName}}" {
 	  create_option     = "${var.{{.vmGroupName}}_avm_storage_os_disk_create_option}"
 	  managed_disk_type = "${var.{{.vmGroupName}}_avm_storage_os_disk_managed_disk_type}"
 	}
-
+	{{ if .hasDataDisk }}
 	storage_data_disk {
 		name			  = "{{.vmGroupName}}-datadisk-${count.index}"
 		lun               = 0
@@ -80,6 +80,7 @@ resource "azurerm_virtual_machine" "{{.vmGroupName}}" {
 		disk_size_gb      = "${var.{{.vmGroupName}}_avm_storage_data_disk_disk_size_gb}"
 
 	}
+	{{end}}
   
 	os_profile {
 	  computer_name  = "{{.vmGroupName}}-vm-${count.index}"
@@ -180,6 +181,7 @@ func getVMTFParams(vm artifacts.VMGroup) map[string]interface{} {
 		"subnetName":                         vm.NetworkInfos[0].SubnetName,
 		"nsgName":                            vm.NetworkInfos[0].NetworkSecurityGroupName,
 		"loadBalancerBackendAddressPoolName": vm.NetworkInfos[0].LoadBalancerBackendAddressPoolName,
+		"hasDataDisk":                        len(vm.Storage.DataDisks) > 0,
 	}
 	if vm.NetworkInfos[0].PublicIP == "static" || vm.NetworkInfos[0].PublicIP == "dynamic" {
 		m["publicIPAddressAllocation"] = vm.NetworkInfos[0].PublicIP
@@ -188,7 +190,7 @@ func getVMTFParams(vm artifacts.VMGroup) map[string]interface{} {
 }
 
 func getVMTFVarsParams(vm artifacts.VMGroup) map[string]interface{} {
-	return map[string]interface{}{
+	rslt := map[string]interface{}{
 		"vmGroupName":                                   vm.Name,
 		"avm_vm_size":                                   vm.SKU,
 		"avm_count":                                     vm.Count,
@@ -199,11 +201,21 @@ func getVMTFVarsParams(vm artifacts.VMGroup) map[string]interface{} {
 		"avm_storage_os_disk_caching":                   vm.Storage.OSDisk.Caching,
 		"avm_storage_os_disk_create_option":             vm.Storage.OSDisk.CreateOption,
 		"avm_storage_os_disk_managed_disk_type":         vm.Storage.OSDisk.ManagedDiskType,
-		"avm_storage_data_disk_caching":                 vm.Storage.DataDisks[0].Caching,
-		"avm_storage_data_disk_create_option":           vm.Storage.DataDisks[0].CreateOption,
-		"avm_storage_data_disk_managed_disk_type":       vm.Storage.DataDisks[0].ManagedDiskType,
-		"avm_storage_data_disk_disk_size_gb":            vm.Storage.DataDisks[0].DiskSizeGB,
 		"avm_os_profile_admin_username":                 vm.OSProfile.AdminName,
 		"avm_os_profile_linux_config_ssh_keys_key_data": strings.TrimSpace(vm.OSProfile.LinuxConfiguration.SSH.PublicKeys[0]),
 	}
+
+	if len(vm.Storage.DataDisks) > 0 {
+		smallmap := map[string]interface{}{
+			"avm_storage_data_disk_caching":           vm.Storage.DataDisks[0].Caching,
+			"avm_storage_data_disk_create_option":     vm.Storage.DataDisks[0].CreateOption,
+			"avm_storage_data_disk_managed_disk_type": vm.Storage.DataDisks[0].ManagedDiskType,
+			"avm_storage_data_disk_disk_size_gb":      vm.Storage.DataDisks[0].DiskSizeGB,
+		}
+		for k, v := range smallmap {
+			rslt[k] = v
+		}
+	}
+
+	return rslt
 }
