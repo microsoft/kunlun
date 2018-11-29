@@ -76,6 +76,45 @@ vm_groups:
         vars:
           kunlun_tomcat_admin_password: ((kunlun_tomcat_admin_password))
 
+  - name: jmeter-worker
+    count: 1
+    sku: Standard_B1s
+    type: vm
+    os_profile:
+      admin_name: ((admin_name))
+      linux_configuration:
+        ssh:
+          public_keys:
+            - ((admin_ssh.public_key))
+    storage:
+      image:
+        offer: UbuntuServer
+        publisher: Canonical
+        sku: 16.04-LTS
+        version: latest
+      os_disk:
+        managed_disk_type: Standard_LRS
+        caching: ReadWrite
+        create_option: FromImage
+      data_disks:
+        - managed_disk_type: Standard_LRS
+          caching: ReadWrite
+          create_option: Empty
+          disk_size_gb: 40
+    networks:
+      - subnet_name: snet-test
+        network_security_group_name: jmeter_nsg
+        public_ip: static
+    roles:
+      - name: kunlun.datadisk
+      - name: kunlun.jmeter
+        vars:
+          jmeter_load_test_enabled: ((jmeter_load_test_enabled))
+          jmeter_load_test_mode: 'single_node'
+          jmeter_load_test_thread_per_node: 100
+          jmeter_load_test_loop_count: 25
+          jmeter_load_test_ramp_up_period: 2
+
 vnets:
   - name: vnet-1
     address_space: 10.0.0.0/16
@@ -83,6 +122,9 @@ vnets:
       - name: snet-1
         range: 10.0.0.0/24
         gateway: 10.0.0.1
+      - name: snet-test
+        range: 10.0.255.0/24
+        gateway: 10.0.255.1
 
 load_balancers:
   - name: load_balancer_1
@@ -126,6 +168,26 @@ network_security_groups:
         protocol: Tcp
         source_port_range: "*"
         destination_port_range: 22
+        source_address_prefix: "*"
+        destination_address_prefix: "*"
+  - name: jmeter_nsg
+    network_security_rules:
+      - name: allow-ssh-dev
+        priority: 1001
+        direction: Inbound
+        access: Allow
+        protocol: Tcp
+        source_port_range: "*"
+        destination_port_range: 22
+        source_address_prefix: "*"
+        destination_address_prefix: "*"
+      - name: allow-jmeter
+        priority: 1002
+        direction: Inbound
+        access: Allow
+        protocol: Tcp
+        source_port_range: "*"
+        destination_port_range: 1099
         source_address_prefix: "*"
         destination_address_prefix: "*"
 
