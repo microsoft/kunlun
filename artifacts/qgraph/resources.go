@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "error.yml",
 		local:   "manifests/error.yml",
 		size:    13,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 `,
@@ -223,7 +223,7 @@ H4sIAAAAAAAC/9JVyEvMTbVSSC0qyi8CBAAA///rGPd6DQAAAA==
 		name:    "java.yml",
 		local:   "manifests/java.yml",
 		size:    782,
-		modtime: 1543467504,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/8ySQW7yMBCF9znFkzes4ACW0L/8j1B1hUbOpDV1bDoeg3L7KsEhCtBK3XWbvPnmy5ts
 EalniyOdqQE+C2f1KWbbAMAWZ5LDNWE6oZ4vST7M9A5oOTvxpzFvYV7eSXHLYEgFJIySfXz7N484iq1v
@@ -237,7 +237,7 @@ ewqhSu2GPtzrLp/7l3yr1ST8FQAA//8+TEmbDgMAAA==
 		name:    "jmeter.yml",
 		local:   "manifests/jmeter.yml",
 		size:    493,
-		modtime: 1543388100,
+		modtime: 1543408472,
 		compressed: `
 H4sIAAAAAAAC/3SQTWrDMBCF9z7FQ5uskgMIsmqhxzCDNKYq+nE1o4JvX2zZbUzTWb+fed8VmRJbfCRW
 rgPw2Vg0lCx2AIArvqiOXWO6aPQ8x7IkzjrqMrPZhIBncTXMq9nCvLyXIoyltIpfA1aDPRyOsg+elPey
@@ -250,7 +250,7 @@ U8gUR6oaJnLagcxcJYhyVgutjYe/e98ai3SoWwKOBATZsXqeqEW1MI/P3JYUzXcAAAD//xjOPM3tAQAA
 		name:    "kubernetes.yml",
 		local:   "manifests/kubernetes.yml",
 		size:    554,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/4SRTW7rMAyE9z7FQJuskgMIyOo9oMcQWItuhcqUK1IFfPvCsY3E6J/WnPk0M2cIjezx
 1p65ChtrB7w3VktF1HcAcMYH1bDeufthiDzlMo8sFmye2N2Ogcja1zQtBh7u32spyphLq7gLsAj8ruhJ
@@ -264,7 +264,7 @@ AAD//2ut96QqAgAA
 		name:    "load_test.yml",
 		local:   "manifests/load_test.yml",
 		size:    411,
-		modtime: 1543467504,
+		modtime: 1543408482,
 		compressed: `
 H4sIAAAAAAAC/6TQsU7EMBAE0D5fMbom1V16/wiltcR7iiHxmvUaC74eGSsnIURFa814n+aKRAc77ELB
 GxebgLfKxaKk4iYAuOKd1I/Yy8HG6h9pzylkicn8WUoUlb97QGYtsRgnczCt53PgsmrMPe1wedrI5oIP
@@ -276,22 +276,23 @@ xBgXf7MXO3JnmlIq8cfCQ0xq8U6r+deYwvQVAAD//wUJAPabAQAA
 	"/manifests/main.yml": {
 		name:    "main.yml",
 		local:   "manifests/main.yml",
-		size:    2989,
-		modtime: 1543467504,
+		size:    3167,
+		modtime: 1543497745,
 		compressed: `
-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
+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
+QV8MAAA=
 `,
 	},
 
@@ -299,13 +300,25 @@ x2Jc2YtKXGO/aznubQWgjdtmfwMAAP//6e0HnK0LAAA=
 		name:    "php.yml",
 		local:   "manifests/php.yml",
 		size:    1131,
-		modtime: 1543299825,
+		modtime: 1543231989,
 		compressed: `
 H4sIAAAAAAAC/8ySwW6rMBBF9/mKKy+yy1Nel1bbbX+ge2SRobFkGzozrsrfV4QAgdKq2cEOae6Zo7k+
 ILlIFs252QHvmUR9ncTuAOCAD8dFP2DKOpWZmZIWWYjNZQLQtiELn/T6fyIp2TcdxcK8nglTEENQ2SXx
 s039FokuhKKX6b6yTid/ZS0E8PiE/8ejmeUjnXyOfwQ8d3ns91gnL9DB8RvdQ/4J/fANHd2nj3do94Td
 2tF+a7DyyYXCsfrKlToU2BCLF6WkFsqZVnt8ySSCts6MCwUDBV6sGSOVy0EtzGj0r43hxnRWzzZUJ6WF
 623f21AdjZZXnT2fjZx1cuptga8AAAD//0VGz3BrBAAA
+`,
+	},
+
+	"/manifests/plain_vm.yml": {
+		name:    "plain_vm.yml",
+		local:   "manifests/plain_vm.yml",
+		size:    158,
+		modtime: 1543498012,
+		compressed: `
+H4sIAAAAAAAC/zTOUQqDQAwE0H9PMeTfHiAX6DEk2AiB3XWbZAVvX2rr7zDzmBlNqjJ6EWvLUSfgPTTS
+9hY8ATMO8eXXoc2alEU8bZM1aQKArh4WqS0Z6UOv8KWxuvWvwqDn0Aic+3BcAm4BFkz/wSajJIPuI4+z
+FvoEAAD//1AvbGWeAAAA
 `,
 	},
 
@@ -326,5 +339,6 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/manifests/load_test.yml"],
 		_escData["/manifests/main.yml"],
 		_escData["/manifests/php.yml"],
+		_escData["/manifests/plain_vm.yml"],
 	},
 }

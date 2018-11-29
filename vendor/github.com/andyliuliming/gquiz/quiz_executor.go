@@ -108,7 +108,7 @@ func (qe *QuizExecutor) HandleQuestion(q *Question) (string, error) {
 		defaultValue = q.Default
 	}
 	if defaultValue != "" {
-		qe.ui.Println(fmt.Sprintf("%s(%s)", q.Description, defaultValue))
+		qe.ui.Println(fmt.Sprintf("%s (%s)", q.Description, defaultValue))
 	} else {
 		qe.ui.Println(q.Description)
 	}
@@ -118,17 +118,31 @@ func (qe *QuizExecutor) HandleQuestion(q *Question) (string, error) {
 				qe.ui.Println(fmt.Sprintf("%d.%s -- %s", (i + 1), q.Candidates[i].Value, q.Candidates[i].Description))
 			}
 			input := qe.ui.GetInput()
-			choice, err := strconv.Atoi(input)
-			if err != nil {
-				qe.ui.Println("Please make the choice, 1,2...")
-				continue
+			gotAnswer := false
+			if input == "" {
+				for i := range q.Candidates {
+					if defaultValue == q.Candidates[i].Value {
+						answer = defaultValue
+						gotAnswer = true
+						break
+					}
+				}
 			}
-			if choice < 1 || choice > len(q.Candidates) {
-				qe.ui.Println("choice out of range.")
-				continue
+			if gotAnswer {
+				break
+			} else {
+				choice, err := strconv.Atoi(input)
+				if err != nil {
+					qe.ui.Println("Please make the choice, 1,2...")
+					continue
+				}
+				if choice < 1 || choice > len(q.Candidates) {
+					qe.ui.Println("choice out of range.")
+					continue
+				}
+				answer = q.Candidates[choice-1].Value
+				break
 			}
-			answer = q.Candidates[choice-1].Value
-			break
 		}
 	}
 	if answer == "" {

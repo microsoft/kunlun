@@ -1,2 +1,2 @@
-data_disk_path: /dev/sdc
+data_disk_path: /dev/disk/azure/scsi1/lun0
 data_disk_mount_path: /mnt/data
