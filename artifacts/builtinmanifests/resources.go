@@ -213,7 +213,7 @@ var _escData = map[string]*_escFile{
 		name:    "large_php.yml",
 		local:   "manifests/large_php.yml",
 		size:    3546,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvcOBO++1cUk0v6pbszPYTw4tuyH2wgsJBJ2MOyGFmqtpWWJa2q5E7n1y+y3bb7
 azYZ9pDDMjC06imVyk89VdJqtcpI1tiIHNr79SbL0LaFFQ3msIvWRJsFJBeDxKIKLvoBe/nyinmxyIyT
@@ -240,7 +240,7 @@ ipxdHzUnsrwcOBebrjLWlWSVDptRpl3akMPDbOYrHVD2F8VbW7po1QgJKZEoT/y5/T/UcJgmibtiaMm7
 		name:    "maximum_php.yml",
 		local:   "manifests/maximum_php.yml",
 		size:    3546,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvcOBO++1cUk0v6pbszPYTw4tuyH2wgsJBJ2MOyGFmqtpWWJa2q5E7n1y+y3bb7
 azYZ9pDDMjC06imVyk89VdJqtcpI1tiIHNr79SbL0LaFFQ3msIvWRJsFJBeDxKIKLvoBe/nyinmxyIyT
@@ -267,7 +267,7 @@ ipxdHzUnsrwcOBebrjLWlWSVDptRpl3akMPDbOYrHVD2F8VbW7po1QgJKZEoT/y5/T/UcJgmibtiaMm7
 		name:    "medium_php.yml",
 		local:   "manifests/medium_php.yml",
 		size:    3546,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xWTYvcOBO++1cUk0v6pbszPYTw4tuyH2wgsJBJ2MOyGFmqtpWWJa2q5E7n1y+y3bb7
 azYZ9pDDMjC06imVyk89VdJqtcpI1tiIHNr79SbL0LaFFQ3msIvWRJsFJBeDxKIKLvoBe/nyinmxyIyT
@@ -290,11 +290,31 @@ ipxdHzUnsrwcOBebrjLWlWSVDptRpl3akMPDbOYrHVD2F8VbW7po1QgJKZEoT/y5/T/UcJgmibtiaMm7
 `,
 	},
 
+	"/manifests/plain_vm.yml": {
+		name:    "plain_vm.yml",
+		local:   "manifests/plain_vm.yml",
+		size:    1550,
+		modtime: 1543498543,
+		compressed: `
+H4sIAAAAAAAC/4xUTW/bMAy961cQ3aUZ5iwOih58G/YBFOip6bCjQcuMrcWWDFJym/76wR+xnTQbhlwi
+Pvq9R1JUFEVKdEk1JtBu1rFSZNvUYk0JHIKtglVM4gJrSgt2oRmx29sr4dVKVU6jN852Gaf/q5VSBlES
+wLfABB/Al0ZAo4WMxphjEFcTOF8SQ1Oh3zuulWrrgV8SBRDBIP471E3mXhUAQE0ek/4fwODEH5uLHO2C
+9QnE/UEOIYGdR5sj5+m3XZy22x4YvmvrC39t3Zlra5FPoAMzWV8dwdnq2EFGQELTOPaU9yxO0obd3lR0
+coV5bezUtvm0Wo0JlbHhNdXO7k0ReGjfCAGIlPMBoAlZZXR6oKMsw11vTtwi5XpOG1XEO8Zi8mTqxQHA
+7ffECfzMgvVhR9wSqzNFKTv8K1pnjcZqdtc1M75fb+6ix+fdFG6Jpb8EFXoSP8adpLmRwyxbo8WC8j46
+jm0azOPTTKdRl8YWCTwR5r/YeJohJvSUuma4dD/Y1Q9dbWNCjh57+kW3ov/W/afyO+3vdeOPC7hnF/NG
+aZElEG82PWbJvzie/UQgIbPkxwsilnwUTyxjdiqkAxt/PNtBkTK1UqiLu2GaBMSjN7pH2FW0UFuu9rpr
+T2dTqdaSP9uxdjaCec4kkkqDmrpK1v3vc3w/XK3e/zuJi0oYbbH8eHs3QQV6esHjBMZKqeuFnzlclv8u
+ncOVqrGq3EskUs4tY+O6/Hk+w+SY9DDUB5u5YPMJQq1JJIEvHdWCxnmnXZXAs27m5Rjex+5xSMfybz7e
+zCok3th+3c9ytttLhtMAGqa9ef07y7U81SIbzMZuTJ04vRSLl0+k/BMAAP//hKYkxw4GAAA=
+`,
+	},
+
 	"/manifests/small_jmeter.yml": {
 		name:    "small_jmeter.yml",
 		local:   "manifests/small_jmeter.yml",
 		size:    3116,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xWTY/bNhC981cM0kPiotpaxm6A6Fb0AwiQUzZFj8SYGkvsUqTAIbXr/PqCkqwPr9cN
 gh6CIvBF5Bu9Gb95HCrLMsGqpgYL6LY3uRBkO2mxoQIeojXRCk/solckK+9iO2Jv3lzY3myEcQqDdjZF
@@ -317,7 +337,7 @@ ZSV1l2XL/6e6PZfhbDatVNh9Iyrk23fv/ksdRIdepzG6OnvT5b/4JkmrfwIAAP//AsmWwiwMAAA=
 		name:    "small_kubernetes.yml",
 		local:   "manifests/small_kubernetes.yml",
 		size:    3632,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xWz6vbOBC++68YXi7NkqRJKKX4tuwPtlBY6GvZw7IYWZ7YamTJqxk5Tf/6RbZiO4lf
 ty176GF58IjmG83I33ya0Xq9TkhWWIsU2u1mlyRo2syIGlM4eqO9SRyS9U5iVjrrm4g9ezZjXi4TbaVg
@@ -344,7 +364,7 @@ QhhRNcPX7rvha7//L/lKWuGUyCMbAxOXN+DkbRpW/wQAAP//ShzyYjAOAAA=
 		name:    "small_php.yml",
 		local:   "manifests/small_php.yml",
 		size:    5269,
-		modtime: 1543470481,
+		modtime: 1543492478,
 		compressed: `
 H4sIAAAAAAAC/+xXS4vcOBC++1cUk0Myy3RnuknCxrd9soHAQiZhD8tiZKnaVkaWtCrJnc6vXyS7/ehX
 kiGHsISBoVVVqip99fRisciI19iwHNrb5SrLULeFZg3mcB+0CjpzSCY4jkXlTLA978mTE+Tr60wZzrw0
@@ -374,7 +394,7 @@ lZUUAAA=
 		name:    "small_tomcat.yml",
 		local:   "manifests/small_tomcat.yml",
 		size:    5417,
-		modtime: 1543482025,
+		modtime: 1543492664,
 		compressed: `
 H4sIAAAAAAAC/+xX3YvbOBB/918xbB/aPTbpJrTl6rf75AqFg27LPRyHkKVJrK4s6TSS0/SvPyQ7jp2v
 tksfylEWlmhmNDP6zadns1lBosaGl9DezhdFgaZlhjdYwn00OprCI9noBbK1t9H1vCdPTpCvrwttBQ/K
@@ -404,7 +424,7 @@ vUobz6RlDUv66NuhO003r9OfK6NLA+m/AAAA///TUOXJKRUAAA==
 		name:    "small_wildfly.yml",
 		local:   "manifests/small_wildfly.yml",
 		size:    5273,
-		modtime: 1543482084,
+		modtime: 1543492664,
 		compressed: `
 H4sIAAAAAAAC/+xXS4vcOBC++1cUk0Myy3RnuknCxrd9soHAQiZhD8tiZKnaVkaWtCrJnc6vXyS7/ehX
 kiGHsISBoVVVqip99fRisciI19iwHNrb5SrLULeFZg3mcB+0CjpzSCY4jkXlTLA978mTE+Tr60wZzrw0
@@ -443,6 +463,7 @@ var _escDirs = map[string][]os.FileInfo{
 		_escData["/manifests/large_php.yml"],
 		_escData["/manifests/maximum_php.yml"],
 		_escData["/manifests/medium_php.yml"],
+		_escData["/manifests/plain_vm.yml"],
 		_escData["/manifests/small_jmeter.yml"],
 		_escData["/manifests/small_kubernetes.yml"],
 		_escData["/manifests/small_php.yml"],

@@ -2,7 +2,7 @@
   questions:
     - var_name: iaas
       persistent: true
-      description: "What's your iaas provider(Only azure supported for now.)"
+      description: "What's your iaas provider (Only azure supported for now.)"
       default: "azure"
       default_env: "KL_IAAS"
     - var_name: admin_name
@@ -18,6 +18,7 @@
       description: "What resource group name do you want?"
     - var_name: kind
       description: "Which kind of artifacts do you want?"
+      default: application
       candidates:
         - value: infrastructure
           description: "To deployment the infrastructures, like: kubernetes..."
@@ -37,7 +38,7 @@
   questions:
     - var_name: "project_source_code_path"
       persistent: true # TODO add support for the tree structure of the variables.
-      description: "Where's the source code of your project?(Git repository path.)"
+      description: "Where's the source code of your project? (your git repository path.)"
     - var_name: "project_git_revision"
       persistent: true
       description: "Which revision do you want to deploy?"

@@ -11,11 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:86e6c645503d51bb6c5fe71b95c0e162ba54d82ebab58d667667bdfca2e1b06d"
+  digest = "1:6b2b1e39d53727f0a1404969df3b703c2e00df0881b00843abf9c6e6125e5202"
   name = "github.com/andyliuliming/gquiz"
   packages = ["."]
   pruneopts = "UT"
-  revision = "50bd95ae372d901dd070b600c91c66dd5205dbef"
+  revision = "6647bea253d04db28222333bdb8a199faf405532"
 
 [[projects]]
   digest = "1:0ef770954bca104ee99b3b6b7f9b240605ac03517d9f98cbc1893daa03f3c038"
@@ -152,7 +152,7 @@
     "ssh",
   ]
   pruneopts = "UT"
-  revision = "e657309f52e71501f9934566ac06dc5c2f7f11a1"
+  revision = "eb0de9b17e854e9b1ccd9963efafc79862359959"
 
 [[projects]]
   branch = "master"
@@ -164,15 +164,15 @@
     "html/charset",
   ]
   pruneopts = "UT"
-  revision = "adae6a3d119ae4890b46832a2e88a95adc62b8e7"
+  revision = "fae4c4e3ad76c295c3d6d259f898136b4bf833a8"
 
 [[projects]]
   branch = "master"
-  digest = "1:225564f71149334315118db714e1ea87513e4a11cf4acb27e26bc7577cebfa0b"
+  digest = "1:8775d8a768d9e65e8b659172804aac5db1fc8d563ba766470a6c2698c57c61a7"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "62eef0e2fa9b2c385f7b2778e763486da6880d37"
+  revision = "4ed8d59d0b35e1e29334a206d1b3f38b1e5dfb31"
 
 [[projects]]
   digest = "1:4392fcf42d5cf0e3ff78c96b2acf8223d49e4fdc53eb77c99d2f8dfe4680e006"

@@ -2,7 +2,7 @@
   questions:
     - var_name: admin_name
       persistent: true
-      description: "Admin name of your deployment?"
+      description: "What admin name do you want for your deployment?"
       default: "kluser"
     - var_name: location
       persistent: true
@@ -79,11 +79,15 @@
     - var_name: "infra_type"
       description: "Which kind of infrastructure you want to deploy?"
       candidates:
+        - value: plain_vm
+          description: "To deploy one single vm with one data disk."
         - value: kubernetes
           description: "To deploy a kubernetes cluster."
         - value: jmeter
           description: "To deploy a jmeter cluster."
   transitions:
+    - name: plain_vm
+      condition: "infra_type == 'plain_vm'"
     - name: kubernetes
       condition: "infra_type == 'kubernetes'"
     - name: jmeter
