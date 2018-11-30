@@ -123,6 +123,9 @@ you can create one patch file to add more roles into the artifact and run
 
 Run `kl apply_deployment` to do the real deployment.
 
+## SSH into your box
+
+Run `kl ssh -group <YOUR VM GROUP NAME> -index <YOUR NODE INDEX>` to ssh into your vm instance in one group.
 
 ## More Languages we support
 

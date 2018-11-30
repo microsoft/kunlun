@@ -44,6 +44,8 @@ func NewExecutor(
 	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore, fs, ui)
 	commandSet["apply_deployment"] = commands.NewApplyDeployment(stateStore)
 	commandSet["promote"] = commands.NewPromote(stateStore)
+
+	commandSet["ssh"] = commands.NewSSH(stateStore, fs, ui)
 	return Executor{
 		commands:      commandSet,
 		configuration: configuration,
