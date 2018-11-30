@@ -1,0 +1,17 @@
+- name: jenkins
+  questions:
+    - var_name: "jenkins_deployment_type"
+      description: "Choose your deployment type:"
+      candidates:
+        - value: small_jenkins
+          description: "Deploy a small cluster of jenkins."
+  transitions:
+    - name: small_jenkins
+      condition: "jenkins_deployment_type == 'small_jenkins'"
+
+- name: small_jenkins
+  questions:
+  - var_name: "final_artifact"
+    persistent: true
+    description: "Guess your final artifact is:"
+    constant_value: "small_jenkins.yml"

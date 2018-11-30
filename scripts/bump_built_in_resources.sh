@@ -20,6 +20,7 @@ pushd $DIR/../artifacts/builtinroles
   ansible-galaxy install idealista.tomcat-role
   ansible-galaxy install gantsign.maven
   ansible-galaxy install bjoernalbers.wildfly
+  ansible-galaxy install geerlingguy.jenkins
 popd
 
 pushd $DIR/../artifacts/builtinroles
