@@ -28,6 +28,10 @@ func (Promote) Usage() string {
 	return "Help About Promote"
 }
 
+func (SSH) Usage() string {
+	return "Help About SSH"
+}
+
 func (Usage) Usage() string {
 	return "Help About Usage."
 }
