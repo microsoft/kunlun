@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "{{.lbName}}_public_ip" {
 	public_ip_address_allocation = "static"
 	sku                          = "${var.{{.lbName}}_al_sku}"
 	{{if .haveDomainName -}}
-	domain_name_label = "{{var.{{.lbName}}_al_domain_name_label}}"
+	domain_name_label = "${var.{{.lbName}}_al_domain_name_label}"
 	{{- end}}
 }
 
