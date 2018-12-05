@@ -237,7 +237,7 @@ jyEUt/3Yh1vr9dVPqF3kZu+fAAAA//8dwwm2HAMAAA==
 		name:    "jenkins.yml",
 		local:   "manifests/jenkins.yml",
 		size:    509,
-		modtime: 1543589046,
+		modtime: 1543687698,
 		compressed: `
 H4sIAAAAAAAC/3SQy2ozMQyF9/MUB2+ySh7AkNX/Qx/DCI9C3XrkqSUX5u3L3AimjdbnovNdITSxxwfL
 ZxIdgK/GaqmI+gEArvimGnaRO1Rh5DmXZWKxYMvMblMCI2usaV7dHu7feynKWEqreBqwGvzpiCRjGsn4
@@ -292,7 +292,7 @@ xBgXf7MXO3JnmlIq8cfCQ0xq8U6r+deYwvQVAAD//wUJAPabAQAA
 		name:    "main.yml",
 		local:   "manifests/main.yml",
 		size:    3309,
-		modtime: 1543580985,
+		modtime: 1543687698,
 		compressed: `
 H4sIAAAAAAAC/5xVTW/jOAy951cQ3kMuM/kBAQaDBYq99lJgsSeDtZlYtSNpRSpF/v1A8ncsu0lvrUM+
 Pj0+kj9B44WO4IyRHcD/nliU0XzcAQD8hCu6vI3A8qJ0/Dv+BGDJsWIhLUcQ5/vPJXHhlA0oR8j+rVDa
