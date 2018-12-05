@@ -16,6 +16,8 @@
     state: directory
   with_items:
     - "{{ maven_home_parent_directory }}"
+  become: true
+  become_user: root
 
 - import_role:
     name: wikivoks.jmeter

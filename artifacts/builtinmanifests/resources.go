@@ -314,7 +314,7 @@ zCok3th+3c9ytttLhtMAGqa9ef07y7U81SIbzMZuTJ04vRSLl0+k/BMAAP//hKYkxw4GAAA=
 		name:    "small_jenkins.yml",
 		local:   "manifests/small_jenkins.yml",
 		size:    2964,
-		modtime: 1543589203,
+		modtime: 1543687698,
 		compressed: `
 H4sIAAAAAAAC/+xWTY/bNhC981cM3Mu6qFzLCIJCt6IfQICcsil6FEbUWGItkcIMqV3n1xeUZEn2OtsP
 5BAUhS/izOOb8ZsnUkmSKNE1tZhBv9+lSpHtc4stZXAKtglWMYkLrCmv2IVuyj083Alvt6pxGr1xNiIu

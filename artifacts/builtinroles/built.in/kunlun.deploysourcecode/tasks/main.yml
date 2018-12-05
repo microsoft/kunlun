@@ -9,6 +9,8 @@
     state: directory
   with_items:
     - "{{ project_src_root }}"
+  become: true
+  become_user: root
 
 - name: Clone project
   git:
