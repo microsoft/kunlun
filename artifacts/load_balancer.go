@@ -4,6 +4,7 @@ package artifacts
 type LoadBalancer struct {
 	Name                string                           `yaml:"name"`
 	SKU                 string                           `yaml:"sku"`
+	DomainName          string                           `yaml:"domain_name,omitempty"`
 	BackendAddressPools []LoadBalancerBackendAddressPool `yaml:"backend_address_pools"`
 	HealthProbes        []LoadBalancerHealthProbe        `yaml:"health_probes"`
 	Rules               []LoadBalancerRule               `yaml:"rules"`

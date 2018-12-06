@@ -12,6 +12,9 @@ resource "azurerm_public_ip" "{{.lbName}}_public_ip" {
 	resource_group_name          = "${azurerm_resource_group.kunlun_resource_group.name}"
 	public_ip_address_allocation = "static"
 	sku                          = "${var.{{.lbName}}_al_sku}"
+	{{if .haveDomainName -}}
+	domain_name_label = "${var.{{.lbName}}_al_domain_name_label}"
+	{{- end}}
 }
 
 resource "azurerm_lb" "{{.lbName}}" {
@@ -26,10 +29,16 @@ resource "azurerm_lb" "{{.lbName}}" {
   }
 
 variable "{{.lbName}}_al_sku" {}
+{{if .haveDomainName -}}
+variable "{{.lbName}}_al_domain_name_label" {}
+{{- end}}
 `)
 
 var loadBalancerTFVars = []byte(`
 {{.lbName}}_al_sku = "{{.al_sku}}"
+{{if .haveDomainName -}}
+{{.lbName}}_al_domain_name_label = "{{.al_domain_name_label}}"
+{{- end}}
 `)
 
 var loadBalancerBackendAddressPoolTF = []byte(`
@@ -170,14 +179,17 @@ func NewLoadBalancerInput(lb artifacts.LoadBalancer) (string, error) {
 
 func getLoadBalancerTFParams(lb artifacts.LoadBalancer) map[string]interface{} {
 	return map[string]interface{}{
-		"lbName": lb.Name,
+		"lbName":         lb.Name,
+		"haveDomainName": lb.DomainName != "",
 	}
 }
 
 func getLoadBalancerTFVarsParams(lb artifacts.LoadBalancer) map[string]interface{} {
 	return map[string]interface{}{
-		"lbName": lb.Name,
-		"al_sku": lb.SKU,
+		"lbName":               lb.Name,
+		"al_sku":               lb.SKU,
+		"haveDomainName":       lb.DomainName != "",
+		"al_domain_name_label": lb.DomainName,
 	}
 }
 
