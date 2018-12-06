@@ -250,8 +250,6 @@ The `plan_infra` command creates Terraform templates to deploy the actual
 resources. If you want to setup some additional resources, you can add
 additional Terraform files in the `infra` folder.
 
-### Deploy
-
 The `plan_deployment` command attempts to build Ansible deployments for your 
 software code. If you think our built-in artifacts do not meet your requirements, 
 you can create a patch file to add more roles into the artifact and run 
@@ -264,3 +262,7 @@ component:
   value:
     name: geerlingguy.firewall
 ```
+
+## SSH into your VMs
+
+Run `kl ssh -group <YOUR VM GROUP NAME> -index <YOUR NODE INDEX>` to ssh into your vm instance in one group.

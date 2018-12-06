@@ -94,7 +94,7 @@ func (a ASGenerator) Generate(hostGroups []deployments.HostGroup, deployments []
 		a.ui.Printf("get admin ssh private key failed: %s\n", err.Error())
 		return err
 	}
-	sshPrivateKeyPath, err := a.getSSHPrivateKeyPath()
+	sshPrivateKeyPath, err := a.stateStore.GetAdminSSHPrivateKeyPath()
 	if err != nil {
 		return err
 	}
@@ -124,15 +124,6 @@ func (a ASGenerator) getSSHKnownHostsFilePath() (string, error) {
 	}
 	sshKnownHostsFilePath := path.Join(deploymentFolder, "known_hosts")
 	return sshKnownHostsFilePath, nil
-}
-
-func (a ASGenerator) getSSHPrivateKeyPath() (string, error) {
-	varsFolder, err := a.stateStore.GetVarsDir()
-	if err != nil {
-		return "", err
-	}
-	sshPrivateKeyPath := path.Join(varsFolder, "admin_ssh_private_key")
-	return sshPrivateKeyPath, nil
 }
 
 func (a ASGenerator) getAdminSSHPrivateKey() (string, error) {
@@ -223,7 +214,7 @@ func (a ASGenerator) provisionJumpboxParameters(hostGroups []deployments.HostGro
 			jumpboxHost = hostGroup.Hosts[0].Host
 		}
 	}
-	privateKeyPath, err := a.getSSHPrivateKeyPath()
+	privateKeyPath, err := a.stateStore.GetAdminSSHPrivateKeyPath()
 	if err != nil {
 		return err
 	}
@@ -398,7 +389,7 @@ func (a ASGenerator) prepareBuiltInRoles(deployments []deployments.Deployment) e
 
 func (a ASGenerator) generateDeploymentScript() ([]byte, error) {
 	// varsDir, _ := a.stateStore.GetAnsibleDir()
-	sshPrivateKeyPath, err := a.getSSHPrivateKeyPath()
+	sshPrivateKeyPath, err := a.stateStore.GetAdminSSHPrivateKeyPath()
 	if err != nil {
 		return nil, err
 	}

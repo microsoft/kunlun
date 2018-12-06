@@ -96,6 +96,15 @@ func (s Store) GetMainArtifactFilePath() (string, error) {
 	return path.Join(artifactsDir, "main.yml"), nil
 }
 
+func (s Store) GetAdminSSHPrivateKeyPath() (string, error) {
+	varsFolder, err := s.GetVarsDir()
+	if err != nil {
+		return "", err
+	}
+	sshPrivateKeyPath := path.Join(varsFolder, "admin_ssh_private_key")
+	return sshPrivateKeyPath, nil
+}
+
 // GetMainArtifactVarsFilePath get the variables file path
 func (s Store) GetMainArtifactVarsFilePath() (string, error) {
 	artifactsDir, err := s.GetVarsDir()

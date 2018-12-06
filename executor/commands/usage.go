@@ -33,6 +33,7 @@ Basic Commands: A good place to start
   apply_infra		Deploys your infrastrcuture.
   plan_deployment	Generates the scripts that will install your software. Currently, only ansible is supported.
   apply_deployment	Installs your software.
+  ssh SSH into the vm instance in vm groups.
 Troubleshooting Commands:
   help                    Prints usage`
 

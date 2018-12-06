@@ -85,6 +85,8 @@
           description: "To deploy a kubernetes cluster."
         - value: jmeter
           description: "To deploy a jmeter cluster."
+        - value: jenkins
+          description: "To deploy a jenkins cluster."
   transitions:
     - name: plain_vm
       condition: "infra_type == 'plain_vm'"
@@ -92,3 +94,5 @@
       condition: "infra_type == 'kubernetes'"
     - name: jmeter
       condition: "infra_type == 'jmeter'"
+    - name: jenkins
+      condition: "infra_type == 'jenkins'"
