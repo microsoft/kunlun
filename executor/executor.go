@@ -46,6 +46,7 @@ func NewExecutor(
 	commandSet["promote"] = commands.NewPromote(stateStore)
 
 	commandSet["ssh"] = commands.NewSSH(stateStore, fs, ui)
+	commandSet["deploy_all"] = commands.NewDeployAll(stateStore, envIDGenerator, fs, ui)
 	return Executor{
 		commands:      commandSet,
 		configuration: configuration,
