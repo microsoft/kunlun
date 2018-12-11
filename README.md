@@ -45,6 +45,8 @@ Go to version `1.10` or later.
 
 * Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
+* Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
 #### Login to Azure
 
 ```
@@ -63,13 +65,13 @@ export KL_AZURE_SUBSCRIPTION_ID=$(az account show --output tsv --query id)
 export KL_AZURE_TENANT_ID="$(az account show --output tsv --query tenantId)"
 ```
 
-#### Service Principle for Kunlun
+#### Service Principal for Kunlun
 
-If you don't already have a service principle for Kunlun we need to create one now. If you
+If you don't already have a service principal for Kunlun we need to create one now. If you
 have already created one you simply need to grab its client id, see the last command in this
 section.
 
-To create/use a Service Principle for Kunlun to use to manage your resources we will first
+To create/use a service principal for Kunlun to use to manage your resources we will first
 capture some important values in environment variables. First we need a name for the service
 principle. The below command generates a name that includes a UUID, you may choose to provide
 a more memorable name:
@@ -85,7 +87,7 @@ Obviously you don't want to do this in the real world.
 export KL_AZURE_CLIENT_SECRET=password
 ```
 
-Now we are ready to create the service principle:
+Now we are ready to create the service principal:
 
 ```
 az ad sp create-for-rbac --name $KL_AZURE_APP_NAME --password $KL_AZURE_CLIENT_SECRET
@@ -132,21 +134,23 @@ KL_AZURE_APP_NAME=kunlun
 ### Analyze the Application you wish to deploy
 
 Change into your project working directory. For our demo we will create a
-new project directory:
+new project directory and fetch the kunlun tool
 
 ```
 mkdir kunlun-test
 cd kunlun-test
+go get github.com/kunlun/kun-lun
+cd go/src/github.com/kun-lun/kunlun/cmd/kl
 ```
 
-And now we will analyze our application in order to select the correct
-infrastrcuture.
+And now we will analyze the application under consideration in order to select the correct
+infrastructure.
 
 ```
 kl analyze
 ```
 
-This will ask a number of questions, for the most part you can safely use
+This will ask a number of questions, and for the most part you can safely use
 the defaults. You will, however, need to provide a resource group name.
 This is the name of the Azure Resource Group into which Kunlun will place
 all created resources (e.g. virtual machines, networks, storage). The 
@@ -169,7 +173,7 @@ Users' section for more information.
 ### Plan the infrastructure
 
 Now we need to convert this Kunlun spec into something that can be
-used to deploy the infrastrcuture required. the `plan_infra` command
+used to deploy the infrastructure required. The `plan_infra` command
 will do this:
 
 ```
@@ -177,13 +181,14 @@ kl plan_infra
 ```
 
 The outputs of this command are Terraform templates, which can be 
-found in the `infra` folder. If the gnerated Terraform is not
-sufficient for your needs you can customize the plan, see the
+found in the `infra` folder. If the generated Terraform output is not
+sufficient for your needs you can customize the plan. Please refer to the
 'Advanced Users' section below.
  
 ### Infrastrcuture Configuration
 
-Now it is time to deploy the infrastrcuture we need. This can be done with:
+Now it is time to deploy the infrastructure required for your application. 
+This can be done with:
 
 ```
 kl apply_infra
