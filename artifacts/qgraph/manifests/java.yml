@@ -7,6 +7,7 @@
           description: "Your project are using tomcat."
         - value: wildfly
           description: "Your project are using wildfly"
+      default: tomcat
   transitions:
     - name: java_tomcat
       condition: "framework == 'tomcat'"

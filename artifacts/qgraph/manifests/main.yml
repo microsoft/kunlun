@@ -11,6 +11,7 @@
     - var_name: resource_group_name
       persistent: true
       description: "What resource group name do you want?"
+      default: "kunlun-project-resources"
     - var_name: ansible_host_key_checking
       persistent: true
       description: "Do you want strict ssh host key checking?"
@@ -19,6 +20,7 @@
           description: "Ask for your approval when do ssh host key checking."
         - value: "no"
           description: "Do not do host key checking."
+      default: "no"
     - var_name: jmeter_load_test_enabled
       persistent: true
       description: "Do you want a load test after the deployment?"
@@ -27,6 +29,7 @@
           description: "To enable load tests..."
         - value: 'False'
           description: "To skip load tests..."
+      default: "False"
   transitions:
     - name: load_test
       condition: "jmeter_load_test_enabled == 'True'"
@@ -42,6 +45,7 @@
           description: "To deployment the infrastructures, like: kubernetes..."
         - value: application
           description: "To deploy your application with code, like: php, java..."
+      default: application
   transitions:
     - name: infrastructure
       condition: "kind == 'infrastructure'"
@@ -57,6 +61,7 @@
     - var_name: "project_source_code_path"
       persistent: true # TODO add support for the tree structure of the variables.
       description: "Where's the source code of your project?"
+      default: "https://github.com/kun-lun/2048java.git"
     - var_name: "project_git_revision"
       persistent: true
       description: "Which revision do you want to deploy?"
@@ -68,6 +73,7 @@
           description: "Your project are using php language."
         - value: java
           description: "Your project are using java language."
+      default: java
   transitions:
     - name: php
       condition: "language_kind == 'php'"
